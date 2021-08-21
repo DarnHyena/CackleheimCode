@@ -5,7 +5,9 @@
 // Project: Cackleheim
 
 using BepInEx;
-using BepInEx.Configuration;
+using Jotunn.Configs;
+using Jotunn.Entities;
+using Jotunn.Managers;
 using Jotunn.Utils;
 using UnityEngine;
 
@@ -22,8 +24,88 @@ namespace Cackleheim
 
         private void Awake()
         {
-            // Jotunn comes with its own Logger class to provide a consistent Log style for all mods using it
-            Jotunn.Logger.LogInfo("ModStub has landed");
+            // Load assets
+            AssetBundle gnollBundle = AssetUtils.LoadAssetBundleFromResources("itemgnoll", typeof(Cackleheim).Assembly);
+            GameObject tanModel = gnollBundle.LoadAsset<GameObject>("CackleViking01");
+            /*GameObject brownModel = gnollBundle.LoadAsset<GameObject>("CackleViking02");
+            GameObject blondeModel = gnollBundle.LoadAsset<GameObject>("CackleViking03");*/
+            gnollBundle.Unload(false);
+
+            // Create custom items
+            CustomItem tanItem = new CustomItem(tanModel, true, new ItemConfig()
+            {
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(tanItem);
+
+            /*CustomItem brownItem = new CustomItem(brownModel, true, new ItemConfig()
+            {
+                Name = "CackleViking02",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(brownItem);
+
+            CustomItem blondeItem = new CustomItem(blondeModel, true, new ItemConfig()
+            {
+                Name = "CackleViking03",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(blondeItem);*/
+
+            // Add localization
+            LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            {
+                Translations = {
+                    {"ck01", "Totem dey Cackle Tan" },
+                    {"ck01_desc", "A strange trinket covered in orange moss.  You hear a faint noise when held"},
+                    {"ck02", "Totem dey Cackle Brown" },
+                    {"ck02_desc", "A strange trinket covered in brown moss.  You hear a faint noise when held"},
+                    {"ck03", "Totem dey Cackle Light" },
+                    {"ck03_desc", "A strange trinket covered in yellow moss.  You hear a faint noise when held"}
+                }
+            });
         }
     }
 }
