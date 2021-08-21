@@ -22,17 +22,28 @@ namespace Cackleheim
         public const string PluginName = "Cackleheim";
         public const string PluginVersion = "0.0.1";
 
+        private GameObject TanObj;
+        /*private GameObject BrownModel;
+        private GameObject BlondeModel;*/
+
         private void Awake()
+        {
+            CreateItems();
+
+            On.VisEquipment.SetChestEquiped += VisEquipment_SetChestEquiped;
+        }
+
+        private void CreateItems()
         {
             // Load assets
             AssetBundle gnollBundle = AssetUtils.LoadAssetBundleFromResources("itemgnoll", typeof(Cackleheim).Assembly);
-            GameObject tanModel = gnollBundle.LoadAsset<GameObject>("CackleViking01");
-            /*GameObject brownModel = gnollBundle.LoadAsset<GameObject>("CackleViking02");
-            GameObject blondeModel = gnollBundle.LoadAsset<GameObject>("CackleViking03");*/
+            TanObj = gnollBundle.LoadAsset<GameObject>("CackleViking01");
+            /*BrownModel = gnollBundle.LoadAsset<GameObject>("CackleViking02");
+            BlondeModel = gnollBundle.LoadAsset<GameObject>("CackleViking03");*/
             gnollBundle.Unload(false);
 
             // Create custom items
-            CustomItem tanItem = new CustomItem(tanModel, true, new ItemConfig()
+            CustomItem tanItem = new CustomItem(TanObj, true, new ItemConfig()
             {
                 Requirements = new RequirementConfig[]
                 {
@@ -52,9 +63,8 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(tanItem);
 
-            /*CustomItem brownItem = new CustomItem(brownModel, true, new ItemConfig()
+            /*CustomItem brownItem = new CustomItem(BrownModel, true, new ItemConfig()
             {
-                Name = "CackleViking02",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -73,9 +83,8 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(brownItem);
 
-            CustomItem blondeItem = new CustomItem(blondeModel, true, new ItemConfig()
+            CustomItem blondeItem = new CustomItem(BlondeModel, true, new ItemConfig()
             {
-                Name = "CackleViking03",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -106,6 +115,27 @@ namespace Cackleheim
                     {"ck03_desc", "A strange trinket covered in yellow moss.  You hear a faint noise when held"}
                 }
             });
+        }
+
+        private bool VisEquipment_SetChestEquiped(On.VisEquipment.orig_SetChestEquiped orig, VisEquipment self, int hash)
+        {
+            int oldHash = self.m_currentChestItemHash;
+            int tanHash = TanObj.name.GetStableHashCode();
+
+            if (orig(self, hash) && self.m_bodyModel != null)
+            {
+                if (hash == tanHash)
+                {
+                    self.m_bodyModel.enabled = false;
+                }
+
+                if (oldHash == tanHash)
+                {
+                    self.m_bodyModel.enabled = true;
+                }
+            }
+
+            return true;
         }
     }
 }
