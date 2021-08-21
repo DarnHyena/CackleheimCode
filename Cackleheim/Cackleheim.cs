@@ -26,13 +26,25 @@ namespace Cackleheim
         /*private GameObject BrownModel;
         private GameObject BlondeModel;*/
 
+        private Mesh OrigMesh;
+
+        private Material TransparentMaterial;
+
         private void Awake()
         {
+            TransparentMaterial = new Material(Shader.Find("Standard"));
+            TransparentMaterial.SetColor("_Color", Color.clear);
+            TransparentMaterial.SetFloat("_Mode", 1);
+            TransparentMaterial.SetInt("_SrcBlend", 1);
+            TransparentMaterial.SetInt("_DstBlend", 0);
+            TransparentMaterial.EnableKeyword("_ALPHATEST_ON");
+            TransparentMaterial.renderQueue = 2450;
+            
             CreateItems();
 
             On.VisEquipment.SetChestEquiped += VisEquipment_SetChestEquiped;
         }
-
+        
         private void CreateItems()
         {
             // Load assets
@@ -126,12 +138,14 @@ namespace Cackleheim
             {
                 if (hash == tanHash)
                 {
-                    self.m_bodyModel.enabled = false;
+                    self.m_bodyModel.material = TransparentMaterial;
+                    self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
                 }
 
                 if (oldHash == tanHash)
                 {
-                    self.m_bodyModel.enabled = true;
+                    self.m_bodyModel.sharedMesh = OrigMesh;
+                    OrigMesh = null;
                 }
             }
 
