@@ -1,5 +1,5 @@
-﻿# JotunnModStub
-Upon building for release, this README.md is copied from `ProjectRoot/Package/` into `ProjectRoot/` such that the readme is displayed when the project is viewed via github. Make sure to edit the README.md inside the package directory, and not the project root as your changes will be overwritten.
+﻿# Cackleheim
+Frighten your enemies with a distant cackle at night.
 
 ## Installation (manual)
 
@@ -11,4 +11,4 @@ Upon building for release, this README.md is copied from `ProjectRoot/Package/` 
 
 
 ## Known issues
-You can find the github at:
+You can find the github at: https://github.com/DarnHyena/CackleJotunnMods/tree/master/Cackleheim
