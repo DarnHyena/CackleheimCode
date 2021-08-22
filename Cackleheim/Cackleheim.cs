@@ -144,8 +144,7 @@ namespace Cackleheim
 
                 if (oldHash == tanHash)
                 {
-                    self.m_bodyModel.sharedMesh = OrigMesh;
-                    OrigMesh = null;
+                    self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
                 }
             }
 
