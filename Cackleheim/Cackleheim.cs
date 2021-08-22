@@ -10,6 +10,7 @@ using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Cackleheim
 {
@@ -140,29 +141,36 @@ namespace Cackleheim
         }
 
 
-        //=====PlayerBeGone-Annator5000=====//
-        // Need to get the other two variants attached to this somehow //
+        //=====PlayerBeGone-Inator5000=====//
+
         private bool VisEquipment_SetChestEquiped(On.VisEquipment.orig_SetChestEquiped orig, VisEquipment self, int hash)
         {
             int oldHash = self.m_currentChestItemHash;
-            int tanHash = TanObj.name.GetStableHashCode();
+
+            List<int> itemHashes = new List<int>();
+            itemHashes.Add(TanObj.name.GetStableHashCode());
+            itemHashes.Add(BroObj.name.GetStableHashCode());
+            itemHashes.Add(BloObj.name.GetStableHashCode());
+
 
             if (orig(self, hash) && self.m_bodyModel != null)
             {
-                if (hash == tanHash)
+                if (itemHashes.Contains(hash))
                 {
                     self.m_bodyModel.material = TransparentMaterial;
                     self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
                 }
-
-                if (oldHash == tanHash)
+                else
                 {
-                    self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
+                    if (itemHashes.Contains(oldHash))
+                    {
+                        self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
+                    }
                 }
-
             }
 
             return true;
         }
+
     }
 }

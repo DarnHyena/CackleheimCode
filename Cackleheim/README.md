@@ -8,6 +8,9 @@ Frighten your enemies with a distant cackle at night.
 
 -Playable gnoll in the form of an elaborate set of armor
 
+## Credits
+ Thanks to Jules, Tekla, GoldenJude, Zarboz, and Balrond for all their help in piecing together the scripts! \o/
+
 
 ## Changelog
 
@@ -19,11 +22,11 @@ Frighten your enemies with a distant cackle at night.
 
 -Armorsets added in now too
 
+-All three bases now hide the body \o/
 
 ## Known issues
 
--Section of code to hide player model only attached to one of the bases. 
- Need to get it connected to the other two
-
+- A slight quirk when swapping between the gnoll base and normal armor makes the texture for said chest armor not appear.
+  Re-equiping the armor will fix it.
 
 You can find the github at: https://github.com/DarnHyena/CackleJotunnMods/tree/master/Cackleheim
