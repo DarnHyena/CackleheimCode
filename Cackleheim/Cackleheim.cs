@@ -4,7 +4,10 @@
 // File:    Cackleheim.cs
 // Project: Cackleheim
 
+using System;
+using System.Collections.Generic;
 using BepInEx;
+using Jotunn;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
@@ -23,17 +26,17 @@ namespace Cackleheim
         public const string PluginName = "Cackleheim";
         public const string PluginVersion = "0.0.1";
 
-        private GameObject TanObj;
-        private GameObject BroObj;
-        private GameObject BloObj;
-
-//        private Mesh OrigMesh;
-
+        private string CackleItemToken;
+        private int CackleItemHash;
+        private readonly List<Material> CackleMaterials = new List<Material>();
         private Material TransparentMaterial;
+        private int LastCackleVariant = -1;
+        private int CurrentCackleVariant = -1;
 
         private void Awake()
         {
             TransparentMaterial = new Material(Shader.Find("Standard"));
+            TransparentMaterial.name = "HidePlayerMaterial";
             TransparentMaterial.SetColor("_Color", Color.clear);
             TransparentMaterial.SetFloat("_Mode", 1);
             TransparentMaterial.SetInt("_SrcBlend", 1);
@@ -43,23 +46,25 @@ namespace Cackleheim
             
             CreateItems();
 
+            On.Humanoid.EquipItem += Humanoid_EquipItem;
+            On.Humanoid.UnequipItem += Humanoid_UnequipItem;
             On.VisEquipment.SetChestEquiped += VisEquipment_SetChestEquiped;
         }
-        
+
         private void CreateItems()
         {
             //========ASSETBUNDLES========//
 
             AssetBundle gnollBundle = AssetUtils.LoadAssetBundleFromResources("itemgnoll", typeof(Cackleheim).Assembly);
-            TanObj = gnollBundle.LoadAsset<GameObject>("CackleViking01");
-            BroObj = gnollBundle.LoadAsset<GameObject>("CackleViking02");
-            BloObj = gnollBundle.LoadAsset<GameObject>("CackleViking03");
+            GameObject cackleObject = gnollBundle.LoadAsset<GameObject>("CackleViking");
+            CackleMaterials.Add(gnollBundle.LoadAsset<Material>("Gnoll_01"));
+            CackleMaterials.Add(gnollBundle.LoadAsset<Material>("Gnoll_02"));
+            CackleMaterials.Add(gnollBundle.LoadAsset<Material>("Gnoll_03"));
             gnollBundle.Unload(false);
+            
+            //==========ITEMS & RECIPES==========//
 
-
-            //==========RECIPES==========//
-
-            CustomItem tanItem = new CustomItem(TanObj, true, new ItemConfig()
+            CustomItem cackleItem = new CustomItem(cackleObject, true, new ItemConfig()
             {
                 Requirements = new RequirementConfig[]
                 {
@@ -77,52 +82,10 @@ namespace Cackleheim
                     }
                 }
             });
-            ItemManager.Instance.AddItem(tanItem);
+            ItemManager.Instance.AddItem(cackleItem);
 
-            //============================//
-
-            CustomItem broItem = new CustomItem(BroObj, true, new ItemConfig()
-            {
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(broItem);
-
-            //============================//
-
-            CustomItem bloItem = new CustomItem(BloObj, true, new ItemConfig()
-            {
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(bloItem);
-
+            CackleItemHash = cackleObject.name.GetStableHashCode();
+            CackleItemToken = cackleItem.ItemDrop.m_itemData.TokenName();
 
             //===Item Names, Description===//
             //========&Localization========//
@@ -130,46 +93,75 @@ namespace Cackleheim
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = {
-                    {"ck01", "Totem dey Cackle Tan" },
-                    {"ck01_desc", "A strange trinket covered in orange moss.  You hear a faint noise when held"},
-                    {"ck02", "Totem dey Cackle Brown" },
-                    {"ck02_desc", "A strange trinket covered in brown moss.  You hear a faint noise when held"},
-                    {"ck03", "Totem dey Cackle Light" },
-                    {"ck03_desc", "A strange trinket covered in yellow moss.  You hear a faint noise when held"}
+                    {"ck01", "Totem dey Cackle" },
+                    {"ck01_desc", "A strange trinket covered in moss.  You hear a faint noise when held"}
                 }
             });
         }
 
+        private bool Humanoid_EquipItem(On.Humanoid.orig_EquipItem orig, Humanoid self, ItemDrop.ItemData item, bool triggerEquipEffects)
+        {
+            bool ret = orig(self, item, triggerEquipEffects);
 
-        //=====PlayerBeGone-Inator5000=====//
+            // Save current equipped cackle variant
+            if (ret && item.TokenName().Equals(CackleItemToken))
+            {
+                CurrentCackleVariant = item.m_variant;
+            }
 
+            return ret;
+        }
+
+        private void Humanoid_UnequipItem(On.Humanoid.orig_UnequipItem orig, Humanoid self, ItemDrop.ItemData item, bool triggerEquipEffects)
+        {
+            orig(self, item, triggerEquipEffects);
+
+            // Reset last and current equipped cackle variant
+            if (item != null && item.TokenName().Equals(CackleItemToken))
+            { 
+                LastCackleVariant = -1;
+                CurrentCackleVariant = -1;
+            }
+        }
+
+        //=====PlayerBeGone-Annator5000=====//
         private bool VisEquipment_SetChestEquiped(On.VisEquipment.orig_SetChestEquiped orig, VisEquipment self, int hash)
         {
             int oldHash = self.m_currentChestItemHash;
+            bool ret = orig(self, hash);
 
-            List<int> itemHashes = new List<int>();
-            itemHashes.Add(TanObj.name.GetStableHashCode());
-            itemHashes.Add(BroObj.name.GetStableHashCode());
-            itemHashes.Add(BloObj.name.GetStableHashCode());
-
-
-            if (orig(self, hash) && self.m_bodyModel != null)
+            if (self.m_bodyModel != null)
             {
-                if (itemHashes.Contains(hash))
+                // Set variant material
+                if (hash == CackleItemHash && CurrentCackleVariant != LastCackleVariant)
+                {
+                    SkinnedMeshRenderer randy = self.m_chestItemInstances[0]
+                        .GetComponentInChildren<SkinnedMeshRenderer>();
+                    randy.material = CackleMaterials[CurrentCackleVariant];
+                    randy.materials = new Material[] {CackleMaterials[CurrentCackleVariant]};
+
+                    LastCackleVariant = CurrentCackleVariant;
+                }
+
+                // Set body material to "transparent"
+                if (hash == CackleItemHash && !self.m_bodyModel.material.name.StartsWith(TransparentMaterial.name))
                 {
                     self.m_bodyModel.material = TransparentMaterial;
                     self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
                 }
-                else
+
+                // Reset body material to the base model
+                if (oldHash == CackleItemHash && oldHash != hash && self.m_bodyModel.material.name.StartsWith(TransparentMaterial.name))
                 {
-                    if (itemHashes.Contains(oldHash))
-                    {
-                        self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
-                    }
+                    Material baseMaterial = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
+                    self.m_bodyModel.material = baseMaterial;
+                    self.m_bodyModel.materials = new Material[] { baseMaterial, baseMaterial };
+
+                    LastCackleVariant = -1;
                 }
             }
 
-            return true;
+            return ret;
         }
 
     }
