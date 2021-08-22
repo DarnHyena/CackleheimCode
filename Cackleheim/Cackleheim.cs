@@ -18,13 +18,13 @@ namespace Cackleheim
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
     internal class Cackleheim : BaseUnityPlugin
     {
-        public const string PluginGUID = "es.localhyena.Cackleheim";
+        public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
         public const string PluginVersion = "0.0.1";
 
         private GameObject TanObj;
-        /*private GameObject BrownModel;
-        private GameObject BlondeModel;*/
+        private GameObject BroObj;
+        private GameObject BloObj;
 
         private Mesh OrigMesh;
 
@@ -50,8 +50,8 @@ namespace Cackleheim
             // Load assets
             AssetBundle gnollBundle = AssetUtils.LoadAssetBundleFromResources("itemgnoll", typeof(Cackleheim).Assembly);
             TanObj = gnollBundle.LoadAsset<GameObject>("CackleViking01");
-            /*BrownModel = gnollBundle.LoadAsset<GameObject>("CackleViking02");
-            BlondeModel = gnollBundle.LoadAsset<GameObject>("CackleViking03");*/
+            BroObj = gnollBundle.LoadAsset<GameObject>("CackleViking02");
+            BloObj = gnollBundle.LoadAsset<GameObject>("CackleViking03");
             gnollBundle.Unload(false);
 
             // Create custom items
@@ -75,7 +75,7 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(tanItem);
 
-            /*CustomItem brownItem = new CustomItem(BrownModel, true, new ItemConfig()
+            CustomItem broItem = new CustomItem(BroObj, true, new ItemConfig()
             {
                 Requirements = new RequirementConfig[]
                 {
@@ -93,9 +93,9 @@ namespace Cackleheim
                     }
                 }
             });
-            ItemManager.Instance.AddItem(brownItem);
+            ItemManager.Instance.AddItem(broItem);
 
-            CustomItem blondeItem = new CustomItem(BlondeModel, true, new ItemConfig()
+            CustomItem bloItem = new CustomItem(BloObj, true, new ItemConfig()
             {
                 Requirements = new RequirementConfig[]
                 {
@@ -113,7 +113,7 @@ namespace Cackleheim
                     }
                 }
             });
-            ItemManager.Instance.AddItem(blondeItem);*/
+            ItemManager.Instance.AddItem(bloItem);
 
             // Add localization
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
@@ -132,20 +132,21 @@ namespace Cackleheim
         private bool VisEquipment_SetChestEquiped(On.VisEquipment.orig_SetChestEquiped orig, VisEquipment self, int hash)
         {
             int oldHash = self.m_currentChestItemHash;
-            int tanHash = TanObj.name.GetStableHashCode();
+            int yeenHash = TanObj.name.GetStableHashCode();
 
             if (orig(self, hash) && self.m_bodyModel != null)
             {
-                if (hash == tanHash)
+                if (hash == yeenHash)
                 {
                     self.m_bodyModel.material = TransparentMaterial;
                     self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
                 }
 
-                if (oldHash == tanHash)
+                if (oldHash == yeenHash)
                 {
                     self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
                 }
+
             }
 
             return true;
