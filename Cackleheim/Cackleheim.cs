@@ -4,16 +4,14 @@
 // File:    Cackleheim.cs
 // Project: Cackleheim
 
-using System;
-using System.Collections.Generic;
 using BepInEx;
 using Jotunn;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Cackleheim
 {
@@ -43,7 +41,7 @@ namespace Cackleheim
             TransparentMaterial.SetInt("_DstBlend", 0);
             TransparentMaterial.EnableKeyword("_ALPHATEST_ON");
             TransparentMaterial.renderQueue = 2450;
-            
+
             CreateItems();
 
             On.Humanoid.EquipItem += Humanoid_EquipItem;
@@ -61,7 +59,7 @@ namespace Cackleheim
             CackleMaterials.Add(gnollBundle.LoadAsset<Material>("Gnoll_02"));
             CackleMaterials.Add(gnollBundle.LoadAsset<Material>("Gnoll_03"));
             gnollBundle.Unload(false);
-            
+
             //==========ITEMS & RECIPES==========//
 
             CustomItem cackleItem = new CustomItem(cackleObject, true, new ItemConfig()
@@ -118,7 +116,7 @@ namespace Cackleheim
 
             // Reset last and current equipped cackle variant
             if (item != null && item.TokenName().Equals(CackleItemToken))
-            { 
+            {
                 LastCackleVariant = -1;
                 CurrentCackleVariant = -1;
             }
@@ -138,7 +136,7 @@ namespace Cackleheim
                     SkinnedMeshRenderer randy = self.m_chestItemInstances[0]
                         .GetComponentInChildren<SkinnedMeshRenderer>();
                     randy.material = CackleMaterials[CurrentCackleVariant];
-                    randy.materials = new Material[] {CackleMaterials[CurrentCackleVariant]};
+                    randy.materials = new Material[] { CackleMaterials[CurrentCackleVariant] };
 
                     LastCackleVariant = CurrentCackleVariant;
                 }
