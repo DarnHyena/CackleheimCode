@@ -26,11 +26,10 @@ namespace CackleTroll
         private GameObject PantObj;
         private GameObject CapeObj;
 
-        private Mesh OrigMesh;
-
         private void Awake()
         {
-            // Load assets
+            //========ASSETBUNDLES========//
+
             AssetBundle trollBundle = AssetUtils.LoadAssetBundleFromResources("itemtier02", typeof(CackleTroll).Assembly);
             HatObj = trollBundle.LoadAsset<GameObject>("CKTroll_Hat");
             PantObj = trollBundle.LoadAsset<GameObject>("CKTroll_Pants");
@@ -38,12 +37,11 @@ namespace CackleTroll
             trollBundle.Unload(false);
 
 
-            // Create custom items
+            //==========RECIPES==========//
+
             CustomItem hatItem = new CustomItem(HatObj, true, new ItemConfig()
             {
-                //Added into recipe section for now until translation section fixed
-                Name = "[CH]Troll Hat",
-                Description = "Great for keeping the sun out the eyes",
+                CraftingStation = "piece_workbench",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -56,11 +54,11 @@ namespace CackleTroll
             });
             ItemManager.Instance.AddItem(hatItem);
 
+            //============================//
+
             CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
             {
-                //Added into recipe section for now until translation section fixed
-                Name = "[CH]Troll Scarf",
-                Description = "A simple scarf with a decorative chunk of some poor souls rib cage you found in the woods",
+                CraftingStation = "piece_workbench",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -79,11 +77,11 @@ namespace CackleTroll
             });
             ItemManager.Instance.AddItem(capeItem);
 
+            //============================//
+
             CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
             {
-                //Added into recipe section for now until translation section fixed
-                Name = "[CH]Troll Pants",
-                Description = "A hardy pair of overalls for sneaky farmers. Even comes with extra bones for snacking",
+                CraftingStation = "piece_workbench",
                 Requirements = new RequirementConfig[]
     {
                     new RequirementConfig()
@@ -96,16 +94,19 @@ namespace CackleTroll
             });
             ItemManager.Instance.AddItem(pantItem);
 
-            // Add localization
-            // Armor in-game doesn't seem to be connecting this section and I'm not sure why.
+
+            //===Item Names, Description===//
+            //========&Localization========//
 
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = {
-                    {"$ckragshat", "[CK]Ragged Hood" },
-                    {"$ckragshat_desc", "Smells faintly of potatos."},
-                    {"$ckragspant", "[CK]Ragged Pants" },
-                    {"$ckragspant_desc", "Hastily stiched together with leftovers from last nights hunt"},
+                    {"cktrollhat", "[CH]Troll Hat" },
+                    {"cktrollhat_D", "Great for keeping the sun out the eyes"},
+                    {"cktrollscarf", "[CH]Troll Scarf" },
+                    {"cktrollscarf_D", "A simple scarf with a decorative chunk of some poor souls rib cage you found in the woods"},
+                    {"cktrollpant", "[CH]Troll Pants" },
+                    {"cktrollpant_D", "A hardy pair of overalls for sneaky farmers. Even comes with extra bones for snacking"},
                 }
             });
         }

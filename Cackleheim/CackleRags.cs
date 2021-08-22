@@ -25,23 +25,21 @@ namespace CackleRags
         private GameObject HoodObj;
         private GameObject PantObj;
 
-        private Mesh OrigMesh;
-
         private void Awake()
         {
-            // Load assets
+            //========ASSETBUNDLES========//
+
             AssetBundle ragBundle = AssetUtils.LoadAssetBundleFromResources("itemtier00", typeof(CackleRags).Assembly);
             HoodObj = ragBundle.LoadAsset<GameObject>("CKRag_Hood");
             PantObj = ragBundle.LoadAsset<GameObject>("CKRag_Pants");
             ragBundle.Unload(false);
 
 
-            // Create custom items
+            //==========RECIPES==========//
+
             CustomItem hoodItem = new CustomItem(HoodObj, true, new ItemConfig()
             {
-                //Added into recipe section for now until translation section fixed
-                Name = "[CH]Ragged Hood",
-                Description = "Smells faintly of potatos.",
+                CraftingStation = "piece_workbench",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -54,10 +52,11 @@ namespace CackleRags
             });
             ItemManager.Instance.AddItem(hoodItem);
 
+            //============================//
+
             CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
             {
-                Name = "[CH]Ragged Pants",
-                Description = "Hastily stiched together with leftovers from last nights hunt",
+                CraftingStation = "piece_workbench",
                 Requirements = new RequirementConfig[]
     {
                     new RequirementConfig()
@@ -70,16 +69,17 @@ namespace CackleRags
             });
             ItemManager.Instance.AddItem(pantItem);
 
-            // Add localization
-            // Armor in-game doesn't seem to be connecting this section and I'm not sure why.
+
+            //===Item Names, Description===//
+            //========&Localization========//
 
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = {
-                    {"$ckragshat", "[CK]Ragged Hood" },
-                    {"$ckragshat_desc", "Smells faintly of potatos."},
-                    {"$ckragspant", "[CK]Ragged Pants" },
-                    {"$ckragspant_desc", "Hastily stiched together with leftovers from last nights hunt"},
+                    {"ckragshat", "[CH]Ragged Hood" },
+                    {"ckragshat_desc", "Smells faintly of potatos."},
+                    {"ckragspant", "[CH]Ragged Pants" },
+                    {"ckragspant_desc", "Hastily stiched together with leftovers from last nights hunt"},
                 }
             });
         }

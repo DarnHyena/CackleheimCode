@@ -26,7 +26,7 @@ namespace Cackleheim
         private GameObject BroObj;
         private GameObject BloObj;
 
-        private Mesh OrigMesh;
+//        private Mesh OrigMesh;
 
         private Material TransparentMaterial;
 
@@ -47,14 +47,17 @@ namespace Cackleheim
         
         private void CreateItems()
         {
-            // Load assets
+            //========ASSETBUNDLES========//
+
             AssetBundle gnollBundle = AssetUtils.LoadAssetBundleFromResources("itemgnoll", typeof(Cackleheim).Assembly);
             TanObj = gnollBundle.LoadAsset<GameObject>("CackleViking01");
             BroObj = gnollBundle.LoadAsset<GameObject>("CackleViking02");
             BloObj = gnollBundle.LoadAsset<GameObject>("CackleViking03");
             gnollBundle.Unload(false);
 
-            // Create custom items
+
+            //==========RECIPES==========//
+
             CustomItem tanItem = new CustomItem(TanObj, true, new ItemConfig()
             {
                 Requirements = new RequirementConfig[]
@@ -74,6 +77,8 @@ namespace Cackleheim
                 }
             });
             ItemManager.Instance.AddItem(tanItem);
+
+            //============================//
 
             CustomItem broItem = new CustomItem(BroObj, true, new ItemConfig()
             {
@@ -95,6 +100,8 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(broItem);
 
+            //============================//
+
             CustomItem bloItem = new CustomItem(BloObj, true, new ItemConfig()
             {
                 Requirements = new RequirementConfig[]
@@ -115,7 +122,10 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(bloItem);
 
-            // Add localization
+
+            //===Item Names, Description===//
+            //========&Localization========//
+
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = {
@@ -129,20 +139,23 @@ namespace Cackleheim
             });
         }
 
+
+        //=====PlayerBeGone-Annator5000=====//
+        // Need to get the other two variants attached to this somehow //
         private bool VisEquipment_SetChestEquiped(On.VisEquipment.orig_SetChestEquiped orig, VisEquipment self, int hash)
         {
             int oldHash = self.m_currentChestItemHash;
-            int yeenHash = TanObj.name.GetStableHashCode();
+            int tanHash = TanObj.name.GetStableHashCode();
 
             if (orig(self, hash) && self.m_bodyModel != null)
             {
-                if (hash == yeenHash)
+                if (hash == tanHash)
                 {
                     self.m_bodyModel.material = TransparentMaterial;
                     self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
                 }
 
-                if (oldHash == yeenHash)
+                if (oldHash == tanHash)
                 {
                     self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
                 }

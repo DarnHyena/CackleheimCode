@@ -11,30 +11,31 @@ using Jotunn.Managers;
 using Jotunn.Utils;
 using UnityEngine;
 
-namespace CackleLeather
+namespace Cackle-
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleLeather : BaseUnityPlugin
+    internal class Cackle- : BaseUnityPlugin
     {
-        public const string PluginGUID = "DarnHyena.CackleLeather";
-        public const string PluginName = "CackleLeather";
+        public const string PluginGUID = "DarnHyena.Cackle-";
+        public const string PluginName = "Cackle-";
         public const string PluginVersion = "0.0.1";
 
         private GameObject HatObj;
         private GameObject PantObj;
         private GameObject CapeObj;
 
+
         private void Awake()
         {
             //========ASSETBUNDLES========//
 
-            AssetBundle leatherBundle = AssetUtils.LoadAssetBundleFromResources("itemtier01", typeof(CackleLeather).Assembly);
-            HatObj = leatherBundle.LoadAsset<GameObject>("CKLeather_Mask");
-            PantObj = leatherBundle.LoadAsset<GameObject>("CKLeather_Pants");
-            CapeObj = leatherBundle.LoadAsset<GameObject>("CKLeather_Poncho");
-            leatherBundle.Unload(false);
+            AssetBundle -Bundle = AssetUtils.LoadAssetBundleFromResources("item-", typeof(Cackle-).Assembly);
+            HatObj = -Bundle.LoadAsset<GameObject>("Item01");
+            PantObj = -Bundle.LoadAsset<GameObject>("Item02");
+            CapeObj = -Bundle.LoadAsset<GameObject>("Item03");
+            -Bundle.Unload(false);
 
 
             //==========RECIPES==========//
@@ -46,20 +47,14 @@ namespace CackleLeather
                 {
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 6,
-                        AmountPerLevel = 6
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "BoneFragments",
+                        Item = "===",
                         Amount = 0,
-                        AmountPerLevel = 5
+                        AmountPerLevel = 0
                     }
                 }
             });
             ItemManager.Instance.AddItem(hatItem);
-
+                
             //============================//
 
             CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
@@ -69,20 +64,20 @@ namespace CackleLeather
                 {
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 6,
-                        AmountPerLevel = 6
+                        Item = "==",
+                        Amount = 0,
+                        AmountPerLevel = 0
                     },
                     new RequirementConfig()
                     {
-                        Item = "BoneFragments",
+                        Item = "==",
                         Amount = 0,
-                        AmountPerLevel = 5
+                        AmountPerLevel = 0
                     }
                 }
             });
             ItemManager.Instance.AddItem(capeItem);
-
+            
             //============================//
 
             CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
@@ -92,15 +87,9 @@ namespace CackleLeather
     {
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 6,
-                        AmountPerLevel = 6
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "BoneFragments",
+                        Item = "==",
                         Amount = 0,
-                        AmountPerLevel = 5
+                        AmountPerLevel = 0
                     }
                 }
             });
@@ -113,12 +102,12 @@ namespace CackleLeather
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = {
-                    {"ckleathhelm", "[CH]Leather Mask" },
-                    {"ckleathhelm_D", "A striking bone white mask"},
-                    {"ckleathponch", "[CH]Leather Poncho" },
-                    {"ckleathponch_D", "An enccentric cape for dashing rogues"},
-                    {"ckleathpant", "[CH]Leather Pants" },
-                    {"ckleathpant_D", "Finely tailored pants just like mother used to make"},
+                    {"ID01", "Name01" },
+                    {"IDDesc01", "Desc01"},
+                    {"ID02", "Name02" },
+                    {"IDDesc02", "Desc02"},
+                    {"ID03", "Name03" },
+                    {"IDDesc03", "Desc03"},
                 }
             });
         }
