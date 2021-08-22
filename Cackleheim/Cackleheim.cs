@@ -26,7 +26,9 @@ namespace Cackleheim
         private GameObject BroObj;
         private GameObject BloObj;
 
-        private Mesh OrigMesh;
+        private string CurrentHelmetItem;
+        private string CurrentChestItem;
+        private string CurrentLegitem;
 
         private Material TransparentMaterial;
 
@@ -134,22 +136,36 @@ namespace Cackleheim
             int oldHash = self.m_currentChestItemHash;
             int yeenHash = TanObj.name.GetStableHashCode();
 
-            if (orig(self, hash) && self.m_bodyModel != null)
+            bool ret = orig(self, hash);
+
+            CurrentHelmetItem = self.m_helmetItem;
+            CurrentChestItem = self.m_chestItem;
+            CurrentLegitem = self.m_legItem;
+
+            if (ret && self.m_bodyModel != null)
             {
                 if (hash == yeenHash)
                 {
                     self.m_bodyModel.material = TransparentMaterial;
                     self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
+                    self.SetHelmetItem(null);
+                    self.SetLegItem(null);
                 }
 
                 if (oldHash == yeenHash)
                 {
                     self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
+                    self.SetHelmetItem(CurrentHelmetItem);
+                    self.SetChestItem(CurrentChestItem);
+                    self.SetLegItem(CurrentLegitem);
+                    CurrentHelmetItem = null;
+                    CurrentChestItem = null;
+                    CurrentLegitem = null;
                 }
 
             }
 
-            return true;
+            return ret;
         }
     }
 }
