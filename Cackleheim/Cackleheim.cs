@@ -22,7 +22,7 @@ namespace Cackleheim
     {
         public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
-        public const string PluginVersion = "0.0.1";
+        public const string PluginVersion = "2.0.0";
 
         private string CackleItemToken;
         private int CackleItemHash;
@@ -82,6 +82,7 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(cackleItem);
 
+
             CackleItemHash = cackleObject.name.GetStableHashCode();
             CackleItemToken = cackleItem.ItemDrop.m_itemData.TokenName();
 
@@ -122,7 +123,7 @@ namespace Cackleheim
             }
         }
 
-        //=====PlayerBeGone-Annator5000=====//
+        //=====PlayerBeGone-Inator6000=====//
         private bool VisEquipment_SetChestEquiped(On.VisEquipment.orig_SetChestEquiped orig, VisEquipment self, int hash)
         {
             int oldHash = self.m_currentChestItemHash;
