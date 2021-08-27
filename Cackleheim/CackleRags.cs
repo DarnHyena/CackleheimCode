@@ -30,8 +30,8 @@ namespace CackleRags
             //========ASSETBUNDLES========//
 
             AssetBundle ragBundle = AssetUtils.LoadAssetBundleFromResources("itemtier00", typeof(CackleRags).Assembly);
-            HoodObj = ragBundle.LoadAsset<GameObject>("CKRag_Hood");
-            PantObj = ragBundle.LoadAsset<GameObject>("CKRag_Pants");
+            HoodObj = ragBundle.LoadAsset<GameObject>("chRaHood");
+            PantObj = ragBundle.LoadAsset<GameObject>("chRaPants");
             ragBundle.Unload(false);
 
 
@@ -76,10 +76,10 @@ namespace CackleRags
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = {
-                    {"ckragshat", "[CH]Ragged Hood" },
-                    {"ckragshat_desc", "Smells faintly of potatos."},
-                    {"ckragspant", "[CH]Ragged Pants" },
-                    {"ckragspant_desc", "Hastily stiched together with leftovers from last nights hunt"},
+                    {"chRH", "[CH]Ragged Hood" },
+                    {"chRH_D", "Smells faintly of potatos."},
+                    {"chRP", "[CH]Ragged Pants" },
+                    {"chRP_D", "Hastily stiched together with leftovers from last nights hunt"},
                 }
             });
         }

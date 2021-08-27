@@ -31,9 +31,9 @@ namespace CackleTroll
             //========ASSETBUNDLES========//
 
             AssetBundle trollBundle = AssetUtils.LoadAssetBundleFromResources("itemtier02", typeof(CackleTroll).Assembly);
-            HatObj = trollBundle.LoadAsset<GameObject>("CKTroll_Hat");
-            PantObj = trollBundle.LoadAsset<GameObject>("CKTroll_Pants");
-            CapeObj = trollBundle.LoadAsset<GameObject>("CKTroll_Scarf");
+            HatObj = trollBundle.LoadAsset<GameObject>("chTrHat");
+            PantObj = trollBundle.LoadAsset<GameObject>("chTrPants");
+            CapeObj = trollBundle.LoadAsset<GameObject>("chTrScarf");
             trollBundle.Unload(false);
 
 
@@ -42,23 +42,7 @@ namespace CackleTroll
             CustomItem hatItem = new CustomItem(HatObj, true, new ItemConfig()
             {
                 CraftingStation = "piece_workbench",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "TrollHide",
-                        Amount = 5,
-                        AmountPerLevel = 3
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(hatItem);
-
-            //============================//
-
-            CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
-            {
-                CraftingStation = "piece_workbench",
+                MinStationLevel = 3,
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -75,6 +59,24 @@ namespace CackleTroll
                     }
                 }
             });
+            ItemManager.Instance.AddItem(hatItem);
+
+            //============================//
+
+            CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
+            {
+                CraftingStation = "piece_workbench",
+                MinStationLevel = 3,
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "TrollHide",
+                        Amount = 5,
+                        AmountPerLevel = 3
+                    }
+                }
+            });
             ItemManager.Instance.AddItem(capeItem);
 
             //============================//
@@ -82,6 +84,7 @@ namespace CackleTroll
             CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
             {
                 CraftingStation = "piece_workbench",
+                MinStationLevel = 3,
                 Requirements = new RequirementConfig[]
     {
                     new RequirementConfig()
@@ -101,12 +104,12 @@ namespace CackleTroll
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = {
-                    {"cktrollhat", "[CH]Troll Hat" },
-                    {"cktrollhat_D", "Great for keeping the sun out the eyes"},
-                    {"cktrollscarf", "[CH]Troll Scarf" },
-                    {"cktrollscarf_D", "A simple scarf with a decorative chunk of some poor souls rib cage you found in the woods"},
-                    {"cktrollpant", "[CH]Troll Pants" },
-                    {"cktrollpant_D", "A hardy pair of overalls for sneaky farmers. Even comes with extra bones for snacking"},
+                    {"chTH", "[CH]Troll Hat" },
+                    {"chTH_D", "Great for keeping the sun out the eyes"},
+                    {"chTS", "[CH]Troll Scarf" },
+                    {"chTS_D", "A simple scarf with a decorative chunk of some poor souls rib cage you found in the woods"},
+                    {"chTP", "[CH]Troll Pants" },
+                    {"chTP_D", "A hardy pair of overalls for sneaky farmers. Even comes with extra bones for snacking"},
                 }
             });
         }

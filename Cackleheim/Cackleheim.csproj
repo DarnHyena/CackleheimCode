@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CackleheimAlt.cs" />
+    <Compile Include="CackleBronze.cs" />
     <Compile Include="CackleLeather.cs" />
     <None Include="CackleTemplate.cs" />
     <Compile Include="CackleTroll.cs" />
@@ -90,6 +91,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resources\itemgnoll" />
+    <EmbeddedResource Include="Resources\itemtier00" />
+    <EmbeddedResource Include="Resources\itemtier01" />
+    <EmbeddedResource Include="Resources\itemtier02" />
+    <EmbeddedResource Include="Resources\itemtier03" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -97,17 +103,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <EmbeddedResource Include="EmbeddedAssets\itemgnoll" />
-    <EmbeddedResource Include="EmbeddedAssets\itemtier00" />
-    <EmbeddedResource Include="EmbeddedAssets\itemtier01" />
-    <EmbeddedResource Include="EmbeddedAssets\itemtier02" />
     <None Include="packages.config" />
     <None Include="Package\README.md" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Package\plugins\" />
-    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Package\manifest.json" />

@@ -11,16 +11,16 @@ using Jotunn.Managers;
 using Jotunn.Utils;
 using UnityEngine;
 
-namespace CackleLeather
+namespace CackleBronze
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleLeather : BaseUnityPlugin
+    internal class CackleBronze : BaseUnityPlugin
     {
-        public const string PluginGUID = "DarnHyena.CackleLeather";
-        public const string PluginName = "CackleLeather";
-        public const string PluginVersion = "2.0.0";
+        public const string PluginGUID = "DarnHyena.CackleBronze";
+        public const string PluginName = "CackleBronze";
+        public const string PluginVersion = "1.0.0";
 
         private GameObject HatObj;
         private GameObject PantObj;
@@ -30,32 +30,31 @@ namespace CackleLeather
         {
             //========ASSETBUNDLES========//
 
-            AssetBundle leatherBundle = AssetUtils.LoadAssetBundleFromResources("itemtier01", typeof(CackleLeather).Assembly);
-            HatObj = leatherBundle.LoadAsset<GameObject>("chLeMask");
-            PantObj = leatherBundle.LoadAsset<GameObject>("chLePants");
-            CapeObj = leatherBundle.LoadAsset<GameObject>("chLePoncho");
-            leatherBundle.Unload(false);
+            AssetBundle BronzeBundle = AssetUtils.LoadAssetBundleFromResources("itemtier03", typeof(CackleBronze).Assembly);
+            HatObj = BronzeBundle.LoadAsset<GameObject>("chBzHelm");
+            PantObj = BronzeBundle.LoadAsset<GameObject>("chBzPants");
+            CapeObj = BronzeBundle.LoadAsset<GameObject>("chBzChest");
+            BronzeBundle.Unload(false);
 
 
             //==========RECIPES==========//
 
             CustomItem hatItem = new CustomItem(HatObj, true, new ItemConfig()
             {
-                CraftingStation = "piece_workbench",
-                MinStationLevel = 2,
+                CraftingStation = "forge",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
                     {
                         Item = "DeerHide",
-                        Amount = 6,
-                        AmountPerLevel = 6
+                        Amount = 2,
+                        AmountPerLevel = 0
                     },
                     new RequirementConfig()
                     {
-                        Item = "BoneFragments",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "Bronze",
+                        Amount = 5,
+                        AmountPerLevel = 3
                     }
                 }
             });
@@ -65,21 +64,20 @@ namespace CackleLeather
 
             CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
             {
-                CraftingStation = "piece_workbench",
-                MinStationLevel = 2,
+                CraftingStation = "forge",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
                     {
                         Item = "DeerHide",
-                        Amount = 6,
-                        AmountPerLevel = 6
+                        Amount = 2,
+                        AmountPerLevel = 0
                     },
                     new RequirementConfig()
                     {
-                        Item = "BoneFragments",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "Bronze",
+                        Amount = 5,
+                        AmountPerLevel = 3
                     }
                 }
             });
@@ -89,21 +87,20 @@ namespace CackleLeather
 
             CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
             {
-                CraftingStation = "piece_workbench",
-                MinStationLevel = 2,
+                CraftingStation = "forge",
                 Requirements = new RequirementConfig[]
     {
                     new RequirementConfig()
                     {
                         Item = "DeerHide",
-                        Amount = 6,
-                        AmountPerLevel = 6
+                        Amount = 2,
+                        AmountPerLevel = 0
                     },
                     new RequirementConfig()
                     {
-                        Item = "BoneFragments",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "Bronze",
+                        Amount = 5,
+                        AmountPerLevel = 3
                     }
                 }
             });
@@ -116,12 +113,12 @@ namespace CackleLeather
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = {
-                    {"chLH", "[CH]Leather Mask" },
-                    {"chLH_D", "A striking bone white mask"},
-                    {"chLC", "[CH]Leather Poncho" },
-                    {"chLC_D", "An enccentric cape for dashing rogues"},
-                    {"chLP", "[CH]Leather Pants" },
-                    {"chLP_D", "Finely tailored pants just like mother used to make"},
+                    {"chBZH", "[CH]Bronze Helm" },
+                    {"chBZH_D", "Shines gracefully like a Golden Egg."},
+                    {"chBZC", "[CH]Bronze Plate" },
+                    {"chBZC_D", "Some say the first gnoll to forge a bronze plate shined like the sun as they got flung away by a troll."},
+                    {"chBZP", "[CH]Bronze Pants " },
+                    {"chBZP_D", "Those necks will think twice before biting off your shins with these plated slacks!"},
                 }
             });
         }

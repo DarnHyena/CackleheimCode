@@ -77,6 +77,12 @@ namespace Cackleheim
                         Item = "DeerHide",
                         Amount = 0,
                         AmountPerLevel = 5
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "TrollHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
                     }
                 }
             });
@@ -92,8 +98,8 @@ namespace Cackleheim
             LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = {
-                    {"ck01", "Totem dey Cackle" },
-                    {"ck01_desc", "A strange trinket covered in moss.  You hear a faint noise when held"}
+                    {"chB", "Totem dey Cackle" },
+                    {"chB_D", "A strange trinket covered in moss.  You hear a faint noise when held"}
                 }
             });
         }
