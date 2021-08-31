@@ -11,16 +11,16 @@ using Jotunn.Managers;
 using Jotunn.Utils;
 using UnityEngine;
 
-namespace CackleNAME
+namespace CackleIron
 {   
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class Cackle- : BaseUnityPlugin
+    internal class CackleIron : BaseUnityPlugin
     {
-        public const string PluginGUID = "DarnHyena.CackleNAME";
-        public const string PluginName = "CackleNAME";
-        public const string PluginVersion = "0.0.1";
+        public const string PluginGUID = "DarnHyena.CackleIron";
+        public const string PluginName = "CackleIron";
+        public const string PluginVersion = "1.0.0";
 
         private GameObject HatObj;
         private GameObject PantObj;
@@ -32,26 +32,32 @@ namespace CackleNAME
         {
             //========ASSETBUNDLES========// 
 
-            AssetBundle NAMEBundle = AssetUtils.LoadAssetBundleFromResources("itemNAME", typeof(CackleNAME).Assembly);
-            HatObj = NAMEBundle.LoadAsset<GameObject>("Item01");
-            PantObj = NAMEBundle.LoadAsset<GameObject>("Item02");
-            CapeObj = NAMEBundle.LoadAsset<GameObject>("Item03");
+            AssetBundle IronBundle = AssetUtils.LoadAssetBundleFromResources("itemtier04", typeof(CackleIron).Assembly);
+            HatObj = IronBundle.LoadAsset<GameObject>("chIrHelm");
+            PantObj = IronBundle.LoadAsset<GameObject>("chIrSuit");
+            CapeObj = IronBundle.LoadAsset<GameObject>("chIrChest");
          //   ChestObj = NAMEBundle.LoadAsset<GameObject>("Item04");
-            NAMEBundle.Unload(false);
+            IronBundle.Unload(false);
 
 
             //==========RECIPES==========//
 
             CustomItem hatItem = new CustomItem(HatObj, true, new ItemConfig()
             {
-                CraftingStation = "piece_workbench", //Note: These look for the name of the crafting table prefabs. 
-                MinStationLevel = 0,  //Level crafting table needs to be in order to make the item. Aka, those things you place around it
+                CraftingStation = "forge", //Note: These look for the name of the crafting table prefabs. 
+                MinStationLevel = 1,  //Level crafting table needs to be in order to make the item. Aka, those things you place around it
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
                     {
-                        Item = "RESOURCEHERE",
-                        Amount = 0,
+                        Item = "Iron",
+                        Amount = 20,
+                        AmountPerLevel = 5
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 2,
                         AmountPerLevel = 0
                     }
                 }
@@ -62,20 +68,20 @@ namespace CackleNAME
 
             CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
             {
-                CraftingStation = "piece_workbench",
-                MinStationLevel = 0,
+                CraftingStation = "forge",
+                MinStationLevel = 2,
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
                     {
-                        Item = "RESOURCEHERE",
-                        Amount = 0,
-                        AmountPerLevel = 0
+                        Item = "Iron",
+                        Amount = 20,
+                        AmountPerLevel = 5
                     },
                     new RequirementConfig()
                     {
-                        Item = "RESOURCEHERE",
-                        Amount = 0,
+                        Item = "DeerHide",
+                        Amount = 2,
                         AmountPerLevel = 0
                     }
                 }
@@ -86,14 +92,20 @@ namespace CackleNAME
 
             CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
             {
-                CraftingStation = "piece_workbench",
-                MinStationLevel = 0,
+                CraftingStation = "forge",
+                MinStationLevel = 2,
                 Requirements = new RequirementConfig[]
     {
                     new RequirementConfig()
                     {
-                        Item = "RESOURCEHERE",
-                        Amount = 0,
+                        Item = "Iron",
+                        Amount = 20,
+                        AmountPerLevel = 5
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 2,
                         AmountPerLevel = 0
                     }
                 }
@@ -127,12 +139,12 @@ namespace CackleNAME
         LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = { //Don't include the $ for the item id, the code doesn't like those
-                    {"ID01", "Name01" },
-                    {"IDDesc01", "Desc01"},
-                    {"ID02", "Name02" },
-                    {"IDDesc02", "Desc02"},
-                    {"ID03", "Name03" },
-                    {"IDDesc03", "Desc03"},
+                    {"chIH", "[CH]Iron Helm" },
+                    {"chIH_D", "Forged into the most optimal shape for headbutting"},
+                    {"chIC", "[CH]Iron Plate" },
+                    {"chIC_D", "Comes with it's very own picnic basket!"},
+                    {"chIS", "[CH]Iron Suit" },
+                    {"chIS_D", "Stylish armored coveralls"},
                 }
             });
         }

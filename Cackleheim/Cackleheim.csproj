@@ -81,6 +81,7 @@
     <Compile Include="CackleBronze.cs" />
     <Compile Include="CackleLeather.cs" />
     <None Include="CackleTemplate.cs" />
+    <Compile Include="CackleIron.cs" />
     <Compile Include="CackleTroll.cs" />
     <Compile Include="CackleRags.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
@@ -96,6 +97,7 @@
     <EmbeddedResource Include="Resources\itemtier01" />
     <EmbeddedResource Include="Resources\itemtier02" />
     <EmbeddedResource Include="Resources\itemtier03" />
+    <EmbeddedResource Include="Resources\itemtier04" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

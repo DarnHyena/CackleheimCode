@@ -59,5 +59,15 @@ namespace Cackleheim.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] itemtier04 {
+            get {
+                object obj = ResourceManager.GetObject("itemtier04", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
