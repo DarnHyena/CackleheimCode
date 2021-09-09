@@ -63,6 +63,16 @@ namespace Cackleheim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] itemgoggles {
+            get {
+                object obj = ResourceManager.GetObject("itemgoggles", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] itemtier04 {
             get {
                 object obj = ResourceManager.GetObject("itemtier04", resourceCulture);

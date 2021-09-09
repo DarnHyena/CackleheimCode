@@ -16,7 +16,7 @@ namespace CackleNAME
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class Cackle- : BaseUnityPlugin
+    internal class CackleNAME : BaseUnityPlugin
     {
         public const string PluginGUID = "DarnHyena.CackleNAME";
         public const string PluginName = "CackleNAME";
@@ -133,6 +133,8 @@ namespace CackleNAME
                     {"IDDesc02", "Desc02"},
                     {"ID03", "Name03" },
                     {"IDDesc03", "Desc03"},
+                 //   {"ID04", "Name04" },
+                 //   {"IDDesc04", "Desc04"},
                 }
             });
         }
