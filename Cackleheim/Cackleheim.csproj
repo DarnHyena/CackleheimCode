@@ -77,13 +77,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="zCackleheim\Misc\CackleGogTrad.cs" />
     <None Include="zMiscCode\CackleheimAlt.cs" />
     <Compile Include="zCackleheim\Armor\CackleBronze.cs" />
     <None Include="zMiscCode\Cackleheimv2.cs" />
     <Compile Include="zCackleheim\Armor\CackleLeather.cs" />
     <None Include="zMiscCode\CackleTemplate.cs" />
     <Compile Include="zCackleheim\Armor\CackleIron.cs" />
-    <Compile Include="zCackleheim\Misc\CackleGoggles.cs" />
+    <None Include="zCackleheim\Misc\CackleGogCraft.cs" />
     <Compile Include="zCackleheim\Armor\CackleTroll.cs" />
     <Compile Include="zCackleheim\Armor\CackleRags.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
