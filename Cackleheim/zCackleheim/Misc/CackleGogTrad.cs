@@ -20,7 +20,7 @@ namespace CackleGoggles
     {
         public const string PluginGUID = "DarnHyena.CackleGoggles";
         public const string PluginName = "CackleGoggles";
-        public const string PluginVersion = "0.0.1";
+        public const string PluginVersion = "1.0.0";
 
         private GameObject GogObj;
 

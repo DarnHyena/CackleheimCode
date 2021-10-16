@@ -4,6 +4,9 @@
 // File:    Cackleheim.cs
 // Project: Cackleheim
 
+// The way this version of the script works, it'll allow you to hook up different styles as material swaps \\
+// And while it did work as intended, it sadly had a lot of sync issues once you started playing with other people \\
+
 using BepInEx;
 using Jotunn;
 using Jotunn.Configs;
@@ -22,7 +25,7 @@ namespace Cackleheim
     {
         public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
-        public const string PluginVersion = "2.0.0";
+        public const string PluginVersion = "2.0.1";
 
         private string CackleItemToken;
         private int CackleItemHash;
@@ -142,25 +145,25 @@ namespace Cackleheim
                 {
                     SkinnedMeshRenderer randy = self.m_chestItemInstances[0]
                         .GetComponentInChildren<SkinnedMeshRenderer>();
-                    randy.sharedMaterial = CackleMaterials[CurrentCackleVariant];
-                    randy.sharedMaterials = new Material[] { CackleMaterials[CurrentCackleVariant] };
+                    randy.material = CackleMaterials[CurrentCackleVariant];
+                    randy.materials = new Material[] { CackleMaterials[CurrentCackleVariant] };
 
                     LastCackleVariant = CurrentCackleVariant;
                 }
 
                 // Set body material to "transparent"
-                if (hash == CackleItemHash && !self.m_bodyModel.sharedMaterial.name.StartsWith(TransparentMaterial.name))
+                if (hash == CackleItemHash && !self.m_bodyModel.material.name.StartsWith(TransparentMaterial.name))
                 {
-                    self.m_bodyModel.sharedMaterial = TransparentMaterial;
-                    self.m_bodyModel.sharedMaterials = new Material[] { TransparentMaterial, TransparentMaterial };
+                    self.m_bodyModel.material = TransparentMaterial;
+                    self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
                 }
 
                 // Reset body material to the base model
-                if (oldHash == CackleItemHash && oldHash != hash && self.m_bodyModel.sharedMaterial.name.StartsWith(TransparentMaterial.name))
+                if (oldHash == CackleItemHash && oldHash != hash && self.m_bodyModel.material.name.StartsWith(TransparentMaterial.name))
                 {
                     Material baseMaterial = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
-                    self.m_bodyModel.sharedMaterial = baseMaterial;
-                    self.m_bodyModel.sharedMaterials = new Material[] { baseMaterial, baseMaterial };
+                    self.m_bodyModel.material = baseMaterial;
+                    self.m_bodyModel.materials = new Material[] { baseMaterial, baseMaterial };
 
                     LastCackleVariant = -1;
                 }

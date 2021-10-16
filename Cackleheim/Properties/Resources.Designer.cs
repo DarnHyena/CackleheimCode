@@ -73,9 +73,69 @@ namespace Cackleheim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] itemtier01 {
+            get {
+                object obj = ResourceManager.GetObject("itemtier01", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] itemtier02 {
+            get {
+                object obj = ResourceManager.GetObject("itemtier02", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] itemtier03 {
+            get {
+                object obj = ResourceManager.GetObject("itemtier03", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] itemtier04 {
             get {
                 object obj = ResourceManager.GetObject("itemtier04", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] itemtier05 {
+            get {
+                object obj = ResourceManager.GetObject("itemtier05", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] itemtier06 {
+            get {
+                object obj = ResourceManager.GetObject("itemtier06", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] itemtier07 {
+            get {
+                object obj = ResourceManager.GetObject("itemtier07", resourceCulture);
                 return ((byte[])(obj));
             }
         }

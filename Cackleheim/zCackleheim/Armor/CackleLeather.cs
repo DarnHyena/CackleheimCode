@@ -30,7 +30,7 @@ namespace CackleLeather
         {
             //========ASSETBUNDLES========//
 
-            AssetBundle leatherBundle = AssetUtils.LoadAssetBundleFromResources("itemtier01", typeof(CackleLeather).Assembly);
+            AssetBundle leatherBundle = AssetUtils.LoadAssetBundleFromResources("itemtier02", typeof(CackleLeather).Assembly);
             HatObj = leatherBundle.LoadAsset<GameObject>("chLeMask");
             PantObj = leatherBundle.LoadAsset<GameObject>("chLePants");
             CapeObj = leatherBundle.LoadAsset<GameObject>("chLePoncho");

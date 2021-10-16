@@ -20,7 +20,7 @@ namespace CackleTroll
     {
         public const string PluginGUID = "DarnHyena.CackleTroll";
         public const string PluginName = "CackleTroll";
-        public const string PluginVersion = "2.0.0";
+        public const string PluginVersion = "2.0.1";
 
         private GameObject HatObj;
         private GameObject PantObj;
@@ -30,7 +30,7 @@ namespace CackleTroll
         {
             //========ASSETBUNDLES========//
 
-            AssetBundle trollBundle = AssetUtils.LoadAssetBundleFromResources("itemtier02", typeof(CackleTroll).Assembly);
+            AssetBundle trollBundle = AssetUtils.LoadAssetBundleFromResources("itemtier03", typeof(CackleTroll).Assembly);
             HatObj = trollBundle.LoadAsset<GameObject>("chTrHat");
             PantObj = trollBundle.LoadAsset<GameObject>("chTrPants");
             CapeObj = trollBundle.LoadAsset<GameObject>("chTrScarf");
@@ -42,7 +42,7 @@ namespace CackleTroll
             CustomItem hatItem = new CustomItem(HatObj, true, new ItemConfig()
             {
                 CraftingStation = "piece_workbench",
-                MinStationLevel = 3,
+                MinStationLevel = 2,
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -66,7 +66,7 @@ namespace CackleTroll
             CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
             {
                 CraftingStation = "piece_workbench",
-                MinStationLevel = 3,
+                MinStationLevel = 2,
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -84,7 +84,7 @@ namespace CackleTroll
             CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
             {
                 CraftingStation = "piece_workbench",
-                MinStationLevel = 3,
+                MinStationLevel = 2,
                 Requirements = new RequirementConfig[]
     {
                     new RequirementConfig()

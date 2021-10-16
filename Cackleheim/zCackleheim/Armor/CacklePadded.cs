@@ -11,32 +11,31 @@ using Jotunn.Managers;
 using Jotunn.Utils;
 using UnityEngine;
 
-namespace CackleIron
+namespace CacklePadded
 {   
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleIron : BaseUnityPlugin
+    internal class CacklePadded : BaseUnityPlugin
     {
-        public const string PluginGUID = "DarnHyena.CackleIron";
-        public const string PluginName = "CackleIron";
-        public const string PluginVersion = "1.0.1";
+        public const string PluginGUID = "DarnHyena.CacklePadded";
+        public const string PluginName = "CacklePadded";
+        public const string PluginVersion = "1.0.0";
 
         private GameObject HatObj;
         private GameObject PantObj;
         private GameObject CapeObj;
-        //private GameObject ChestObj;
 
 
         private void Awake()
         {
             //========ASSETBUNDLES========// 
 
-            AssetBundle IronBundle = AssetUtils.LoadAssetBundleFromResources("itemtier05", typeof(CackleIron).Assembly);
-            HatObj = IronBundle.LoadAsset<GameObject>("chIrHelm");
-            PantObj = IronBundle.LoadAsset<GameObject>("chIrSuit");
-            CapeObj = IronBundle.LoadAsset<GameObject>("chIrChest");
-            IronBundle.Unload(false);
+            AssetBundle PaddedBundle = AssetUtils.LoadAssetBundleFromResources("itemtier07", typeof(CacklePadded).Assembly);
+            HatObj = PaddedBundle.LoadAsset<GameObject>("chPaHelm");
+            PantObj = PaddedBundle.LoadAsset<GameObject>("chPaSuit");
+            CapeObj = PaddedBundle.LoadAsset<GameObject>("chPaCoat");
+            PaddedBundle.Unload(false);
 
 
             //==========RECIPES==========//
@@ -50,14 +49,14 @@ namespace CackleIron
                     new RequirementConfig()
                     {
                         Item = "Iron",
-                        Amount = 20,
-                        AmountPerLevel = 5
+                        Amount = 10,
+                        AmountPerLevel = 3
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 2,
-                        AmountPerLevel = 0
+                        Item = "LinenThread",
+                        Amount = 20,
+                        AmountPerLevel = 10
                     }
                 }
             });
@@ -74,14 +73,14 @@ namespace CackleIron
                     new RequirementConfig()
                     {
                         Item = "Iron",
-                        Amount = 20,
-                        AmountPerLevel = 5
+                        Amount = 10,
+                        AmountPerLevel = 3
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 2,
-                        AmountPerLevel = 0
+                        Item = "LinenThread",
+                        Amount = 20,
+                        AmountPerLevel = 10
                     }
                 }
             });
@@ -98,18 +97,19 @@ namespace CackleIron
                     new RequirementConfig()
                     {
                         Item = "Iron",
-                        Amount = 20,
-                        AmountPerLevel = 5
+                        Amount = 10,
+                        AmountPerLevel = 3
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 2,
-                        AmountPerLevel = 0
+                        Item = "LinenThread",
+                        Amount = 20,
+                        AmountPerLevel = 10
                     }
                 }
             });
             ItemManager.Instance.AddItem(pantItem);
+
 
         //============================//
 
@@ -119,12 +119,12 @@ namespace CackleIron
         LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
             {
                 Translations = { //Don't include the $ for the item id, the code doesn't like those
-                    {"chIH", "[CH]Iron Helm" },
-                    {"chIH_D", "Forged into the most optimal shape for headbutting"},
-                    {"chIC", "[CH]Iron Plate" },
-                    {"chIC_D", "Comes with it's very own picnic basket!"},
-                    {"chIS", "[CH]Iron Suit" },
-                    {"chIS_D", "Stylish armored coveralls"},
+                    {"chPH", "[CH]Padded Helm" },
+                    {"chPH_D", "The perfect helmet for charging into glorious battle!"},
+                    {"chPC", "[CH]Padded Coat" },
+                    {"chPC_D", "Lined with chain, this padded coat is perfect for thwarting the dreaded stings of deathsquitos"},
+                    {"chPS", "[CH]Padded Suit" },
+                    {"chPS_D", "Sturdy linen pants and top for life in the plains"},
                 }
             });
         }

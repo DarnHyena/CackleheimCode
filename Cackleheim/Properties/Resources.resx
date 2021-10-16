@@ -121,7 +121,25 @@
   <data name="itemgoggles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemgoggles;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="itemtier01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemtier01;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itemtier02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemtier02;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itemtier03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemtier03;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="itemtier04" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemtier04;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itemtier05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemtier05;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itemtier06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemtier06;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itemtier07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemtier07;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

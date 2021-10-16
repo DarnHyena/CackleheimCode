@@ -20,7 +20,7 @@ namespace CackleBronze
     {
         public const string PluginGUID = "DarnHyena.CackleBronze";
         public const string PluginName = "CackleBronze";
-        public const string PluginVersion = "1.0.0";
+        public const string PluginVersion = "1.0.1";
 
         private GameObject HatObj;
         private GameObject PantObj;
@@ -30,7 +30,7 @@ namespace CackleBronze
         {
             //========ASSETBUNDLES========//
 
-            AssetBundle BronzeBundle = AssetUtils.LoadAssetBundleFromResources("itemtier03", typeof(CackleBronze).Assembly);
+            AssetBundle BronzeBundle = AssetUtils.LoadAssetBundleFromResources("itemtier04", typeof(CackleBronze).Assembly);
             HatObj = BronzeBundle.LoadAsset<GameObject>("chBzHelm");
             PantObj = BronzeBundle.LoadAsset<GameObject>("chBzPants");
             CapeObj = BronzeBundle.LoadAsset<GameObject>("chBzChest");

@@ -29,7 +29,7 @@ namespace CackleRags
         {
             //========ASSETBUNDLES========//
 
-            AssetBundle ragBundle = AssetUtils.LoadAssetBundleFromResources("itemtier00", typeof(CackleRags).Assembly);
+            AssetBundle ragBundle = AssetUtils.LoadAssetBundleFromResources("itemtier01", typeof(CackleRags).Assembly);
             HoodObj = ragBundle.LoadAsset<GameObject>("chRaHood");
             PantObj = ragBundle.LoadAsset<GameObject>("chRaPants");
             ragBundle.Unload(false);
