@@ -1,0 +1,61 @@
+==========================
+October 
+[3.0.1]
+-Equiped Body will remain in inventory upon death.
+
+[3.0.0]
+-Wolf & Padded sets avaiable
+-Base model's texture spruced up
+-Fixed lighting issue with materials, no more glow in the dark armor
+-Particle effects on drop items
+-Sneak effect on Troll set works again
+-Fixed durability not being the proper amount
+-Adjusted stats for Bronze and Iron to be vanilla
+-New cosmetic options!
+-Reverted Gnoll base back to singular items since the method to get styles to work sadly didn't work out very well in multiplayer
+
+==========================
+September
+[2.2.4]
+-Armor no longer permanently destroyed when it loses all it's durability
+
+[2.2.3]
+-Updated and recompiled with new assembly files for Hearth & Home
+
+[2.2.2]
+-Fixed mismatched set names for Troll armor.  Stealth should work again now.
+-Slight adjustments for how to acquire [REDACTED]
+
+[2.2.1]
+-Iron Armor can be upgraded now
+-???
+
+[2.2.01]
+- F
+
+==========================
+August
+[2.2.0]
+-Bronze and Iron Sets now avaiable
+-Touched up previous sets to be closer matched to vanilla
+-Renamed previous items and redid some icons
+
+[2.0.0]
+-Updated to Jotunn code base
+-Base model now condensed to a single item with style variants! \o/
+-Rebranded mod to Cackleheim to make it simplier
+
+==========================
+April 
+-Initial release of base model
+[1.0.1]
+-Rags tier armor added
+[1.0.2]
+-Leather tier added
+-Fixed issue with Vulken
+[1.1.0]
+-Touched up weights across all models
+-Troll tier added
+[1.1.1]
+-Woospy, we made a fuckey wucky, a big ol oopsies daisy whoopdiey doo
+-Fixed the name of the config file so the body should be hidden properly again

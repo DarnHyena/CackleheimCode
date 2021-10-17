@@ -171,9 +171,9 @@ namespace CackleWolf
                     {"chWH", "[CH]Wolf Helm" },
                     {"chWH_D", "Wolf skull lined with fur to keep your own skull from turning into a numb skull"},
                     {"chWC", "[CH]Wolf Cloak" },
-                    {"chWC_D", "Bulky heavy fur scarf for those daring adventures into the mountains!"},
+                    {"chWC_D", "Bulky heavy fur scarf for those hardened adventurers in the mountains"},
                     {"chWV", "[CH]Wolf Vest" },
-                    {"chWV_D", "Dashing little furred vest to help ward off the cold"},
+                    {"chWV_D", "Dashing little furred vest to help new explorers ward off the cold"},
                     {"chWP", "[CH]Wolf Pants" },
                     {"chWP_D", "Yet another pair of pants"},
                 }
