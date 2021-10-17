@@ -11,6 +11,7 @@ using Jotunn.Managers;
 using Jotunn.Utils;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cackleheim
 {
@@ -49,8 +50,53 @@ namespace Cackleheim
             CreateItems();
 
             On.VisEquipment.SetChestEquiped += VisEquipment_SetChestEquiped;
+            On.Player.OnDeath += Player_OnDeath; 
+            On.Player.OnSpawned += Player_OnSpawned;
         }
-        
+
+        private void Player_OnSpawned(On.Player.orig_OnSpawned orig, Player player)
+        {
+            orig(player);
+            if (holdoverItems.Any())
+            {
+                Inventory inventory = player.GetInventory();
+                foreach (ItemDrop.ItemData item in holdoverItems)
+                {
+#if DEBUG
+                    Jotunn.Logger.LogInfo($"Re-adding {item.m_shared.m_name}");
+#endif
+                    if (inventory.AddItem(item))
+                    {
+                        ItemDrop.ItemData addedItem = inventory.GetItem(item.m_shared.m_name);
+                        player.EquipItem(addedItem);
+                    }
+                }
+                holdoverItems.Clear();
+            }
+        }
+          
+        private HashSet<string> holdoverItemsSet = new HashSet<string>
+        {
+            "Cackle01","Cackle02","Cackle03","Cackle04","chForsaken","chWambui","chCuan","chDraca"
+        }; 
+        private readonly List<ItemDrop.ItemData> holdoverItems = new List<ItemDrop.ItemData>();
+
+        private void Player_OnDeath(On.Player.orig_OnDeath orig, Player player)
+        {
+            
+            foreach (ItemDrop.ItemData item in new List<ItemDrop.ItemData>(player.m_inventory.GetAllItems()))
+            {
+                if(item.m_equiped && holdoverItemsSet.Contains(item.m_dropPrefab.name))
+                {
+                    item.m_equiped = false;
+                    holdoverItems.Add(item);
+                    player.m_inventory.RemoveOneItem(item);
+                }
+            }
+
+            orig(player); 
+        }
+
         private void CreateItems()
         {
             //========ASSETBUNDLES========//
