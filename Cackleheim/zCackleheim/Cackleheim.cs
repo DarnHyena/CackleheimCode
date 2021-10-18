@@ -139,6 +139,7 @@ namespace Cackleheim
 
             CustomItem Cak2Item = new CustomItem(Cak2Obj, true, new ItemConfig()
             {
+                CraftingStation = "chSalon",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -161,6 +162,7 @@ namespace Cackleheim
 
             CustomItem Cak3Item = new CustomItem(Cak3Obj, true, new ItemConfig()
             {
+                CraftingStation = "chSalon",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -183,6 +185,7 @@ namespace Cackleheim
 
             CustomItem Cak4Item = new CustomItem(Cak4Obj, true, new ItemConfig()
             {
+                CraftingStation = "chSalon",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -205,6 +208,7 @@ namespace Cackleheim
 
             CustomItem forItem = new CustomItem(ForObj, true, new ItemConfig()
             {
+                CraftingStation = "chSalon",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -239,6 +243,7 @@ namespace Cackleheim
 
             CustomItem wamItem = new CustomItem(WamObj, true, new ItemConfig()
             {
+                CraftingStation = "chSalon",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -261,6 +266,7 @@ namespace Cackleheim
 
             CustomItem CuaItem = new CustomItem(CuaObj, true, new ItemConfig()
             {
+                CraftingStation = "chSalon",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -283,6 +289,7 @@ namespace Cackleheim
 
             CustomItem DraItem = new CustomItem(DraObj, true, new ItemConfig()
             {
+                CraftingStation = "chSalon",
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()

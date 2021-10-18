@@ -9,7 +9,8 @@ Frighten your enemies with a distant cackle at night.
 -Playable gnoll in the form of an elaborate set of armor
 
 ## Credits
- Thanks to Jules, Tekla, GoldenJude, Zarboz, Balrond, and MarcoPogo for all their help in piecing together the scripts! \o/
+ Jules, Tekla, GoldenJude, Zarboz, Balrond, MarcoPogo, Koosemose
+ Thanks for all their help in piecing together the scripts! \o/
 
 
 ## Known issues

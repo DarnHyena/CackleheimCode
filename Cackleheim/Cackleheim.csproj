@@ -77,6 +77,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\buildsalon" />
+    <Compile Include="zCackleheim\Misc\CackleSalon.cs" />
     <EmbeddedResource Include="Resources\itemtier01" />
     <EmbeddedResource Include="Resources\itemtier02" />
     <EmbeddedResource Include="Resources\itemtier03" />
@@ -86,13 +88,12 @@
     <EmbeddedResource Include="Resources\itemtier07" />
     <Compile Include="zCackleheim\Armor\CacklePadded.cs" />
     <Compile Include="zCackleheim\Cackleheim.cs" />
-    <Compile Include="zCackleheim\Misc\CackleGogTrad.cs" />
+    <Compile Include="zCackleheim\Misc\CackleGog.cs" />
     <Compile Include="zCackleheim\Armor\CackleWolf.cs" />
     <Compile Include="zCackleheim\Armor\CackleBronze.cs" />
     <Compile Include="zCackleheim\Armor\CackleLeather.cs" />
     <None Include="zMiscCode\ItemTemplate.cs" />
     <Compile Include="zCackleheim\Armor\CackleIron.cs" />
-    <None Include="zCackleheim\Misc\CackleGogCraft.cs" />
     <Compile Include="zCackleheim\Armor\CackleTroll.cs" />
     <Compile Include="zCackleheim\Armor\CackleRags.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
