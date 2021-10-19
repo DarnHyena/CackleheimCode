@@ -46,7 +46,8 @@ namespace CackleSalon
                     new RequirementConfig()
                     {
                         Item = "Wood",
-                        Amount = 1
+                        Amount = 4,
+                        Recover = true,
                     }
                 }
             });
