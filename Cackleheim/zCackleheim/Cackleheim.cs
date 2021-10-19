@@ -3,6 +3,7 @@
 // 
 // File:    Cackleheim.cs
 // Project: Cackleheim
+// Wooowee this one is getting quite long!
 
 using BepInEx;
 using Jotunn.Configs;
@@ -30,8 +31,14 @@ namespace Cackleheim
         private GameObject Cak4Obj;
         private GameObject ForObj;
         private GameObject WamObj;
+        private GameObject WamAObj;
+        private GameObject WamBObj;
         private GameObject CuaObj;
+        private GameObject CuaAObj;
+        private GameObject CuaBObj;
         private GameObject DraObj;
+        private GameObject DraAObj;
+        private GameObject DraBObj;
 
         //  private Mesh OrigMesh;
 
@@ -77,7 +84,8 @@ namespace Cackleheim
           
         private HashSet<string> holdoverItemsSet = new HashSet<string>
         {
-            "Cackle01","Cackle02","Cackle03","Cackle04","chForsaken","chWambui","chCuan","chDraca"
+          "Cackle01","Cackle02","Cackle03","Cackle04","chForsaken","chWambui",
+            "chWambuiA","chWambuiB","chCuan","chCuanA","chCuanB","chDraca","chDracaA","chDracaB"
         }; 
         private readonly List<ItemDrop.ItemData> holdoverItems = new List<ItemDrop.ItemData>();
 
@@ -108,8 +116,14 @@ namespace Cackleheim
             Cak4Obj = CackleBundle.LoadAsset<GameObject>("Cackle04");
             ForObj = CackleBundle.LoadAsset<GameObject>("chForsaken");
             WamObj = CackleBundle.LoadAsset<GameObject>("chWambui");
+            WamAObj = CackleBundle.LoadAsset<GameObject>("chWambuiA");
+            WamBObj = CackleBundle.LoadAsset<GameObject>("chWambuiB");
             CuaObj = CackleBundle.LoadAsset<GameObject>("chCuan");
+            CuaAObj = CackleBundle.LoadAsset<GameObject>("chCuanA");
+            CuaBObj = CackleBundle.LoadAsset<GameObject>("chCuanB");
             DraObj = CackleBundle.LoadAsset<GameObject>("chDraca");
+            DraAObj = CackleBundle.LoadAsset<GameObject>("chDracaA");
+            DraBObj = CackleBundle.LoadAsset<GameObject>("chDracaB");
             CackleBundle.Unload(false);
 
 
@@ -135,8 +149,6 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(Cak1Item);
 
-            //============================//
-
             CustomItem Cak2Item = new CustomItem(Cak2Obj, true, new ItemConfig()
             {
                 CraftingStation = "chSalon",
@@ -157,8 +169,6 @@ namespace Cackleheim
                 }
             });
             ItemManager.Instance.AddItem(Cak2Item);
-
-            //============================//
 
             CustomItem Cak3Item = new CustomItem(Cak3Obj, true, new ItemConfig()
             {
@@ -181,8 +191,6 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(Cak3Item);
 
-            //============================//
-
             CustomItem Cak4Item = new CustomItem(Cak4Obj, true, new ItemConfig()
             {
                 CraftingStation = "chSalon",
@@ -204,7 +212,203 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(Cak4Item);
 
-            //============================//
+            //=============================================================//
+            //==========================WAMBUI=============================//
+
+            CustomItem wamItem = new CustomItem(WamObj, true, new ItemConfig()
+            {
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(wamItem);
+
+            CustomItem wamAItem = new CustomItem(WamAObj, true, new ItemConfig()
+            {
+                CraftingStation = "chSalon",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(wamAItem);
+
+            CustomItem wamBItem = new CustomItem(WamBObj, true, new ItemConfig()
+            {
+                CraftingStation = "chSalon",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(wamBItem);
+
+            //=============================================================//
+            //===========================CUAN==============================//
+
+            CustomItem CuaItem = new CustomItem(CuaObj, true, new ItemConfig()
+            {
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(CuaItem);
+
+            CustomItem CuaAItem = new CustomItem(CuaAObj, true, new ItemConfig()
+            {
+                CraftingStation = "chSalon",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(CuaAItem);
+
+            CustomItem CuaBItem = new CustomItem(CuaBObj, true, new ItemConfig()
+            {
+                CraftingStation = "chSalon",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(CuaBItem);
+
+            //=============================================================//
+            //==========================DRACA==============================//
+
+            CustomItem DraItem = new CustomItem(DraObj, true, new ItemConfig()
+            {
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(DraItem);
+
+            CustomItem DraAItem = new CustomItem(DraAObj, true, new ItemConfig()
+            {
+                CraftingStation = "chSalon",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(DraAItem);
+
+            CustomItem DraBItem = new CustomItem(DraBObj, true, new ItemConfig()
+            {
+                CraftingStation = "chSalon",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 0,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(DraBItem);
+
+            //=============================================================//
+            //=============================================================//
 
             CustomItem forItem = new CustomItem(ForObj, true, new ItemConfig()
             {
@@ -239,75 +443,6 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(forItem);
 
-            //============================//
-
-            CustomItem wamItem = new CustomItem(WamObj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(wamItem);
-
-            //============================//
-
-            CustomItem CuaItem = new CustomItem(CuaObj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(CuaItem);
-
-            //============================//
-
-            CustomItem DraItem = new CustomItem(DraObj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(DraItem);
-
 
             //===Item Names, Description===//
             //========&Localization========//
@@ -324,15 +459,33 @@ namespace Cackleheim
                     {"chB4", "dey Cackle Totem Red" },
                     {"chB4_D", "A strange trinket covered in red moss.  You hear a faint noise when held"},
 
-                    //==========Frens==============//
+                    //=============Forsaken==============//
                     {"chFor", "dey Forsaken Totem" },
                     {"chFor_D", "A strange trinket. Something's different about this one"},
-                    {"chWam", "dey Wambui Totem" },
+                    
+                    //=============Wambui==============//
+                    {"chWam", "dey Wambui Totem Wheat" },
                     {"chWam_D", "Like Mama always said, you are what you eat"},
-                    {"chCua", "dey Cuan Totem" },
+                    {"chWamA", "dey Wambui Totem Mud" },
+                    {"chWamA_D", "Like Mama always said, you are what you eat"},
+                    {"chWamB", "dey Wambui Totem Donk" },
+                    {"chWamB_D", "Like Mama always said, you are what you eat"},
+                    
+                    //=============Cuan==============//
+                    {"chCua", "dey Cuan Totem Silver" },
                     {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
-                    {"chDra", "dey Draca Totem" },
-                    {"chDra_D", "Smells a bit Fishy"}
+                    {"chCuaA", "dey Cuan Totem Cream" },
+                    {"chCuaA_D", "Once belonged to a strange creature that yells at the Moon"},
+                    {"chCuaB", "dey Cuan Totem Cherry" },
+                    {"chCuaB_D", "Once belonged to a strange creature that yells at the Moon"},
+                    
+                    //=============Draca==============//
+                    {"chDra", "dey Draca Totem Dirt" },
+                    {"chDra_D", "Smells a bit Fishy"},
+                    {"chDraA", "dey Draca Totem Sand" },
+                    {"chDraA_D", "Smells a bit Fishy"},
+                    {"chDraB", "dey Draca Totem Clay" },
+                    {"chDraB_D", "Smells a bit Fishy"},
                 }
             });
         }
@@ -351,8 +504,14 @@ namespace Cackleheim
             itemHashes.Add(Cak4Obj.name.GetStableHashCode());
             itemHashes.Add(ForObj.name.GetStableHashCode());
             itemHashes.Add(WamObj.name.GetStableHashCode());
+            itemHashes.Add(WamAObj.name.GetStableHashCode());
+            itemHashes.Add(WamBObj.name.GetStableHashCode());
             itemHashes.Add(CuaObj.name.GetStableHashCode());
+            itemHashes.Add(CuaAObj.name.GetStableHashCode());
+            itemHashes.Add(CuaBObj.name.GetStableHashCode());
             itemHashes.Add(DraObj.name.GetStableHashCode());
+            itemHashes.Add(DraAObj.name.GetStableHashCode());
+            itemHashes.Add(DraBObj.name.GetStableHashCode());
 
 
             if (orig(self, hash) && self.m_bodyModel != null)

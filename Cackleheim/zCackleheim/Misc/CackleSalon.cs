@@ -61,9 +61,9 @@ namespace CackleSalon
                 Translations = { //Don't include the $ for the item id, the code doesn't like those
                     {"chSalon", "Cackle dey Salon"},
                     {"chSalonD", "Got to look your best when charging into battle!" },
-                    {"tutorial_salon_topic", "Salon"},
-                    {"$tutorial_salon_label", "Salon?" },
-                    {"$tutorial_salon_text", "You can craft new looks for yourself!"}
+                    {"tutorial_salon_topic", " "},
+                    {"$tutorial_salon_label", "Salon" },
+                    {"$tutorial_salon_text", "You can craft new looks for yourself here!"}
                 }
             });
         }
