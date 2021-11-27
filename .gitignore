@@ -374,8 +374,6 @@ Environment.props
 # not the generated dll for thunderstore
 */Package/plugins/*
 /Cackleheim/Cackleheim.rar
-/Cackleheim/zMiscCode/NearbearSlots/Patches.cs
-/Cackleheim/zMiscCode/NearbearSlots/Main.cs
-/Cackleheim/zMiscCode/NearbearSlots/CustomSlotItemLib.dll
-/Cackleheim/zMiscCode/NearbearSlots
 /JotunnModUnity
+/CackleUnity
+/CackleModels/Cackleheim_ArmorBasev1-1.blend
