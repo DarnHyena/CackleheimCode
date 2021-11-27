@@ -77,22 +77,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="02Armor\CackleBronze.cs" />
-    <None Include="02Armor\CackleIron.cs" />
-    <None Include="02Armor\CackleLeather.cs" />
-    <None Include="02Armor\CacklePadded.cs" />
-    <None Include="02Armor\CackleRags.cs" />
-    <None Include="02Armor\CackleTroll.cs" />
-    <None Include="02Armor\CackleWolf.cs" />
+    <Compile Include="02Armor\CackleBronze.cs" />
+    <Compile Include="02Armor\CackleIron.cs" />
+    <Compile Include="02Armor\CackleLeather.cs" />
+    <Compile Include="02Armor\CacklePadded.cs" />
+    <Compile Include="02Armor\CackleRags.cs" />
+    <Compile Include="02Armor\CackleTroll.cs" />
+    <Compile Include="02Armor\CackleWolf.cs" />
     <None Include="04Backup\ItemTemplate.cs" />
     <None Include="04Backup\PlayerAlt.cs" />
-    <None Include="03Misc\CackleGog.cs" />
-    <None Include="03Misc\CackleSalon.cs" />
-    <None Include="00Player\Cackleheim.cs" />
+    <Compile Include="03Misc\CackleGog.cs" />
+    <Compile Include="03Misc\CackleSalon.cs" />
+    <Compile Include="00Player\Cackleheim.cs" />
     <None Include="00Player\CackleheimBS.cs" />
-    <None Include="JotunnModStub - Copy.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
-    <Compile Include="Cacklecackle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Resources\buildsalon" />
     <EmbeddedResource Include="Resources\itemcackle" />
