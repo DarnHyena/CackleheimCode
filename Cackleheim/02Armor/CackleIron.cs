@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CackleIron
@@ -111,21 +112,20 @@ namespace CackleIron
             });
             ItemManager.Instance.AddItem(pantItem);
 
-        //============================//
+            //============================//
 
-        //===Item Names, Description===//
-        //========&Localization========//
+            //===Item Names, Description===//
+            //========&Localization========//
 
-        LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = { //Don't include the $ for the item id, the code doesn't like those
-                    {"chIH", "[CH]Iron Helm" },
-                    {"chIH_D", "Forged into the most optimal shape for headbutting"},
-                    {"chIC", "[CH]Iron Plate" },
-                    {"chIC_D", "Comes with it's very own picnic basket!"},
-                    {"chIS", "[CH]Iron Suit" },
-                    {"chIS_D", "Stylish armored coveralls"},
-                }
+                {"chIH", "[CH]Iron Helm" },
+                {"chIH_D", "Forged into the most optimal shape for headbutting"},
+                {"chIC", "[CH]Iron Plate" },
+                {"chIC_D", "Comes with it's very own picnic basket!"},
+                {"chIS", "[CH]Iron Suit" },
+                {"chIS_D", "Stylish armored coveralls"},
             });
         }
     }

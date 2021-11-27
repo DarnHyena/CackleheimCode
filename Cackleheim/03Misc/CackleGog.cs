@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CackleGoggles
@@ -32,12 +33,11 @@ namespace CackleGoggles
             GogObj = GogglesBundle.LoadAsset<GameObject>("chGoggles");
             GogglesBundle.Unload(false);
 
-            LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = { //Don't include the $ for the item id, the code doesn't like those
                     {"chgog", "[CH]Illuminated Visors" },
                     {"chgog_D", "Runic visors harnessing the power of cores to light the way"},
-                }
             });
 			
 			// Add the Prefab to Jötunn's ItemManager so the game "knows" about it.

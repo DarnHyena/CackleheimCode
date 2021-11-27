@@ -447,46 +447,45 @@ namespace Cackleheim
             //===Item Names, Description===//
             //========&Localization========//
 
-            LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = {
-                    {"chB1", "dey Cackle Totem Tan" },
-                    {"chB1_D", "A strange trinket covered in orange moss.  You hear a faint noise when held"},
-                    {"chB2", "dey Cackle Totem Brown" },
-                    {"chB2_D", "A strange trinket covered in brown moss.  You hear a faint noise when held"},
-                    {"chB3", "dey Cackle Totem Blond" },
-                    {"chB3_D", "A strange trinket covered in yellow moss.  You hear a faint noise when held"},
-                    {"chB4", "dey Cackle Totem Red" },
-                    {"chB4_D", "A strange trinket covered in red moss.  You hear a faint noise when held"},
+                {"chB1", "dey Cackle Totem Tan" },
+                {"chB1_D", "A strange trinket covered in orange moss.  You hear a faint noise when held"},
+                {"chB2", "dey Cackle Totem Brown" },
+                {"chB2_D", "A strange trinket covered in brown moss.  You hear a faint noise when held"},
+                {"chB3", "dey Cackle Totem Blond" },
+                {"chB3_D", "A strange trinket covered in yellow moss.  You hear a faint noise when held"},
+                {"chB4", "dey Cackle Totem Red" },
+                {"chB4_D", "A strange trinket covered in red moss.  You hear a faint noise when held"},
 
-                    //=============Forsaken==============//
-                    {"chFor", "dey Forsaken Totem" },
-                    {"chFor_D", "A strange trinket. Something's different about this one"},
-                    
-                    //=============Wambui==============//
-                    {"chWam", "dey Wambui Totem Wheat" },
-                    {"chWam_D", "Like Mama always said, you are what you eat"},
-                    {"chWamA", "dey Wambui Totem Mud" },
-                    {"chWamA_D", "Like Mama always said, you are what you eat"},
-                    {"chWamB", "dey Wambui Totem Donk" },
-                    {"chWamB_D", "Like Mama always said, you are what you eat"},
-                    
-                    //=============Cuan==============//
-                    {"chCua", "dey Cuan Totem Silver" },
-                    {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
-                    {"chCuaA", "dey Cuan Totem Cream" },
-                    {"chCuaA_D", "Once belonged to a strange creature that yells at the Moon"},
-                    {"chCuaB", "dey Cuan Totem Cherry" },
-                    {"chCuaB_D", "Once belonged to a strange creature that yells at the Moon"},
-                    
-                    //=============Draca==============//
-                    {"chDra", "dey Draca Totem Dirt" },
-                    {"chDra_D", "Smells a bit Fishy"},
-                    {"chDraA", "dey Draca Totem Sand" },
-                    {"chDraA_D", "Smells a bit Fishy"},
-                    {"chDraB", "dey Draca Totem Clay" },
-                    {"chDraB_D", "Smells a bit Fishy"},
-                }
+                //=============Forsaken==============//
+                {"chFor", "dey Forsaken Totem" },
+                {"chFor_D", "A strange trinket. Something's different about this one"},
+                
+                //=============Wambui==============//
+                {"chWam", "dey Wambui Totem Wheat" },
+                {"chWam_D", "Like Mama always said, you are what you eat"},
+                {"chWamA", "dey Wambui Totem Mud" },
+                {"chWamA_D", "Like Mama always said, you are what you eat"},
+                {"chWamB", "dey Wambui Totem Donk" },
+                {"chWamB_D", "Like Mama always said, you are what you eat"},
+                
+                //=============Cuan==============//
+                {"chCua", "dey Cuan Totem Silver" },
+                {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
+                {"chCuaA", "dey Cuan Totem Cream" },
+                {"chCuaA_D", "Once belonged to a strange creature that yells at the Moon"},
+                {"chCuaB", "dey Cuan Totem Cherry" },
+                {"chCuaB_D", "Once belonged to a strange creature that yells at the Moon"},
+                
+                //=============Draca==============//
+                {"chDra", "dey Draca Totem Dirt" },
+                {"chDra_D", "Smells a bit Fishy"},
+                {"chDraA", "dey Draca Totem Sand" },
+                {"chDraA_D", "Smells a bit Fishy"},
+                {"chDraB", "dey Draca Totem Clay" },
+                {"chDraB_D", "Smells a bit Fishy"},
             });
         }
 

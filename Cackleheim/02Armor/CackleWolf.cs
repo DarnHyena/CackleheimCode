@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CackleWolf
@@ -160,14 +161,14 @@ namespace CackleWolf
             });
             ItemManager.Instance.AddItem(chestItem);
 
-        //============================//
+            //============================//
 
-        //===Item Names, Description===//
-        //========&Localization========//
+            //===Item Names, Description===//
+            //========&Localization========//
 
-        LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = { 
                     {"chWH", "[CH]Wolf Helm" },
                     {"chWH_D", "Wolf skull lined with fur to keep your own skull from turning into a numb skull"},
                     {"chWC", "[CH]Wolf Cloak" },
@@ -176,7 +177,6 @@ namespace CackleWolf
                     {"chWV_D", "Dashing little furred vest to help new explorers ward off the cold"},
                     {"chWP", "[CH]Wolf Pants" },
                     {"chWP_D", "Yet another pair of pants"},
-                }
             });
         }
     }

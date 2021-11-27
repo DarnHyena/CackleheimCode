@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CackleLeather
@@ -113,16 +114,15 @@ namespace CackleLeather
             //===Item Names, Description===//
             //========&Localization========//
 
-            LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = {
                     {"chLH", "[CH]Leather Mask" },
                     {"chLH_D", "A striking bone white mask"},
                     {"chLC", "[CH]Leather Poncho" },
                     {"chLC_D", "An enccentric cape for dashing rogues"},
                     {"chLP", "[CH]Leather Pants" },
                     {"chLP_D", "Finely tailored pants just like mother used to make"},
-                }
             });
         }
     }

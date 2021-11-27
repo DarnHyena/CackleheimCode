@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CackleSalon
@@ -36,7 +37,7 @@ namespace CackleSalon
 
             //==========RECIPES==========//
 
-            CustomPiece SalPiece = new CustomPiece(SalObj, new PieceConfig()
+            CustomPiece SalPiece = new CustomPiece(SalObj,true, new PieceConfig()
             {
                 PieceTable = "Hammer",
                 Category = "Crafting",
@@ -57,15 +58,14 @@ namespace CackleSalon
             //===Item Names, Description===//
             //========&Localization========//
 
-            LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = { //Don't include the $ for the item id, the code doesn't like those
                     {"chSalon", "Cackle dey Salon"},
                     {"chSalonD", "Got to look your best when charging into battle!" },
                     {"tutorial_salon_topic", " "},
                     {"$tutorial_salon_label", "Salon" },
                     {"$tutorial_salon_text", "You can craft new looks for yourself here!"}
-                }
             });
         }
     }

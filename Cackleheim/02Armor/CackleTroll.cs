@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CackleTroll
@@ -101,16 +102,15 @@ namespace CackleTroll
             //===Item Names, Description===//
             //========&Localization========//
 
-            LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = {
                     {"chTH", "[CH]Troll Hat" },
                     {"chTH_D", "Great for keeping the sun out the eyes"},
                     {"chTS", "[CH]Troll Scarf" },
                     {"chTS_D", "A simple scarf with a decorative chunk of some poor souls rib cage you found in the woods"},
                     {"chTP", "[CH]Troll Pants" },
                     {"chTP_D", "A hardy pair of overalls for sneaky farmers. Even comes with extra bones for snacking"},
-                }
             });
         }
     }

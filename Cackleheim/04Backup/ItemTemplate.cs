@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CackleNAME
@@ -103,30 +104,30 @@ namespace CackleNAME
             //============================//
             //Remove the /* */ on either side of this section below to turn it back on//
 
-         /*   CustomItem chestItem = new CustomItem(ChestObj, true, new ItemConfig()
-            {
-                CraftingStation = "piece_workbench",
-                MinStationLevel = 0,
-                Requirements = new RequirementConfig[]
-    {
-                    new RequirementConfig()
-                    {
-                        Item = "RESOURCEHERE",
-                        Amount = 0,
-                        AmountPerLevel = 0
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(chestItem); */
+            /*   CustomItem chestItem = new CustomItem(ChestObj, true, new ItemConfig()
+               {
+                   CraftingStation = "piece_workbench",
+                   MinStationLevel = 0,
+                   Requirements = new RequirementConfig[]
+       {
+                       new RequirementConfig()
+                       {
+                           Item = "RESOURCEHERE",
+                           Amount = 0,
+                           AmountPerLevel = 0
+                       }
+                   }
+               });
+               ItemManager.Instance.AddItem(chestItem); */
 
-        //============================//
+            //============================//
 
-        //===Item Names, Description===//
-        //========&Localization========//
+            //===Item Names, Description===//
+            //========&Localization========//
 
-        LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
-            {
-                Translations = { //Don't include the $ for the item id, the code doesn't like those
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
+            { //Don't include the $ for the item id, the code doesn't like those
                     {"ID01", "Name01" },
                     {"IDDesc01", "Desc01"},
                     {"ID02", "Name02" },
@@ -135,7 +136,6 @@ namespace CackleNAME
                     {"IDDesc03", "Desc03"},
                  //   {"ID04", "Name04" },
                  //   {"IDDesc04", "Desc04"},
-                }
             });
         }
     }

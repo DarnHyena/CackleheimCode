@@ -98,12 +98,11 @@ namespace Cackleheim
             //===Item Names, Description===//
             //========&Localization========//
 
-            LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = {
                     {"chB", "Totem dey Cackle" },
                     {"chB_D", "A strange trinket covered in moss.  You hear a faint noise when held"}
-                }
             });
         }
 

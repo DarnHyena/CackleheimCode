@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CackleRags
@@ -73,14 +74,13 @@ namespace CackleRags
             //===Item Names, Description===//
             //========&Localization========//
 
-            LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = {
                     {"chRH", "[CH]Ragged Hood" },
                     {"chRH_D", "Smells faintly of potatos."},
                     {"chRP", "[CH]Ragged Pants" },
                     {"chRP_D", "Hastily stiched together with leftovers from last nights hunt"},
-                }
             });
         }
     }

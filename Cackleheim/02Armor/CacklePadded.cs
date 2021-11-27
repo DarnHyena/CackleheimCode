@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CacklePadded
@@ -111,21 +112,20 @@ namespace CacklePadded
             ItemManager.Instance.AddItem(pantItem);
 
 
-        //============================//
+            //============================//
 
-        //===Item Names, Description===//
-        //========&Localization========//
+            //===Item Names, Description===//
+            //========&Localization========//
 
-        LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = { //Don't include the $ for the item id, the code doesn't like those
                     {"chPH", "[CH]Padded Helm" },
                     {"chPH_D", "The perfect helmet for charging into glorious battle!"},
                     {"chPC", "[CH]Padded Coat" },
                     {"chPC_D", "Lined with chain, this padded coat is perfect for thwarting the dreaded stings of deathsquitos"},
                     {"chPS", "[CH]Padded Suit" },
                     {"chPS_D", "Sturdy linen pants and top for life in the plains"},
-                }
             });
         }
     }

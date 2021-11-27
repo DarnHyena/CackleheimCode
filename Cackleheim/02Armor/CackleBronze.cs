@@ -9,6 +9,7 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CackleBronze
@@ -110,16 +111,15 @@ namespace CackleBronze
             //===Item Names, Description===//
             //========&Localization========//
 
-            LocalizationManager.Instance.AddLocalization(new LocalizationConfig("English")
+            var localization = LocalizationManager.Instance.GetLocalization();
+            localization.AddTranslation("English", new Dictionary<string, string>
             {
-                Translations = {
                     {"chBZH", "[CH]Bronze Helm" },
                     {"chBZH_D", "Shines gracefully like a Golden Egg."},
                     {"chBZC", "[CH]Bronze Plate" },
                     {"chBZC_D", "Some say the first gnoll to forge a bronze plate shined like the sun as they got flung away by a troll."},
                     {"chBZP", "[CH]Bronze Pants " },
                     {"chBZP_D", "Those necks will think twice before biting off your shins with these plated slacks!"},
-                }
             });
         }
     }
