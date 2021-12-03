@@ -25,7 +25,7 @@ namespace Cackleheim
     {
         public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
-        public const string PluginVersion = "2.0.1";
+        public const string PluginVersion = "2.1.0";
 
         private string CackleItemToken;
         private int CackleItemHash;

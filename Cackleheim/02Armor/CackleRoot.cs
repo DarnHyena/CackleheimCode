@@ -12,56 +12,64 @@ using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleLeather
-{
+namespace CackleRoot
+{   
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleLeather : BaseUnityPlugin
+    internal class CackleRoot : BaseUnityPlugin
     {
-        public const string PluginGUID = "DarnHyena.CackleLeather";
-        public const string PluginName = "CackleLeather";
-        public const string PluginVersion = "2.1.0";
+        public const string PluginGUID = "DarnHyena.CackleRoot";
+        public const string PluginName = "CackleRoot";
+        public const string PluginVersion = "1.0.0";
 
         private GameObject HatObj;
         private GameObject PantObj;
         private GameObject CapeObj;
+        //private GameObject ChestObj;
+
 
         private void Awake()
         {
-            //========ASSETBUNDLES========//
+            //========ASSETBUNDLES========// 
 
-            AssetBundle leatherBundle = AssetUtils.LoadAssetBundleFromResources("itemtier02", typeof(CackleLeather).Assembly);
-            HatObj = leatherBundle.LoadAsset<GameObject>("chLeMask");
-            PantObj = leatherBundle.LoadAsset<GameObject>("chLePants");
-            CapeObj = leatherBundle.LoadAsset<GameObject>("chLePoncho");
-            leatherBundle.Unload(false);
+            AssetBundle RootBundle = AssetUtils.LoadAssetBundleFromResources("itemtier08", typeof(CackleRoot).Assembly);
+            HatObj = RootBundle.LoadAsset<GameObject>("chRoHelm");
+            PantObj = RootBundle.LoadAsset<GameObject>("chRoPants");
+            CapeObj = RootBundle.LoadAsset<GameObject>("chRoChest");
+            RootBundle.Unload(false);
 
 
             //==========RECIPES==========//
 
             CustomItem hatItem = new CustomItem(HatObj, true, new ItemConfig()
             {
-                CraftingStation = "piece_workbench",
+                CraftingStation = "piece_workbench", 
                 MinStationLevel = 2,
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 6,
-                        AmountPerLevel = 6
+                        Item = "Root",
+                        Amount = 10,
+                        AmountPerLevel = 2
                     },
                     new RequirementConfig()
                     {
-                        Item = "BoneFragments",
-                        Amount = 0,
+                        Item = "LeatherScraps",
+                        Amount = 2,
+                        AmountPerLevel = 0
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "ElderBark",
+                        Amount = 10,
                         AmountPerLevel = 5
                     }
                 }
             });
             ItemManager.Instance.AddItem(hatItem);
-
+                
             //============================//
 
             CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
@@ -72,20 +80,26 @@ namespace CackleLeather
                 {
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 6,
-                        AmountPerLevel = 6
+                        Item = "Root",
+                        Amount = 10,
+                        AmountPerLevel = 2
                     },
                     new RequirementConfig()
                     {
-                        Item = "BoneFragments",
-                        Amount = 0,
+                        Item = "DeerHide",
+                        Amount = 2,
+                        AmountPerLevel = 0
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "ElderBark",
+                        Amount = 10,
                         AmountPerLevel = 5
                     }
                 }
             });
             ItemManager.Instance.AddItem(capeItem);
-
+            
             //============================//
 
             CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
@@ -96,20 +110,27 @@ namespace CackleLeather
     {
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 6,
-                        AmountPerLevel = 6
+                        Item = "Root",
+                        Amount = 10,
+                        AmountPerLevel = 2
                     },
                     new RequirementConfig()
                     {
-                        Item = "BoneFragments",
-                        Amount = 0,
+                        Item = "DeerHide",
+                        Amount = 2,
+                        AmountPerLevel = 0
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "ElderBark",
+                        Amount = 10,
                         AmountPerLevel = 5
                     }
                 }
             });
             ItemManager.Instance.AddItem(pantItem);
 
+            //============================//
 
             //===Item Names, Description===//
             //========&Localization========//
@@ -117,12 +138,12 @@ namespace CackleLeather
             var localization = LocalizationManager.Instance.GetLocalization();
             localization.AddTranslation("English", new Dictionary<string, string>
             {
-                    {"chLH", "[CH]Leather Mask" },
-                    {"chLH_D", "A striking bone white mask"},
-                    {"chLC", "[CH]Leather Poncho" },
-                    {"chLC_D", "An enccentric cape for dashing rogues"},
-                    {"chLP", "[CH]Leather Pants" },
-                    {"chLP_D", "Finely tailored pants just like mother used to make"},
+                {"chRoH", "[CH]Root Helm" },
+                {"chRoH_D", "Quite handy against bee stings"},
+                {"chRoC", "[CH]Root Armor" },
+                {"chRoC_D", "Sturdy old wooden armor"},
+                {"chRoP", "[CH]Root Fit" },
+                {"chRoP_D", "Latest in Bog Fashion"},
             });
         }
     }

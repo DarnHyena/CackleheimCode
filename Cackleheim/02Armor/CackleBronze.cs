@@ -21,7 +21,7 @@ namespace CackleBronze
     {
         public const string PluginGUID = "DarnHyena.CackleBronze";
         public const string PluginName = "CackleBronze";
-        public const string PluginVersion = "1.0.1";
+        public const string PluginVersion = "1.1.0";
 
         private GameObject HatObj;
         private GameObject PantObj;

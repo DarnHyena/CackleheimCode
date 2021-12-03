@@ -21,7 +21,7 @@ namespace CackleIron
     {
         public const string PluginGUID = "DarnHyena.CackleIron";
         public const string PluginName = "CackleIron";
-        public const string PluginVersion = "1.0.1";
+        public const string PluginVersion = "1.1.0";
 
         private GameObject HatObj;
         private GameObject PantObj;

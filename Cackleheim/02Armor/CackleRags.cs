@@ -21,7 +21,7 @@ namespace CackleRags
     {
         public const string PluginGUID = "DarnHyena.CackleRags";
         public const string PluginName = "CackleRags";
-        public const string PluginVersion = "2.0.0";
+        public const string PluginVersion = "2.1.0";
 
         private GameObject HoodObj;
         private GameObject PantObj;

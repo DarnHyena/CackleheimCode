@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="02Armor\CackleBronze.cs" />
+    <Compile Include="02Armor\CackleRoot.cs" />
     <Compile Include="02Armor\CackleIron.cs" />
     <Compile Include="02Armor\CackleLeather.cs" />
     <Compile Include="02Armor\CacklePadded.cs" />
@@ -102,6 +103,7 @@
     <EmbeddedResource Include="Resources\itemtier05" />
     <EmbeddedResource Include="Resources\itemtier06" />
     <EmbeddedResource Include="Resources\itemtier07" />
+    <EmbeddedResource Include="Resources\itemtier08" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

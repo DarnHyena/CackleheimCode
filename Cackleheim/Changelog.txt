@@ -1,9 +1,11 @@
 ==========================
 November
 [3.2.0]
--Updated Unity
+-Updated Unity Version
+-Spruced up Code
 -Adjusted Wolf Vest
--New Armor
+-New Armor!
+-Salon Upgrades!
 
 ==========================
 October

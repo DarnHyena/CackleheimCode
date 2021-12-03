@@ -21,7 +21,7 @@ namespace CackleTroll
     {
         public const string PluginGUID = "DarnHyena.CackleTroll";
         public const string PluginName = "CackleTroll";
-        public const string PluginVersion = "2.0.1";
+        public const string PluginVersion = "2.1.0";
 
         private GameObject HatObj;
         private GameObject PantObj;
