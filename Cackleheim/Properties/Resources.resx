@@ -118,8 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="buildsalon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buildsalon;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itemcackle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemcackle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="itemgoggles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemgoggles;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itemmane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemmane;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="itemtier01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemtier01;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -141,5 +150,8 @@
   </data>
   <data name="itemtier07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemtier07;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="itemtier08" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemtier08;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
