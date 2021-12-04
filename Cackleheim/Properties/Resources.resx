@@ -127,6 +127,9 @@
   <data name="itemgoggles" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemgoggles;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="itemmane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemmane;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="itemtier01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemtier01;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
