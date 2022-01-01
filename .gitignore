@@ -374,3 +374,8 @@ Environment.props
 # not the generated dll for thunderstore
 */Package/plugins/*
 /Cackleheim/Cackleheim.rar
+/CackleUnity/Assets/CustomCackles/Ashi
+/CackleUnity/Library
+/Cackleheim/05Customs
+/Cackleheim/Resources/ashicustom
+/CackleUnity/Assets/Assemblies/Assemblies.rar
