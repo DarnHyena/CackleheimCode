@@ -44,10 +44,12 @@ MonoBehaviour:
   m_staminaDrainPerSec: 0
   m_runStaminaDrainModifier: 0
   m_jumpStaminaUseModifier: 0
-  m_healthRegenMultiplier: 0
-  m_staminaRegenMultiplier: 0
+  m_healthRegenMultiplier: 1
+  m_staminaRegenMultiplier: 1
   m_raiseSkill: 0
   m_raiseSkillModifier: 0
+  m_skillLevel: 0
+  m_skillLevelModifier: 0
   m_mods: []
   m_modifyAttackSkill: 0
   m_damageModifier: 0

@@ -127,6 +127,12 @@ namespace CackleTent
                         Item = "Wood",
                         Amount = 5,
                         Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
                     }
                 }
             });
@@ -144,6 +150,12 @@ namespace CackleTent
                         Item = "Wood",
                         Amount = 5,
                         Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
                     }
                 }
             });
@@ -159,6 +171,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 3,
                         Recover = true,
                     }
@@ -178,6 +196,12 @@ namespace CackleTent
                         Item = "Wood",
                         Amount = 2,
                         Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 1,
+                        Recover = true,
                     }
                 }
             });
@@ -193,6 +217,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 1,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 1,
                         Recover = true,
                     }
@@ -212,6 +242,12 @@ namespace CackleTent
                         Item = "Wood",
                         Amount = 4,
                         Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
                     }
                 }
             });
@@ -228,6 +264,12 @@ namespace CackleTent
                     {
                         Item = "Wood",
                         Amount = 6,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 4,
                         Recover = true,
                     }
                 }
@@ -248,6 +290,12 @@ namespace CackleTent
                     {
                         Item = "Wood",
                         Amount = 5,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 3,
                         Recover = true,
                     },
                     new RequirementConfig()
@@ -275,6 +323,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Raspberry",
                         Amount = 3,
                         Recover = true,
@@ -293,6 +347,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 3,
                         Recover = true,
                     },
@@ -321,6 +381,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 1,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Raspberry",
                         Amount = 1,
                         Recover = true,
@@ -339,6 +405,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 1,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 1,
                         Recover = true,
                     },
@@ -367,6 +439,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Raspberry",
                         Amount = 2,
                         Recover = true,
@@ -386,6 +464,12 @@ namespace CackleTent
                     {
                         Item = "Wood",
                         Amount = 6,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 4,
                         Recover = true,
                     },
                     new RequirementConfig()
@@ -416,6 +500,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Dandelion",
                         Amount = 3,
                         Recover = true,
@@ -439,6 +529,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Dandelion",
                         Amount = 3,
                         Recover = true,
@@ -457,6 +553,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 3,
                         Recover = true,
                     },
@@ -485,6 +587,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 1,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Dandelion",
                         Amount = 1,
                         Recover = true,
@@ -503,6 +611,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 1,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 1,
                         Recover = true,
                     },
@@ -531,6 +645,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Dandelion",
                         Amount = 2,
                         Recover = true,
@@ -550,6 +670,12 @@ namespace CackleTent
                     {
                         Item = "Wood",
                         Amount = 6,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 4,
                         Recover = true,
                     },
                     new RequirementConfig()
@@ -580,6 +706,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Guck",
                         Amount = 3,
                         Recover = true,
@@ -603,6 +735,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Guck",
                         Amount = 3,
                         Recover = true,
@@ -621,6 +759,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 3,
                         Recover = true,
                     },
@@ -649,6 +793,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 1,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Guck",
                         Amount = 1,
                         Recover = true,
@@ -667,6 +817,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 1,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 1,
                         Recover = true,
                     },
@@ -695,6 +851,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Guck",
                         Amount = 2,
                         Recover = true,
@@ -714,6 +876,12 @@ namespace CackleTent
                     {
                         Item = "Wood",
                         Amount = 6,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 4,
                         Recover = true,
                     },
                     new RequirementConfig()
@@ -744,6 +912,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Blueberries",
                         Amount = 3,
                         Recover = true,
@@ -767,6 +941,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Blueberries",
                         Amount = 3,
                         Recover = true,
@@ -785,6 +965,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 3,
                         Recover = true,
                     },
@@ -813,6 +999,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 1,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Blueberries",
                         Amount = 1,
                         Recover = true,
@@ -831,6 +1023,12 @@ namespace CackleTent
                     new RequirementConfig()
                     {
                         Item = "Wood",
+                        Amount = 1,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
                         Amount = 1,
                         Recover = true,
                     },
@@ -859,6 +1057,12 @@ namespace CackleTent
                     },
                     new RequirementConfig()
                     {
+                        Item = "Resin",
+                        Amount = 3,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
                         Item = "Blueberries",
                         Amount = 2,
                         Recover = true,
@@ -878,6 +1082,12 @@ namespace CackleTent
                     {
                         Item = "Wood",
                         Amount = 6,
+                        Recover = true,
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 4,
                         Recover = true,
                     },
                     new RequirementConfig()

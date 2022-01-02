@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="02Armor\CackleBronze.cs" />
     <Compile Include="02Armor\CackleMane.cs" />
+    <Compile Include="02Armor\CackleTravel.cs" />
     <Compile Include="02Armor\CackleRoot.cs" />
     <Compile Include="02Armor\CackleIron.cs" />
     <Compile Include="02Armor\CackleLeather.cs" />
@@ -114,6 +115,7 @@
     <EmbeddedResource Include="Resources\buildfence" />
     <EmbeddedResource Include="Resources\buildwares" />
     <None Include="Resources\ashicustom" />
+    <EmbeddedResource Include="Resources\itemtravel" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
