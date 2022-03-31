@@ -99,7 +99,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="..\Unity_LionTroll\Assets\AssetBundles\liontroll">
+    <EmbeddedResource Include="..\CackleUnity\Assets\AssetBundles\liontroll">
       <Link>assets\liontroll</Link>
     </EmbeddedResource>
     <Content Include="ILRepack.targets" />
