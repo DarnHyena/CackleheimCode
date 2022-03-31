@@ -70,6 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1231345146891830486}
+  - component: {fileID: 2375512180212624240}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -95,6 +96,52 @@ Transform:
   m_Father: {fileID: 1454361908406893991}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2375512180212624240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320459772241937131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1137906148, guid: bd1ba08149ac3b540a7b05141dbfa33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_footIK: 1
+  m_footDownMax: -0.04
+  m_footOffset: 0.2
+  m_footStepHeight: 1
+  m_stabalizeDistance: 0
+  m_useFeetValues: 0
+  m_feets:
+  - m_transform: {fileID: 904030151445341021}
+    m_ikHandle: 0
+    m_footDownMax: 0
+    m_footOffset: 0
+    m_footStepHeight: 0
+    m_stabalizeDistance: 0
+  - m_transform: {fileID: 1070385855866136183}
+    m_ikHandle: 1
+    m_footDownMax: 0
+    m_footOffset: 0
+    m_footStepHeight: 0
+    m_stabalizeDistance: 0
+  m_headRotation: 1
+  m_eyes:
+  - {fileID: 2643758899350268624}
+  - {fileID: 4685619143890937379}
+  m_lookWeight: 0.5
+  m_bodyLookWeight: 0.1
+  m_headLookWeight: 1
+  m_eyeLookWeight: 0
+  m_lookClamp: 0.5
+  m_lookAt: {fileID: 0}
+  m_femaleHack: 0
+  m_leftShoulder: {fileID: 0}
+  m_rightShoulder: {fileID: 0}
+  m_femaleOffset: 0.0004
+  m_maleOffset: 0.0007651657
 --- !u!1 &637348099827795116
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +599,9 @@ GameObject:
   - component: {fileID: 7262714529764085669}
   - component: {fileID: 5581991752707882123}
   - component: {fileID: 1256338593821592036}
+  - component: {fileID: 1213574104895296045}
+  - component: {fileID: 794262455124094799}
+  - component: {fileID: 6834950417118867065}
   m_Layer: 0
   m_Name: chLionTroll
   m_TagString: Untagged
@@ -618,6 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: -1421768954, guid: bd1ba08149ac3b540a7b05141dbfa33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_nViewOverride: {fileID: 0}
   m_name: $enemy_troll
   m_group: 
   m_faction: 2
@@ -647,6 +698,7 @@ MonoBehaviour:
   m_groundTiltSpeed: 50
   m_flying: 0
   m_jumpStaminaUsage: 10
+  m_disableWhileSleeping: 0
   m_eye: {fileID: 6982830267078054784}
   m_hitEffects:
     m_effectPrefabs:
@@ -794,6 +846,65 @@ MonoBehaviour:
     m_effectPrefabs: []
   m_perfectBlockEffect:
     m_effectPrefabs: []
+--- !u!114 &1213574104895296045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262283518136805149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1383431051, guid: bd1ba08149ac3b540a7b05141dbfa33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_spawnOffset: {x: 0, y: 0, z: 0}
+  m_drops: []
+--- !u!114 &794262455124094799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262283518136805149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -415060008, guid: bd1ba08149ac3b540a7b05141dbfa33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bodyModel: {fileID: 1712831129689730154}
+  m_nViewOverride: {fileID: 0}
+  m_leftHand: {fileID: 542817185973919592}
+  m_rightHand: {fileID: 1449020709669794848}
+  m_helmet: {fileID: 0}
+  m_backShield: {fileID: 0}
+  m_backMelee: {fileID: 0}
+  m_backTwohandedMelee: {fileID: 0}
+  m_backBow: {fileID: 0}
+  m_backTool: {fileID: 0}
+  m_backAtgeir: {fileID: 0}
+  m_clothColliders: []
+  m_models:
+  - m_mesh: {fileID: 1701924653217270626, guid: 613314f15fcff744bbec0b2c2fa54e98,
+      type: 3}
+    m_baseMaterial: {fileID: 2100000, guid: 8a423448d1ce2984690f24d04c313d51, type: 2}
+  m_isPlayer: 0
+  m_useAllTrails: 0
+--- !u!114 &6834950417118867065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262283518136805149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1266444067, guid: bd1ba08149ac3b540a7b05141dbfa33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_footstepCullDistance: 20
+  m_effects: []
+  m_feet: []
 --- !u!1 &2433520182761767032
 GameObject:
   m_ObjectHideFlags: 0

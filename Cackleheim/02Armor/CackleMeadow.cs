@@ -12,35 +12,73 @@ using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleLeather
+namespace CackleMeadow
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleLeather : BaseUnityPlugin
+    internal class CackleMeadow : BaseUnityPlugin
     {
-        public const string PluginGUID = "DarnHyena.CackleLeather";
-        public const string PluginName = "CackleLeather";
-        public const string PluginVersion = "2.1.0";
+        public const string PluginGUID = "DarnHyena.CackleMeadow";
+        public const string PluginName = "CackleMeadow";
+        public const string PluginVersion = "2.2.0";
 
-        private GameObject HatObj;
-        private GameObject PantObj;
-        private GameObject CapeObj;
+        private GameObject RHoodObj;
+        private GameObject RPantObj;
+
+        private GameObject LHatObj;
+        private GameObject LPantObj;
+        private GameObject LCapeObj;
 
         private void Awake()
         {
             //========ASSETBUNDLES========//
 
-            AssetBundle leatherBundle = AssetUtils.LoadAssetBundleFromResources("itemtier02", typeof(CackleLeather).Assembly);
-            HatObj = leatherBundle.LoadAsset<GameObject>("chLeMask");
-            PantObj = leatherBundle.LoadAsset<GameObject>("chLePants");
-            CapeObj = leatherBundle.LoadAsset<GameObject>("chLePoncho");
-            leatherBundle.Unload(false);
+            AssetBundle meadowBundle = AssetUtils.LoadAssetBundleFromResources("itemmeadow", typeof(CackleMeadow).Assembly);
+            RHoodObj = meadowBundle.LoadAsset<GameObject>("chRaHood");
+            RPantObj = meadowBundle.LoadAsset<GameObject>("chRaPants");
+
+            LHatObj = meadowBundle.LoadAsset<GameObject>("chLeMask");
+            LPantObj = meadowBundle.LoadAsset<GameObject>("chLePants");
+            LCapeObj = meadowBundle.LoadAsset<GameObject>("chLePoncho");
+            meadowBundle.Unload(false);
 
 
-            //==========RECIPES==========//
+            //==========RAGS==========//
 
-            CustomItem hatItem = new CustomItem(HatObj, true, new ItemConfig()
+            CustomItem RhoodItem = new CustomItem(RHoodObj, true, new ItemConfig()
+            {
+                CraftingStation = "piece_workbench",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "LeatherScraps",
+                        Amount = 5,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(RhoodItem);
+
+            CustomItem RpantItem = new CustomItem(RPantObj, true, new ItemConfig()
+            {
+                CraftingStation = "piece_workbench",
+                Requirements = new RequirementConfig[]
+    {
+                    new RequirementConfig()
+                    {
+                        Item = "LeatherScraps",
+                        Amount = 5,
+                        AmountPerLevel = 5
+                    }
+    }
+            });
+            ItemManager.Instance.AddItem(RpantItem);
+
+            //==========LEATHER==========//
+
+            CustomItem LhatItem = new CustomItem(LHatObj, true, new ItemConfig()
             {
                 CraftingStation = "piece_workbench",
                 MinStationLevel = 2,
@@ -60,11 +98,9 @@ namespace CackleLeather
                     }
                 }
             });
-            ItemManager.Instance.AddItem(hatItem);
+            ItemManager.Instance.AddItem(LhatItem);
 
-            //============================//
-
-            CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
+            CustomItem LcapeItem = new CustomItem(LCapeObj, true, new ItemConfig()
             {
                 CraftingStation = "piece_workbench",
                 MinStationLevel = 2,
@@ -84,11 +120,9 @@ namespace CackleLeather
                     }
                 }
             });
-            ItemManager.Instance.AddItem(capeItem);
+            ItemManager.Instance.AddItem(LcapeItem);
 
-            //============================//
-
-            CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
+            CustomItem LpantItem = new CustomItem(LPantObj, true, new ItemConfig()
             {
                 CraftingStation = "piece_workbench",
                 MinStationLevel = 2,
@@ -108,7 +142,7 @@ namespace CackleLeather
                     }
                 }
             });
-            ItemManager.Instance.AddItem(pantItem);
+            ItemManager.Instance.AddItem(LpantItem);
 
 
             //===Item Names, Description===//
@@ -117,6 +151,11 @@ namespace CackleLeather
             var localization = LocalizationManager.Instance.GetLocalization();
             localization.AddTranslation("English", new Dictionary<string, string>
             {
+                    {"chRH", "[CH]Ragged Hood" },
+                    {"chRH_D", "Smells faintly of potatos."},
+                    {"chRP", "[CH]Ragged Pants" },
+                    {"chRP_D", "Hastily stiched together with leftovers from last nights hunt"},
+
                     {"chLH", "[CH]Leather Mask" },
                     {"chLH_D", "A striking bone white mask"},
                     {"chLC", "[CH]Leather Poncho" },

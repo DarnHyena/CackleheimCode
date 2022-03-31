@@ -12,37 +12,36 @@ using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleIron
+namespace CacklePlains
 {   
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleIron : BaseUnityPlugin
+    internal class CacklePlains : BaseUnityPlugin
     {
-        public const string PluginGUID = "DarnHyena.CackleIron";
-        public const string PluginName = "CackleIron";
-        public const string PluginVersion = "1.1.0";
+        public const string PluginGUID = "DarnHyena.CacklePlains";
+        public const string PluginName = "CacklePlains";
+        public const string PluginVersion = "2.2.0";
 
-        private GameObject HatObj;
-        private GameObject PantObj;
-        private GameObject CapeObj;
-        //private GameObject ChestObj;
+        private GameObject PHatObj;
+        private GameObject PPantObj;
+        private GameObject PCapeObj;
 
 
         private void Awake()
         {
             //========ASSETBUNDLES========// 
 
-            AssetBundle IronBundle = AssetUtils.LoadAssetBundleFromResources("itemtier05", typeof(CackleIron).Assembly);
-            HatObj = IronBundle.LoadAsset<GameObject>("chIrHelm");
-            PantObj = IronBundle.LoadAsset<GameObject>("chIrSuit");
-            CapeObj = IronBundle.LoadAsset<GameObject>("chIrChest");
-            IronBundle.Unload(false);
+            AssetBundle PlainsBundle = AssetUtils.LoadAssetBundleFromResources("itemplains", typeof(CacklePlains).Assembly);
+            PHatObj = PlainsBundle.LoadAsset<GameObject>("chPaHelm");
+            PPantObj = PlainsBundle.LoadAsset<GameObject>("chPaSuit");
+            PCapeObj = PlainsBundle.LoadAsset<GameObject>("chPaCoat");
+            PlainsBundle.Unload(false);
 
 
-            //==========RECIPES==========//
+            //==========PADDED==========//
 
-            CustomItem hatItem = new CustomItem(HatObj, true, new ItemConfig()
+            CustomItem PhatItem = new CustomItem(PHatObj, true, new ItemConfig()
             {
                 CraftingStation = "forge", //Note: These look for the name of the crafting table prefabs. 
                 MinStationLevel = 1,  //Level crafting table needs to be in order to make the item. Aka, those things you place around it
@@ -51,22 +50,20 @@ namespace CackleIron
                     new RequirementConfig()
                     {
                         Item = "Iron",
-                        Amount = 20,
-                        AmountPerLevel = 5
+                        Amount = 10,
+                        AmountPerLevel = 3
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 2,
-                        AmountPerLevel = 0
+                        Item = "LinenThread",
+                        Amount = 20,
+                        AmountPerLevel = 10
                     }
                 }
             });
-            ItemManager.Instance.AddItem(hatItem);
-                
-            //============================//
+            ItemManager.Instance.AddItem(PhatItem);
 
-            CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
+            CustomItem PcapeItem = new CustomItem(PCapeObj, true, new ItemConfig()
             {
                 CraftingStation = "forge",
                 MinStationLevel = 2,
@@ -75,22 +72,20 @@ namespace CackleIron
                     new RequirementConfig()
                     {
                         Item = "Iron",
-                        Amount = 20,
-                        AmountPerLevel = 5
+                        Amount = 10,
+                        AmountPerLevel = 3
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 2,
-                        AmountPerLevel = 0
+                        Item = "LinenThread",
+                        Amount = 20,
+                        AmountPerLevel = 10
                     }
                 }
             });
-            ItemManager.Instance.AddItem(capeItem);
-            
-            //============================//
+            ItemManager.Instance.AddItem(PcapeItem);
 
-            CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
+            CustomItem PpantItem = new CustomItem(PPantObj, true, new ItemConfig()
             {
                 CraftingStation = "forge",
                 MinStationLevel = 2,
@@ -99,18 +94,19 @@ namespace CackleIron
                     new RequirementConfig()
                     {
                         Item = "Iron",
-                        Amount = 20,
-                        AmountPerLevel = 5
+                        Amount = 10,
+                        AmountPerLevel = 3
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 2,
-                        AmountPerLevel = 0
+                        Item = "LinenThread",
+                        Amount = 20,
+                        AmountPerLevel = 10
                     }
                 }
             });
-            ItemManager.Instance.AddItem(pantItem);
+            ItemManager.Instance.AddItem(PpantItem);
+
 
             //============================//
 
@@ -120,12 +116,12 @@ namespace CackleIron
             var localization = LocalizationManager.Instance.GetLocalization();
             localization.AddTranslation("English", new Dictionary<string, string>
             {
-                {"chIH", "[CH]Iron Helm" },
-                {"chIH_D", "Forged into the most optimal shape for headbutting"},
-                {"chIC", "[CH]Iron Plate" },
-                {"chIC_D", "Comes with it's very own picnic basket!"},
-                {"chIS", "[CH]Iron Suit" },
-                {"chIS_D", "Stylish armored coveralls"},
+                    {"chPH", "[CH]Padded Helm" },
+                    {"chPH_D", "The perfect helmet for charging into glorious battle!"},
+                    {"chPC", "[CH]Padded Coat" },
+                    {"chPC_D", "Lined with chain, this padded coat is perfect for thwarting the dreaded stings of deathsquitos"},
+                    {"chPS", "[CH]Padded Suit" },
+                    {"chPS_D", "Sturdy linen pants and top for life in the plains"},
             });
         }
     }

@@ -50,7 +50,9 @@ MonoBehaviour:
   m_raiseSkillModifier: 0
   m_skillLevel: 0
   m_skillLevelModifier: 0
-  m_mods: []
+  m_mods:
+  - m_type: 0
+    m_modifier: 0
   m_modifyAttackSkill: 0
   m_damageModifier: 0
   m_noiseModifier: 0

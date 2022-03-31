@@ -53,6 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8077729525112368451}
+  - component: {fileID: 868245676544907258}
   m_Layer: 10
   m_Name: new
   m_TagString: Untagged
@@ -75,6 +76,25 @@ Transform:
   m_Father: {fileID: 5914987286319095079}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &868245676544907258
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650958488165348809}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0013794899, y: -1.2628697, z: -0.0018117428}
+  m_Size: 4.832463
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.052974086
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4245379926484821959}
+  m_Enabled: 1
 --- !u!1 &4254510800367604634
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2725480829332294430}
+  - component: {fileID: 1555800727845921338}
   m_Layer: 10
   m_Name: worn
   m_TagString: Untagged
@@ -368,6 +389,25 @@ Transform:
   m_Father: {fileID: 5914987286319095079}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &1555800727845921338
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845066230171043486}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.0013794899, y: -1.2628697, z: -0.0018117428}
+  m_Size: 4.832477
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.052974086
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 458534579223289428}
+  m_Enabled: 1
 --- !u!1 &7515731320000759827
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,12 @@ using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
+using HarmonyLib;
+using HarmonyXInterop;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+
 
 namespace Cackleheim
 {
@@ -24,25 +27,26 @@ namespace Cackleheim
         public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
         public const string PluginVersion = "3.1.0";
+        
 
-        private GameObject Cak1Obj;
-        private GameObject Cak2Obj;
-        private GameObject Cak3Obj;
-        private GameObject Cak4Obj;
-        private GameObject ForObj;
-        private GameObject WamObj;
-        private GameObject WamAObj;
-        private GameObject WamBObj;
-        private GameObject CuaObj;
-        private GameObject CuaAObj;
-        private GameObject CuaBObj;
-        private GameObject DraObj;
-        private GameObject DraAObj;
-        private GameObject DraBObj;
+        private static GameObject Cak1Obj;
+        private static GameObject Cak2Obj;
+        private static GameObject Cak3Obj;
+        private static GameObject Cak4Obj;
+        private static GameObject ForObj;
+        private static GameObject WamObj;
+        private static GameObject WamAObj;
+        private static GameObject WamBObj;
+        private static GameObject CuaObj;
+        private static GameObject CuaAObj;
+        private static GameObject CuaBObj;
+        private static GameObject DraObj;
+        private static GameObject DraAObj;
+        private static GameObject DraBObj;
 
         //  private Mesh OrigMesh;
 
-        private Material TransparentMaterial;
+        private static Material TransparentMaterial;
 
         private void Awake()
         {
@@ -56,14 +60,15 @@ namespace Cackleheim
             
             CreateItems();
 
-            On.VisEquipment.SetChestEquiped += VisEquipment_SetChestEquiped;
-            On.Player.OnDeath += Player_OnDeath; 
-            On.Player.OnSpawned += Player_OnSpawned;
-        }
+                new Harmony("Cackleheim").PatchAll();
+            }
 
-        private void Player_OnSpawned(On.Player.orig_OnSpawned orig, Player player)
+        [HarmonyPatch(typeof(Player), nameof(Player.OnSpawned))] // Type and method to patch. Equivalent to Player_OnSpawned
+        [HarmonyPostfix] // Method should be run after Player.OnSpawned ran
+        private static void AddHoldoverItemToPlayer(Player __instance) // __instance is HarmonyX way of getting the object that the patched method is being run on.
         {
-            orig(player);
+            var player = __instance;
+
             if (holdoverItems.Any())
             {
                 Inventory inventory = player.GetInventory();
@@ -81,28 +86,29 @@ namespace Cackleheim
                 holdoverItems.Clear();
             }
         }
-          
-        private HashSet<string> holdoverItemsSet = new HashSet<string>
+
+        private static HashSet<string> holdoverItemsSet = new HashSet<string>
         {
           "Cackle01","Cackle02","Cackle03","Cackle04","chForsaken","chWambui",
             "chWambuiA","chWambuiB","chCuan","chCuanA","chCuanB","chDraca","chDracaA","chDracaB"
-        }; 
-        private readonly List<ItemDrop.ItemData> holdoverItems = new List<ItemDrop.ItemData>();
+        };
+        private static readonly List<ItemDrop.ItemData> holdoverItems = new List<ItemDrop.ItemData>();
 
-        private void Player_OnDeath(On.Player.orig_OnDeath orig, Player player)
+        [HarmonyPatch(typeof(Player), nameof(Player.OnDeath))]
+        [HarmonyPrefix] // Method should run before Player.OnDeath is run
+        private static void AddHoldoverItem(Player __instance)
         {
-            
+            var player = __instance;
+
             foreach (ItemDrop.ItemData item in new List<ItemDrop.ItemData>(player.m_inventory.GetAllItems()))
             {
-                if(item.m_equiped && holdoverItemsSet.Contains(item.m_dropPrefab.name))
+                if (item.m_equiped && holdoverItemsSet.Contains(item.m_dropPrefab.name))
                 {
                     item.m_equiped = false;
                     holdoverItems.Add(item);
                     player.m_inventory.RemoveOneItem(item);
                 }
             }
-
-            orig(player); 
         }
 
         private void CreateItems()
@@ -492,9 +498,20 @@ namespace Cackleheim
 
         //=====PlayerBeGone-Inator5000=====//
 
-        private bool VisEquipment_SetChestEquiped(On.VisEquipment.orig_SetChestEquiped orig, VisEquipment self, int hash)
+        private static int oldHash;
+
+        [HarmonyPatch(typeof(VisEquipment), "SetChestEquiped")] // Writing the method name manually can be used for if you are not using publicized valheim dlls.
+        [HarmonyPrefix]
+        private static void StoreCurrentChestHash(VisEquipment __instance) // As before, we use __instance when getting the object instance.
         {
-            int oldHash = self.m_currentChestItemHash;
+            oldHash = __instance.m_currentChestItemHash;
+        }
+
+        [HarmonyPatch(typeof(VisEquipment), "SetChestEquiped")] // Writing the method name manually can be used for if you are not using publicized valheim dlls.
+        [HarmonyPostfix]
+        private static void ReplaceMaterial(VisEquipment __instance, int hash, ref bool __result) // Method parameters like "hash" can just be listed here. The result of the method patched can be received by adding "result". We set the result with "ref" because it looks like you want to enforce the result as "true".
+        {
+            var self = __instance;
 
             List<int> itemHashes = new List<int>();
             itemHashes.Add(Cak1Obj.name.GetStableHashCode());
@@ -513,7 +530,7 @@ namespace Cackleheim
             itemHashes.Add(DraBObj.name.GetStableHashCode());
 
 
-            if (orig(self, hash) && self.m_bodyModel != null)
+            if (__result && self.m_bodyModel != null)
             {
                 if (itemHashes.Contains(hash))
                 {
@@ -529,7 +546,7 @@ namespace Cackleheim
                 }
             }
 
-            return true;
+            __result = true;
         }
 
     }

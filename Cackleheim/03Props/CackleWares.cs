@@ -21,7 +21,7 @@ namespace CackleWares
     {
         public const string PluginGUID = "DarnHyena.CackleWares";
         public const string PluginName = "CackleWares";
-        public const string PluginVersion = "1.0.0";
+        public const string PluginVersion = "1.1.0";
 
         private GameObject CraObj;
         private GameObject CraCObj;
@@ -41,7 +41,12 @@ namespace CackleWares
         //Banner
         private GameObject BanAObj;
         private GameObject BanBObj;
-
+        //Fence
+        private GameObject LLObj;
+        private GameObject LSObj;
+        private GameObject LEObj;
+        //Travel
+        private GameObject TravObj;
 
         private void Awake()
         {
@@ -66,11 +71,18 @@ namespace CackleWares
             //Banner
             BanAObj = WaresBundle.LoadAsset<GameObject>("chBannerA");
             BanBObj = WaresBundle.LoadAsset<GameObject>("chBannerB");
+            //Fence
+            LLObj = WaresBundle.LoadAsset<GameObject>("chLogLong");
+            LSObj = WaresBundle.LoadAsset<GameObject>("chLogShort");
+            LEObj = WaresBundle.LoadAsset<GameObject>("chLogEnd");
+            //Travel
+            TravObj = WaresBundle.LoadAsset<GameObject>("chTravelPack");
 
             WaresBundle.Unload(false);
 
 
             //==========RECIPES==========//
+            //===========Crates============//
 
             CustomPiece CraPiece = new CustomPiece(CraObj, true, new PieceConfig()
             {
@@ -88,7 +100,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(CraPiece);
-            //============================//
+            
             CustomPiece CraCPiece = new CustomPiece(CraCObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -149,7 +161,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RugAPiece);
-            //============================//
+            
             CustomPiece RugBPiece = new CustomPiece(RugBObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -172,7 +184,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RugBPiece);
-            //============================//
+            
             CustomPiece RugCPiece = new CustomPiece(RugCObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -195,7 +207,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RugCPiece);
-            //============================//
+            
             CustomPiece RugDPiece = new CustomPiece(RugDObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -218,7 +230,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RugDPiece);
-            //============================//
+            
             CustomPiece RugEPiece = new CustomPiece(RugEObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -235,7 +247,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RugEPiece);
-            //============================//
+            
             //==========Rolled============//
 
             CustomPiece RRugAPiece = new CustomPiece(RRugAObj, true, new PieceConfig()
@@ -260,7 +272,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RRugAPiece);
-            //============================//
+            
             CustomPiece RRugBPiece = new CustomPiece(RRugBObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -283,7 +295,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RRugBPiece);
-            //============================//
+            
             CustomPiece RRugCPiece = new CustomPiece(RRugCObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -306,7 +318,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RRugCPiece);
-            //============================//
+            
             CustomPiece RRugDPiece = new CustomPiece(RRugDObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -329,7 +341,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RRugDPiece);
-            //============================//
+            
             CustomPiece RRugEPiece = new CustomPiece(RRugEObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -346,7 +358,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(RRugEPiece);
-            //============================//
+
             //==========Banner============//
 
             CustomPiece BanAPiece = new CustomPiece(BanAObj, true, new PieceConfig()
@@ -377,7 +389,7 @@ namespace CackleWares
                 }
             });
             PieceManager.Instance.AddPiece(BanAPiece);
-            //============================//
+            
             CustomPiece BanBPiece = new CustomPiece(BanBObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
@@ -407,6 +419,91 @@ namespace CackleWares
             });
             PieceManager.Instance.AddPiece(BanBPiece);
 
+            //=========Wood Fence=========//
+
+            CustomPiece LLPiece = new CustomPiece(LLObj, true, new PieceConfig()
+            {
+                PieceTable = "Hammer",
+                Category = "chDecor",
+                CraftingStation = "piece_workbench",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 3,
+                        Recover = true,
+                    }
+                }
+            });
+            PieceManager.Instance.AddPiece(LLPiece);
+
+            CustomPiece LSPiece = new CustomPiece(LSObj, true, new PieceConfig()
+            {
+                PieceTable = "Hammer",
+                Category = "chDecor",
+                CraftingStation = "piece_workbench",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 1,
+                        Recover = true,
+                    }
+                }
+            });
+            PieceManager.Instance.AddPiece(LSPiece);
+
+            CustomPiece LEPiece = new CustomPiece(LEObj, true, new PieceConfig()
+            {
+                PieceTable = "Hammer",
+                Category = "chDecor",
+                CraftingStation = "piece_workbench",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 2,
+                        Recover = true,
+                    }
+                }
+            });
+            PieceManager.Instance.AddPiece(LEPiece);
+
+            //=========Travel Pack=========//
+
+            CustomItem TravItem = new CustomItem(TravObj, true, new ItemConfig()
+            {
+                CraftingStation = "piece_workbench",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "Wood",
+                        Amount = 20,
+                        AmountPerLevel = 5
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Resin",
+                        Amount = 15
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide",
+                        Amount = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "CookedMeat",
+                        Amount = 1
+                    },
+                }
+            });
+            ItemManager.Instance.AddItem(TravItem);
+
             //===Item Names, Description===//
             //========&Localization========//
 
@@ -433,9 +530,19 @@ namespace CackleWares
                     {"$chRugRollG", "Rolled Rug Green" },
                     {"$chRugRollB", "Rolled Rug Blue" },
                     //Banner
-                    {"$chBanA", "Rolled Rug Plain" },
-                    {"$chBan", "Rolled Rug Red" },
-                    {"$chBanAD", " " },
+                    {"$chBanA", "Cackle Banner Sun" },
+                    {"$chBanB", "Cackle Banner Plains" },
+                    {"$chBanD", " " },
+                    //Fence
+                    {"chLogL", "Tree Wall" },
+                    {"chLogLD", "Small fence made of tree stumps" },
+                    {"chLogS", "Tree Wall Short" },
+                    {"chLogSD", " " },
+                    {"chLogE", "Tree Wall End" },
+                    {"chLogED", " " },
+                    //Travel
+                    {"chTrav", "[CH]Travel Pack" },
+                    {"chTravD", "Bulky pack to transport your stash of meat in"},
 
             });
         }

@@ -12,38 +12,38 @@ using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleWolf
+namespace CackleMountain
 {   
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleWolf : BaseUnityPlugin
+    internal class CackleMountain : BaseUnityPlugin
     {
-        public const string PluginGUID = "DarnHyena.CackleWolf";
-        public const string PluginName = "CackleWolf";
-        public const string PluginVersion = "1.1.0";
+        public const string PluginGUID = "DarnHyena.CackleMountain";
+        public const string PluginName = "CackleMountain";
+        public const string PluginVersion = "2.2.0";
 
-        private GameObject HatObj;
-        private GameObject PantObj;
-        private GameObject CapeObj;
-        private GameObject ChestObj;
+        private GameObject WHatObj;
+        private GameObject WPantObj;
+        private GameObject WCapeObj;
+        private GameObject WChestObj;
 
 
         private void Awake()
         {
             //========ASSETBUNDLES========// 
 
-            AssetBundle WolfBundle = AssetUtils.LoadAssetBundleFromResources("itemtier06", typeof(CackleWolf).Assembly);
-            HatObj = WolfBundle.LoadAsset<GameObject>("chWoHelm");
-            PantObj = WolfBundle.LoadAsset<GameObject>("chWoPants");
-            CapeObj = WolfBundle.LoadAsset<GameObject>("chWoVest");
-            ChestObj = WolfBundle.LoadAsset<GameObject>("chWoCloak");
-            WolfBundle.Unload(false);
+            AssetBundle MountainBundle = AssetUtils.LoadAssetBundleFromResources("itemmountain", typeof(CackleMountain).Assembly);
+            WHatObj = MountainBundle.LoadAsset<GameObject>("chWoHelm");
+            WPantObj = MountainBundle.LoadAsset<GameObject>("chWoPants");
+            WCapeObj = MountainBundle.LoadAsset<GameObject>("chWoVest");
+            WChestObj = MountainBundle.LoadAsset<GameObject>("chWoCloak");
+            MountainBundle.Unload(false);
 
 
-            //==========RECIPES==========//
+            //==========WOLF==========//
 
-            CustomItem hatItem = new CustomItem(HatObj, true, new ItemConfig()
+            CustomItem WhatItem = new CustomItem(WHatObj, true, new ItemConfig()
             {
                 CraftingStation = "forge", 
                 MinStationLevel = 1,  
@@ -69,11 +69,9 @@ namespace CackleWolf
                     }
                 }
             });
-            ItemManager.Instance.AddItem(hatItem);
-                
-            //============================//
+            ItemManager.Instance.AddItem(WhatItem);
 
-            CustomItem capeItem = new CustomItem(CapeObj, true, new ItemConfig()
+            CustomItem WcapeItem = new CustomItem(WCapeObj, true, new ItemConfig()
             {
                 CraftingStation = "piece_workbench",
                 MinStationLevel = 2,
@@ -99,11 +97,9 @@ namespace CackleWolf
                     }
                 }
             });
-            ItemManager.Instance.AddItem(capeItem);
+            ItemManager.Instance.AddItem(WcapeItem);
 
-            //============================//
-
-            CustomItem pantItem = new CustomItem(PantObj, true, new ItemConfig()
+            CustomItem WpantItem = new CustomItem(WPantObj, true, new ItemConfig()
             {
                 CraftingStation = "forge",
                 MinStationLevel = 2,
@@ -129,11 +125,9 @@ namespace CackleWolf
                     }
                 }
             });
-            ItemManager.Instance.AddItem(pantItem);
+            ItemManager.Instance.AddItem(WpantItem);
 
-            //============================//
-
-            CustomItem chestItem = new CustomItem(ChestObj, true, new ItemConfig()
+            CustomItem WchestItem = new CustomItem(WChestObj, true, new ItemConfig()
             {
                 CraftingStation = "forge",
                 MinStationLevel = 2,
@@ -159,9 +153,9 @@ namespace CackleWolf
                     }
                 }
             });
-            ItemManager.Instance.AddItem(chestItem);
+            ItemManager.Instance.AddItem(WchestItem);
 
-            //============================//
+            //==========CAVE==========//
 
             //===Item Names, Description===//
             //========&Localization========//

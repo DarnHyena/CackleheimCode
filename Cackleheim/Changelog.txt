@@ -1,4 +1,10 @@
 ==========================
+Janurary 2022
+[3.3.0]
+-New buildables! Tents, Rugs, Fence, Table, Box
+-New Item! Travel Pack
+
+==========================
 December
 [3.2.0]
 -Updated Unity Version

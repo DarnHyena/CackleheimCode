@@ -44,18 +44,18 @@ namespace CackleTraveller
                     new RequirementConfig()
                     {
                         Item = "Wood",
-                        Amount = 10,
+                        Amount = 20,
                         AmountPerLevel = 5
                     },
                     new RequirementConfig()
                     {
                         Item = "Resin",
-                        Amount = 10
+                        Amount = 15
                     },
                     new RequirementConfig()
                     {
                         Item = "DeerHide",
-                        Amount = 3
+                        Amount = 10
                     },
                     new RequirementConfig()
                     {

@@ -115,7 +115,7 @@ namespace CackleTent
 
             //==========RECIPES==========//
 
-            CustomPiece sqrPiece = new CustomPiece(sqrObj,true, new PieceConfig()
+            CustomPiece sqrPiece = new CustomPiece(sqrObj, true, new PieceConfig()
             {
                 PieceTable = "Hammer",
                 Category = "chDecor",
@@ -1130,8 +1130,8 @@ namespace CackleTent
                     {"chRTri", "Red Half Tent" },
                     {"chRWala", "Red Tent Wall" },
                     {"chRWalb", "Red Tent Wall Half" },
-                    {"chCornR", "Tent Corner" },
-                    {"chTowR", "Tent Tower" },
+                    {"chRCorn", "Red Tent Corner" },
+                    {"chTowR", "Red Tent Tower" },
 
                     //Yellow Tent//
 
@@ -1140,8 +1140,8 @@ namespace CackleTent
                     {"chYTri", "Yellow Half Tent" },
                     {"chYWala", "Yellow Tent Wall" },
                     {"chYWalb", "Yellow Tent Wall Half" },
-                    {"chCornY", "Tent Corner" },
-                    {"chTowY", "Tent Tower" },
+                    {"chYCorn", "Yellow Tent Corner" },
+                    {"chTowY", "Yellow Tent Tower" },
 
                     //Green Tent//
 
@@ -1150,8 +1150,8 @@ namespace CackleTent
                     {"chGTri", "Green Half Tent" },
                     {"chGWala", "Green Tent Wall" },
                     {"chGWalb", "Green Tent Wall Half" },
-                    {"chCornG", "Tent Corner" },
-                    {"chTowG", "Tent Tower" },
+                    {"chGCorn", "Green Tent Corner" },
+                    {"chTowG", "Green Tent Tower" },
 
                     //Blue Tent//
 
@@ -1160,8 +1160,8 @@ namespace CackleTent
                     {"chBTri", "Blue Half Tent" },
                     {"chBWala", "Blue Tent Wall" },
                     {"chBWalb", "Blue Tent Wall Half" },
-                    {"chCornB", "Tent Corner" },
-                    {"chTowB", "Tent Tower" },
+                    {"chBCorn", "Blue Tent Corner" },
+                    {"chTowB", "Blue Tent Tower" },
             });
         }
     }
