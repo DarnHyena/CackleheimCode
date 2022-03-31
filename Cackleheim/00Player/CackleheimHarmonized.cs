@@ -65,29 +65,33 @@ namespace Cackleheim
         }
 
         [HarmonyPatch(typeof(Player), nameof(Player.OnSpawned))] // Type and method to patch. Equivalent to Player_OnSpawned
-        [HarmonyPostfix] // Method should be run after Player.OnSpawned ran
-        private static void AddHoldoverItemToPlayer(Player __instance) // __instance is HarmonyX way of getting the object that the patched method is being run on.
+        private static class PlayerSpawnPatch
+
         {
-            var player = __instance;
-
-            if (holdoverItems.Any())
+            private static void Postfix(Player __instance) // __instance is HarmonyX way of getting the object that the patched method is being run on.
             {
-                Inventory inventory = player.GetInventory();
-                foreach (ItemDrop.ItemData item in holdoverItems)
-                {
-#if DEBUG
-                    Jotunn.Logger.LogInfo($"Re-adding {item.m_shared.m_name}");
-#endif
-                    if (inventory.AddItem(item))
-                    {
-                        ItemDrop.ItemData addedItem = inventory.GetItem(item.m_shared.m_name);
-                        player.EquipItem(addedItem);
-                    }
-                }
-                holdoverItems.Clear();
-            }
-        }
+                var player = __instance;
 
+                if (holdoverItems.Any())
+                {
+                    Inventory inventory = player.GetInventory();
+                    foreach (ItemDrop.ItemData item in holdoverItems)
+                    {
+#if DEBUG
+                        Jotunn.Logger.LogInfo($"Re-adding {item.m_shared.m_name}");
+#endif
+                        if (inventory.AddItem(item))
+                        {
+                            ItemDrop.ItemData addedItem = inventory.GetItem(item.m_shared.m_name);
+                            player.EquipItem(addedItem);
+                        }
+                    }
+                    holdoverItems.Clear();
+                }
+            }
+
+        }
+      
         private static HashSet<string> holdoverItemsSet = new HashSet<string>
         {
             "Cackle01",
@@ -108,21 +112,24 @@ namespace Cackleheim
         private static readonly List<ItemDrop.ItemData> holdoverItems = new List<ItemDrop.ItemData>();
 
         [HarmonyPatch(typeof(Player), nameof(Player.OnDeath))]
-        [HarmonyPrefix] // Method should run before Player.OnDeath is run
-        private static void AddHoldoverItem(Player __instance)
+        private static class PlayerOnDeathPatch
         {
-            var player = __instance;
-
-            foreach (ItemDrop.ItemData item in new List<ItemDrop.ItemData>(player.m_inventory.GetAllItems()))
+            private static void Prefix(Player __instance)
             {
-                if (item.m_equiped && holdoverItemsSet.Contains(item.m_dropPrefab.name))
+                var player = __instance;
+
+                foreach (ItemDrop.ItemData item in new List<ItemDrop.ItemData>(player.m_inventory.GetAllItems()))
                 {
-                    item.m_equiped = false;
-                    holdoverItems.Add(item);
-                    player.m_inventory.RemoveOneItem(item);
+                    if (item.m_equiped && holdoverItemsSet.Contains(item.m_dropPrefab.name))
+                    {
+                        item.m_equiped = false;
+                        holdoverItems.Add(item);
+                        player.m_inventory.RemoveOneItem(item);
+                    }
                 }
             }
         }
+        
 
         private void CreateItems()
         {
