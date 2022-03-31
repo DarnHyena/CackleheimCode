@@ -93,9 +93,6 @@
     <Compile Include="03Props\CackleSalon.cs" />
     <None Include="00Player\CackleheimHook.cs" />
     <None Include="00Player\CackleheimBS.cs" />
-    <None Include="05Customs\AshiCustom.cs" />
-    <None Include="05Customs\IcoCustom.cs" />
-    <None Include="05Customs\ChuckCustom.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Resources\buildsalon" />
