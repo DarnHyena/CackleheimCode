@@ -24,7 +24,7 @@ namespace Cackleheim
         public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
         public const string PluginVersion = "3.1.0";
-
+        private static Harmony? harmony = null!;
         private GameObject Cak1Obj;
         private GameObject Cak2Obj;
         private GameObject Cak3Obj;
@@ -45,6 +45,9 @@ namespace Cackleheim
 
         private void Awake()
         {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            harmony = new(PluginGUID);
+            harmony.PatchAll(assembly);
             CreateItems();
 
             On.Player.OnDeath += Player_OnDeath; 
