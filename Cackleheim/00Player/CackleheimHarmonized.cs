@@ -15,6 +15,7 @@ using HarmonyXInterop;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 
 namespace Cackleheim
@@ -27,7 +28,7 @@ namespace Cackleheim
         public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
         public const string PluginVersion = "3.1.0";
-        
+
 
         private static GameObject Cak1Obj;
         private static GameObject Cak2Obj;
@@ -57,11 +58,11 @@ namespace Cackleheim
             TransparentMaterial.SetInt("_DstBlend", 0);
             TransparentMaterial.EnableKeyword("_ALPHATEST_ON");
             TransparentMaterial.renderQueue = 2450;
-            
+
             CreateItems();
 
-                new Harmony("Cackleheim").PatchAll();
-            }
+            new Harmony("Cackleheim").PatchAll();
+        }
 
         [HarmonyPatch(typeof(Player), nameof(Player.OnSpawned))] // Type and method to patch. Equivalent to Player_OnSpawned
         [HarmonyPostfix] // Method should be run after Player.OnSpawned ran
@@ -89,8 +90,20 @@ namespace Cackleheim
 
         private static HashSet<string> holdoverItemsSet = new HashSet<string>
         {
-          "Cackle01","Cackle02","Cackle03","Cackle04","chForsaken","chWambui",
-            "chWambuiA","chWambuiB","chCuan","chCuanA","chCuanB","chDraca","chDracaA","chDracaB"
+            "Cackle01",
+            "Cackle02",
+            "Cackle03",
+            "Cackle04",
+            "chForsaken",
+            "chWambui",
+            "chWambuiA",
+            "chWambuiB",
+            "chCuan",
+            "chCuanA",
+            "chCuanB",
+            "chDraca",
+            "chDracaA",
+            "chDracaB"
         };
         private static readonly List<ItemDrop.ItemData> holdoverItems = new List<ItemDrop.ItemData>();
 
@@ -141,15 +154,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -162,15 +171,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -183,15 +188,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -204,15 +205,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -227,15 +224,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -248,15 +241,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -269,15 +258,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -292,15 +277,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -313,15 +294,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -334,15 +311,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -357,15 +330,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -378,15 +347,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -399,15 +364,11 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -423,27 +384,19 @@ namespace Cackleheim
                 {
                     new RequirementConfig()
                     {
-                        Item = "Cackle01",
-                        Amount = 1,
-                        AmountPerLevel = 0
+                        Item = "Cackle01", Amount = 1, AmountPerLevel = 0
                     },
                     new RequirementConfig()
                     {
-                        Item = "TrophyDraugr",
-                        Amount = 1,
-                        AmountPerLevel = 0
+                        Item = "TrophyDraugr", Amount = 1, AmountPerLevel = 0
                     },
                     new RequirementConfig()
                     {
-                        Item = "Wood",
-                        Amount = 1,
-                        AmountPerLevel = 10
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
                     },
                     new RequirementConfig()
                     {
-                        Item = "DeerHide",
-                        Amount = 0,
-                        AmountPerLevel = 5
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
                     }
                 }
             });
@@ -456,42 +409,98 @@ namespace Cackleheim
             var localization = LocalizationManager.Instance.GetLocalization();
             localization.AddTranslation("English", new Dictionary<string, string>
             {
-                {"chB1", "dey Cackle Totem Tan" },
-                {"chB1_D", "A strange trinket covered in orange moss.  You hear a faint noise when held"},
-                {"chB2", "dey Cackle Totem Brown" },
-                {"chB2_D", "A strange trinket covered in brown moss.  You hear a faint noise when held"},
-                {"chB3", "dey Cackle Totem Blond" },
-                {"chB3_D", "A strange trinket covered in yellow moss.  You hear a faint noise when held"},
-                {"chB4", "dey Cackle Totem Red" },
-                {"chB4_D", "A strange trinket covered in red moss.  You hear a faint noise when held"},
+                {
+                    "chB1", "dey Cackle Totem Tan"
+                },
+                {
+                    "chB1_D", "A strange trinket covered in orange moss.  You hear a faint noise when held"
+                },
+                {
+                    "chB2", "dey Cackle Totem Brown"
+                },
+                {
+                    "chB2_D", "A strange trinket covered in brown moss.  You hear a faint noise when held"
+                },
+                {
+                    "chB3", "dey Cackle Totem Blond"
+                },
+                {
+                    "chB3_D", "A strange trinket covered in yellow moss.  You hear a faint noise when held"
+                },
+                {
+                    "chB4", "dey Cackle Totem Red"
+                },
+                {
+                    "chB4_D", "A strange trinket covered in red moss.  You hear a faint noise when held"
+                },
 
                 //=============Forsaken==============//
-                {"chFor", "dey Forsaken Totem" },
-                {"chFor_D", "A strange trinket. Something's different about this one"},
-                
+                {
+                    "chFor", "dey Forsaken Totem"
+                },
+                {
+                    "chFor_D", "A strange trinket. Something's different about this one"
+                },
+
                 //=============Wambui==============//
-                {"chWam", "dey Wambui Totem Wheat" },
-                {"chWam_D", "Like Mama always said, you are what you eat"},
-                {"chWamA", "dey Wambui Totem Mud" },
-                {"chWamA_D", "Like Mama always said, you are what you eat"},
-                {"chWamB", "dey Wambui Totem Donk" },
-                {"chWamB_D", "Like Mama always said, you are what you eat"},
-                
+                {
+                    "chWam", "dey Wambui Totem Wheat"
+                },
+                {
+                    "chWam_D", "Like Mama always said, you are what you eat"
+                },
+                {
+                    "chWamA", "dey Wambui Totem Mud"
+                },
+                {
+                    "chWamA_D", "Like Mama always said, you are what you eat"
+                },
+                {
+                    "chWamB", "dey Wambui Totem Donk"
+                },
+                {
+                    "chWamB_D", "Like Mama always said, you are what you eat"
+                },
+
                 //=============Cuan==============//
-                {"chCua", "dey Cuan Totem Silver" },
-                {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
-                {"chCuaA", "dey Cuan Totem Cream" },
-                {"chCuaA_D", "Once belonged to a strange creature that yells at the Moon"},
-                {"chCuaB", "dey Cuan Totem Cherry" },
-                {"chCuaB_D", "Once belonged to a strange creature that yells at the Moon"},
-                
+                {
+                    "chCua", "dey Cuan Totem Silver"
+                },
+                {
+                    "chCua_D", "Once belonged to a strange creature that yells at the Moon"
+                },
+                {
+                    "chCuaA", "dey Cuan Totem Cream"
+                },
+                {
+                    "chCuaA_D", "Once belonged to a strange creature that yells at the Moon"
+                },
+                {
+                    "chCuaB", "dey Cuan Totem Cherry"
+                },
+                {
+                    "chCuaB_D", "Once belonged to a strange creature that yells at the Moon"
+                },
+
                 //=============Draca==============//
-                {"chDra", "dey Draca Totem Dirt" },
-                {"chDra_D", "Smells a bit Fishy"},
-                {"chDraA", "dey Draca Totem Sand" },
-                {"chDraA_D", "Smells a bit Fishy"},
-                {"chDraB", "dey Draca Totem Clay" },
-                {"chDraB_D", "Smells a bit Fishy"},
+                {
+                    "chDra", "dey Draca Totem Dirt"
+                },
+                {
+                    "chDra_D", "Smells a bit Fishy"
+                },
+                {
+                    "chDraA", "dey Draca Totem Sand"
+                },
+                {
+                    "chDraA_D", "Smells a bit Fishy"
+                },
+                {
+                    "chDraB", "dey Draca Totem Clay"
+                },
+                {
+                    "chDraB_D", "Smells a bit Fishy"
+                },
             });
         }
 
@@ -501,53 +510,62 @@ namespace Cackleheim
         private static int oldHash;
 
         [HarmonyPatch(typeof(VisEquipment), "SetChestEquiped")] // Writing the method name manually can be used for if you are not using publicized valheim dlls.
-        [HarmonyPrefix]
-        private static void StoreCurrentChestHash(VisEquipment __instance) // As before, we use __instance when getting the object instance.
+        private static class VisEquipChestPatch
         {
-            oldHash = __instance.m_currentChestItemHash;
+            [UsedImplicitly]
+            private static void Prefix(VisEquipment __instance) // As before, we use __instance when getting the object instance.
+            {
+                oldHash = __instance.m_currentChestItemHash;
+            }
         }
+
+    
 
         [HarmonyPatch(typeof(VisEquipment), "SetChestEquiped")] // Writing the method name manually can be used for if you are not using publicized valheim dlls.
-        [HarmonyPostfix]
-        private static void ReplaceMaterial(VisEquipment __instance, int hash, ref bool __result) // Method parameters like "hash" can just be listed here. The result of the method patched can be received by adding "result". We set the result with "ref" because it looks like you want to enforce the result as "true".
+        private static class VisEquipPatch
         {
-            var self = __instance;
-
-            List<int> itemHashes = new List<int>();
-            itemHashes.Add(Cak1Obj.name.GetStableHashCode());
-            itemHashes.Add(Cak2Obj.name.GetStableHashCode());
-            itemHashes.Add(Cak3Obj.name.GetStableHashCode());
-            itemHashes.Add(Cak4Obj.name.GetStableHashCode());
-            itemHashes.Add(ForObj.name.GetStableHashCode());
-            itemHashes.Add(WamObj.name.GetStableHashCode());
-            itemHashes.Add(WamAObj.name.GetStableHashCode());
-            itemHashes.Add(WamBObj.name.GetStableHashCode());
-            itemHashes.Add(CuaObj.name.GetStableHashCode());
-            itemHashes.Add(CuaAObj.name.GetStableHashCode());
-            itemHashes.Add(CuaBObj.name.GetStableHashCode());
-            itemHashes.Add(DraObj.name.GetStableHashCode());
-            itemHashes.Add(DraAObj.name.GetStableHashCode());
-            itemHashes.Add(DraBObj.name.GetStableHashCode());
-
-
-            if (__result && self.m_bodyModel != null)
+            [UsedImplicitly]
+            private static void Postfix(VisEquipment __instance, int hash, ref bool __result) // Method parameters like "hash" can just be listed here. The result of the method patched can be received by adding "result". We set the result with "ref" because it looks like you want to enforce the result as "true".
             {
-                if (itemHashes.Contains(hash))
+                var self = __instance;
+
+                List<int> itemHashes = new List<int>();
+                itemHashes.Add(Cak1Obj.name.GetStableHashCode());
+                itemHashes.Add(Cak2Obj.name.GetStableHashCode());
+                itemHashes.Add(Cak3Obj.name.GetStableHashCode());
+                itemHashes.Add(Cak4Obj.name.GetStableHashCode());
+                itemHashes.Add(ForObj.name.GetStableHashCode());
+                itemHashes.Add(WamObj.name.GetStableHashCode());
+                itemHashes.Add(WamAObj.name.GetStableHashCode());
+                itemHashes.Add(WamBObj.name.GetStableHashCode());
+                itemHashes.Add(CuaObj.name.GetStableHashCode());
+                itemHashes.Add(CuaAObj.name.GetStableHashCode());
+                itemHashes.Add(CuaBObj.name.GetStableHashCode());
+                itemHashes.Add(DraObj.name.GetStableHashCode());
+                itemHashes.Add(DraAObj.name.GetStableHashCode());
+                itemHashes.Add(DraBObj.name.GetStableHashCode());
+
+
+                if (__result && self.m_bodyModel != null)
                 {
-                    self.m_bodyModel.material = TransparentMaterial;
-                    self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
-                }
-                else
-                {
-                    if (itemHashes.Contains(oldHash))
+                    if (itemHashes.Contains(hash))
                     {
-                        self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
+                        self.m_bodyModel.material = TransparentMaterial;
+                        self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
+                    }
+                    else
+                    {
+                        if (itemHashes.Contains(oldHash))
+                        {
+                            self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
+                        }
                     }
                 }
+
+                __result = true;
             }
-
-            __result = true;
+ 
         }
-
+      
     }
 }
