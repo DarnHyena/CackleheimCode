@@ -36,8 +36,11 @@ namespace CackleMane
         private GameObject MaC2Obj;
         private GameObject MaC3Obj;
 
+
+
         private void Awake()
         {
+
             //========ASSETBUNDLES========//
 
             AssetBundle ManeBundle = AssetUtils.LoadAssetBundleFromResources("itemmane", typeof(CackleMane).Assembly);
@@ -317,23 +320,18 @@ namespace CackleMane
             localization.AddTranslation("English", new Dictionary<string, string>
             {
                     {"chMA1", "[CH]Light ManeA" },
-                    {"chMA1_D", "Scruffy mane adorn with wooden bands"},
                     {"chMA2", "[CH]Medium ManeA"},
-                    {"chMA2_D", "Scruffy mane adorn with leather bands"},
                     {"chMA3", "[CH]Heavy ManeA"},
-                    {"chMA3_D", "Scruffy mane adorn with metal bands"},
                     {"chMB1", "[CH]Light ManeB"},
-                    {"chMB1_D", "Scruffy mane adorn with wooden bands"},
                     {"chMB2", "[CH]Medium ManeB"},
-                    {"chMB2_D", "Scruffy mane adorn with leather bands"},
                     {"chMB3", "[CH]Heavy ManeB"},
-                    {"chMB3_D", "Scruffy mane adorn with metal bands"},
                     {"chMC1", "[CH]Light ManeC"},
-                    {"chMC1_D", "Scruffy mane adorn with wooden bands"},
                     {"chMC2", "[CH]Medium ManeC"},
-                    {"chMC2_D", "Scruffy mane adorn with leather bands"},
                     {"chMC3", "[CH]Heavy ManeC"},
-                    {"chMC3_D", "Scruffy mane adorn with metal bands"},
+
+                    {"chM1_D", "Scruffy mane adorn with wooden bands"},
+                    {"chM2_D", "Scruffy mane adorn with leather bands"},
+                    {"chM3_D", "Scruffy mane adorn with metal bands"},
             });
         }
     }

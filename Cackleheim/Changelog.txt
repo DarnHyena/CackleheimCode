@@ -1,4 +1,11 @@
 ==========================
+November 2022
+[3.4.0]
+-Updated Code to keep up with current Jotunn
+-No more Hookgen dependency
+-Cleaned up and condensed armor files based on biome
+
+==========================
 Janurary 2022
 [3.3.0]
 -New buildables! Tents, Rugs, Fence, Table, Box

@@ -28,6 +28,10 @@ namespace CackleMountain
         private GameObject WCapeObj;
         private GameObject WChestObj;
 
+        private GameObject CuPantObj;
+        private GameObject CuChestObj;
+        private GameObject CuHatObj;
+
 
         private void Awake()
         {
@@ -38,6 +42,10 @@ namespace CackleMountain
             WPantObj = MountainBundle.LoadAsset<GameObject>("chWoPants");
             WCapeObj = MountainBundle.LoadAsset<GameObject>("chWoVest");
             WChestObj = MountainBundle.LoadAsset<GameObject>("chWoCloak");
+
+            CuPantObj = MountainBundle.LoadAsset<GameObject>("chCuSuit");
+            CuChestObj = MountainBundle.LoadAsset<GameObject>("chCuTunic");
+            CuHatObj = MountainBundle.LoadAsset<GameObject>("chCuMask");
             MountainBundle.Unload(false);
 
 
@@ -157,6 +165,90 @@ namespace CackleMountain
 
             //==========CAVE==========//
 
+            CustomItem CuhatItem = new CustomItem(CuHatObj, true, new ItemConfig()
+            {
+                CraftingStation = "forge",
+                MinStationLevel = 1,
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "TrophyWolf",
+                        Amount = 5,
+                        AmountPerLevel = 0
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "WolfPelt",
+                        Amount = 2,
+                        AmountPerLevel = 0
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Silver",
+                        Amount = 20,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(CuhatItem);
+
+            CustomItem CupantItem = new CustomItem(CuPantObj, true, new ItemConfig()
+            {
+                CraftingStation = "forge",
+                MinStationLevel = 2,
+                Requirements = new RequirementConfig[]
+    {
+                    new RequirementConfig()
+                    {
+                        Item = "WolfFang",
+                        Amount = 4,
+                        AmountPerLevel = 1
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "WolfPelt",
+                        Amount = 5,
+                        AmountPerLevel = 2
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Silver",
+                        Amount = 20,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(CupantItem);
+
+            CustomItem CuchestItem = new CustomItem(CuChestObj, true, new ItemConfig()
+            {
+                CraftingStation = "forge",
+                MinStationLevel = 2,
+                Requirements = new RequirementConfig[]
+    {
+                    new RequirementConfig()
+                    {
+                        Item = "Chain",
+                        Amount = 1,
+                        AmountPerLevel = 0
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "WolfPelt",
+                        Amount = 5,
+                        AmountPerLevel = 2
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Silver",
+                        Amount = 20,
+                        AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(CuchestItem);
+
             //===Item Names, Description===//
             //========&Localization========//
 
@@ -171,6 +263,14 @@ namespace CackleMountain
                     {"chWV_D", "Dashing little furred vest to help new explorers ward off the cold"},
                     {"chWP", "[CH]Wolf Pants" },
                     {"chWP_D", "Yet another pair of pants"},
+
+                    {"chCM", "[CH]Cultist Mask" },
+                    {"chCM_D", ""},
+                    {"chCT", "[CH]Cultist Tunic" },
+                    {"chCT_D", ".."},
+                    {"chCS", "[CH]Cultist Suit" },
+                    {"chCS_D", ".."},
+
             });
         }
     }
