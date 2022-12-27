@@ -32,6 +32,10 @@ namespace CackleMountain
         private GameObject CuChestObj;
         private GameObject CuHatObj;
 
+        private Texture2D TunicTex;
+
+
+
 
         private void Awake()
         {
@@ -44,10 +48,12 @@ namespace CackleMountain
             WChestObj = MountainBundle.LoadAsset<GameObject>("chWoCloak");
 
             CuPantObj = MountainBundle.LoadAsset<GameObject>("chCuSuit");
-            CuChestObj = MountainBundle.LoadAsset<GameObject>("chCuTunic");
             CuHatObj = MountainBundle.LoadAsset<GameObject>("chCuMask");
-            MountainBundle.Unload(false);
+            CuChestObj = MountainBundle.LoadAsset<GameObject>("chCuTunic");
+            TunicTex = MountainBundle.LoadAsset<Texture2D>("CultTunics");
 
+
+            MountainBundle.Unload(false);
 
             //==========WOLF==========//
 
@@ -167,25 +173,25 @@ namespace CackleMountain
 
             CustomItem CuhatItem = new CustomItem(CuHatObj, true, new ItemConfig()
             {
-                CraftingStation = "forge",
-                MinStationLevel = 1,
+                CraftingStation = "piece_workbench",
+                MinStationLevel = 2,
                 Requirements = new RequirementConfig[]
-                {
+    {
                     new RequirementConfig()
                     {
-                        Item = "TrophyWolf",
-                        Amount = 5,
+                        Item = "TrophyCultist",
+                        Amount = 1,
                         AmountPerLevel = 0
                     },
                     new RequirementConfig()
                     {
                         Item = "WolfPelt",
                         Amount = 2,
-                        AmountPerLevel = 0
+                        AmountPerLevel = 4
                     },
                     new RequirementConfig()
                     {
-                        Item = "Silver",
+                        Item = "WolfHairBundle",
                         Amount = 20,
                         AmountPerLevel = 5
                     }
@@ -195,25 +201,25 @@ namespace CackleMountain
 
             CustomItem CupantItem = new CustomItem(CuPantObj, true, new ItemConfig()
             {
-                CraftingStation = "forge",
+                CraftingStation = "piece_workbench",
                 MinStationLevel = 2,
                 Requirements = new RequirementConfig[]
     {
                     new RequirementConfig()
                     {
-                        Item = "WolfFang",
-                        Amount = 4,
-                        AmountPerLevel = 1
+                        Item = "LeatherScraps",
+                        Amount = 10,
+                        AmountPerLevel = 4
                     },
                     new RequirementConfig()
                     {
                         Item = "WolfPelt",
                         Amount = 5,
-                        AmountPerLevel = 2
+                        AmountPerLevel = 3
                     },
                     new RequirementConfig()
                     {
-                        Item = "Silver",
+                        Item = "WolfHairBundle",
                         Amount = 20,
                         AmountPerLevel = 5
                     }
@@ -223,25 +229,27 @@ namespace CackleMountain
 
             CustomItem CuchestItem = new CustomItem(CuChestObj, true, new ItemConfig()
             {
-                CraftingStation = "forge",
+                CraftingStation = "piece_workbench",
                 MinStationLevel = 2,
+                StyleTex = TunicTex,
+
                 Requirements = new RequirementConfig[]
     {
                     new RequirementConfig()
                     {
-                        Item = "Chain",
-                        Amount = 1,
-                        AmountPerLevel = 0
+                        Item = "LeatherScraps",
+                        Amount = 10,
+                        AmountPerLevel = 4
                     },
                     new RequirementConfig()
                     {
                         Item = "WolfPelt",
                         Amount = 5,
-                        AmountPerLevel = 2
+                        AmountPerLevel = 3
                     },
                     new RequirementConfig()
                     {
-                        Item = "Silver",
+                        Item = "WolfHairBundle",
                         Amount = 20,
                         AmountPerLevel = 5
                     }
@@ -256,20 +264,20 @@ namespace CackleMountain
             localization.AddTranslation("English", new Dictionary<string, string>
             {
                     {"chWH", "[CH]Wolf Helm" },
-                    {"chWH_D", "Wolf skull lined with fur to keep your own skull from turning into a numb skull"},
                     {"chWC", "[CH]Wolf Cloak" },
-                    {"chWC_D", "Bulky heavy fur scarf for those hardened adventurers in the mountains"},
                     {"chWV", "[CH]Wolf Vest" },
-                    {"chWV_D", "Dashing little furred vest to help new explorers ward off the cold"},
                     {"chWP", "[CH]Wolf Pants" },
+                    {"chWH_D", "Wolf skull lined with fur to keep your own skull from turning into a numb skull"},
+                    {"chWC_D", "Bulky heavy fur scarf for those hardened adventurers in the mountains"},
+                    {"chWV_D", "Dashing little furred vest to help new explorers ward off the cold"},
                     {"chWP_D", "Yet another pair of pants"},
 
                     {"chCM", "[CH]Cultist Mask" },
-                    {"chCM_D", ""},
                     {"chCT", "[CH]Cultist Tunic" },
-                    {"chCT_D", ".."},
                     {"chCS", "[CH]Cultist Suit" },
-                    {"chCS_D", ".."},
+                    {"chCM_D", "Mask of The Bah"},
+                    {"chCT_D", "One day a fallen tree left a hole in a canopy and a new fashion trend was born."},
+                    {"chCS_D", "Plaid pants are always in style"},
 
             });
         }

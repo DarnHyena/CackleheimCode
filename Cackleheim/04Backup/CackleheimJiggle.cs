@@ -3,7 +3,7 @@
 // 
 // File:    Cackleheim.cs
 // Project: Cackleheim
-// -Hyena Noises-
+// -JiggleBone Testing-
 
 using BepInEx;
 using Jotunn.Configs;
@@ -46,9 +46,29 @@ namespace Cackleheim
         private static GameObject DraAObj;
         private static GameObject DraBObj;
 
+
         //  private Mesh OrigMesh;
 
         private static Material TransparentMaterial;
+
+
+        //==========JiggleRig==========//
+        void AddJiggleRigTailToGameObject(GameObject obj)
+        {
+
+            JiggleRigBuilder builder = obj.AddComponent<JiggleRigBuilder>();
+            // Create our settings.
+            JiggleSettings settings = ScriptableObject.CreateInstance<JiggleSettings>();
+            settings.SetParameter(JiggleSettingsBase.JiggleSettingParameter.Gravity, 1f);
+            settings.SetParameter(JiggleSettingsBase.JiggleSettingParameter.Friction, 0.5f);
+            settings.SetParameter(JiggleSettingsBase.JiggleSettingParameter.AirFriction, 0.2f);
+            settings.SetParameter(JiggleSettingsBase.JiggleSettingParameter.Blend, 1f);
+            settings.SetParameter(JiggleSettingsBase.JiggleSettingParameter.AngleElasticity, 0.9f);
+            settings.SetParameter(JiggleSettingsBase.JiggleSettingParameter.ElasticitySoften, 0.5f);
+            settings.SetParameter(JiggleSettingsBase.JiggleSettingParameter.LengthElasticity, 0.6f);
+            builder.AddJiggleRig(obj.transform.Find("attach_skin/Visual/Armature/Hips/Spine/Tail"), settings);
+
+        }
 
         private void Awake()
         {
@@ -146,18 +166,24 @@ namespace Cackleheim
             DraAObj = CackleBundle.LoadAsset<GameObject>("chDracaA");
             DraBObj = CackleBundle.LoadAsset<GameObject>("chDracaB");
 
-            /*JiggleSettings TailSet = CackleBundle.LoadAsset<JiggleSettings>("JiggleTail");
-            JiggleRigBuilder builder = Cak4Obj.AddComponent<JiggleRigBuilder>();
-            
+            AddJiggleRigTailToGameObject(Cak1Obj);
+            /*AddJiggleRigTailToGameObject(Cak2Obj);
+            AddJiggleRigTailToGameObject(Cak3Obj);
+            AddJiggleRigTailToGameObject(Cak4Obj);
+            AddJiggleRigTailToGameObject(ForObj);
+            AddJiggleRigTailToGameObject(WamObj);
+            AddJiggleRigTailToGameObject(WamAObj);
+            AddJiggleRigTailToGameObject(WamBObj);
+            AddJiggleRigTailToGameObject(CuaObj);
+            AddJiggleRigTailToGameObject(CuaAObj);
+            AddJiggleRigTailToGameObject(CuaBObj);
+            AddJiggleRigTailToGameObject(DraObj);
+            AddJiggleRigTailToGameObject(DraAObj);
+            AddJiggleRigTailToGameObject(DraBObj);*/
 
-            //==========JiggleRig==========//
-            JiggleRigBuilder.JiggleRig TailRig = new JiggleRigBuilder.JiggleRig() { 
-                rootTransform = Cak1Obj.transform.Find("attach_skin/Visual/Armature/Hips/Spine"),
-                jiggleSettings= TailSet,
-            };
-
-            builder.jiggleRigs.Add(TailRig);*/
             CackleBundle.Unload(false);
+
+
 
             //==========RECIPES==========//
 
@@ -423,13 +449,10 @@ namespace Cackleheim
             localization.AddTranslation("English", new Dictionary<string, string>
             {
                 {"chB1", "dey Cackle Totem Tan" },
-                {"chB1_D", "A strange trinket covered in orange moss.  You hear a faint noise when held"},
                 {"chB2", "dey Cackle Totem Brown" },
-                {"chB2_D", "A strange trinket covered in brown moss.  You hear a faint noise when held"},
                 {"chB3", "dey Cackle Totem Blond" },
-                {"chB3_D", "A strange trinket covered in yellow moss.  You hear a faint noise when held"},
                 {"chB4", "dey Cackle Totem Red" },
-                {"chB4_D", "A strange trinket covered in red moss.  You hear a faint noise when held"},
+                {"chB_D", "A strange trinket covered in moss.  You hear a faint noise when held"},
 
                 //=============Forsaken==============//
                 {"chFor", "dey Forsaken Totem" },
@@ -437,27 +460,21 @@ namespace Cackleheim
                 
                 //=============Wambui==============//
                 {"chWam", "dey Wambui Totem Wheat" },
-                {"chWam_D", "Like Mama always said, you are what you eat"},
                 {"chWamA", "dey Wambui Totem Mud" },
-                {"chWamA_D", "Like Mama always said, you are what you eat"},
                 {"chWamB", "dey Wambui Totem Donk" },
-                {"chWamB_D", "Like Mama always said, you are what you eat"},
+                {"chWam_D", "Like Mama always said, you are what you eat"},
                 
                 //=============Cuan==============//
                 {"chCua", "dey Cuan Totem Silver" },
-                {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
                 {"chCuaA", "dey Cuan Totem Cream" },
-                {"chCuaA_D", "Once belonged to a strange creature that yells at the Moon"},
                 {"chCuaB", "dey Cuan Totem Cherry" },
-                {"chCuaB_D", "Once belonged to a strange creature that yells at the Moon"},
+                {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
                 
                 //=============Draca==============//
                 {"chDra", "dey Draca Totem Dirt" },
-                {"chDra_D", "Smells a bit Fishy"},
                 {"chDraA", "dey Draca Totem Sand" },
-                {"chDraA_D", "Smells a bit Fishy"},
                 {"chDraB", "dey Draca Totem Clay" },
-                {"chDraB_D", "Smells a bit Fishy"},
+                {"chDra_D", "Smells a bit Fishy"},
             });
         }
 

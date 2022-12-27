@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 8741914897355933181}
   - component: {fileID: 7299054582637847033}
   - component: {fileID: 6085390249317164809}
+  - component: {fileID: 7520514998260861598}
   m_Layer: 0
   m_Name: Wambui_Prop
   m_TagString: Untagged
@@ -367,10 +368,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 121556be3a5521947840ea688850277e, type: 2}
+  - {fileID: 2100000, guid: bc9125e74a650d542b59962cba77c9fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -391,6 +393,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &6085390249317164809
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -404,6 +407,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0028538175, y: 0.0044254772, z: 0.002470278}
   m_Center: {x: 0.000008527338, y: -0.0003811641, z: 0.0011563981}
+--- !u!114 &7520514998260861598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892731639584634175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -923427435, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2278912028774480510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,6 +1741,8 @@ MonoBehaviour:
       m_itemType: 7
       m_icons:
       - {fileID: 21300000, guid: 46168ae64a488b949834f7ce38abb018, type: 3}
+      - {fileID: 21300000, guid: e92429c4fbdbaca499f096a19cf2bfd3, type: 3}
+      - {fileID: 21300000, guid: 400a06156a839f34e92e16f4468a0b9f, type: 3}
       m_attachOverride: 0
       m_description: $chWam_D
       m_maxStackSize: 1
@@ -1735,7 +1752,7 @@ MonoBehaviour:
       m_teleportable: 1
       m_questItem: 0
       m_equipDuration: 1
-      m_variants: 1
+      m_variants: 3
       m_trophyPos: {x: 0, y: 0}
       m_buildPieces: {fileID: 0}
       m_centerCamera: 0
@@ -1751,6 +1768,7 @@ MonoBehaviour:
       m_foodColor: {r: 1, g: 1, b: 1, a: 1}
       m_armorMaterial: {fileID: 0}
       m_helmetHideHair: 1
+      m_helmetHideBeard: 0
       m_armor: 1
       m_armorPerLevel: 1
       m_damageModifiers: []
@@ -1955,6 +1973,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1996,6 +2015,8 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
+  m_FreeformStretching: 0
+  m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
@@ -2009,7 +2030,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265298213596300404}
-  serializedVersion: 6
+  serializedVersion: 7
   lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
@@ -3159,6 +3180,62 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+  LifetimeByEmitterSpeedModule:
+    enabled: 0
+    m_Curve:
+      serializedVersion: 2
+      minMaxState: 1
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: -0.8
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 0.2
+          inSlope: -0.8
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    m_Range: {x: 0, y: 1}
   ForceModule:
     enabled: 0
     x:
@@ -3797,19 +3874,20 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
-    serializedVersion: 3
+    serializedVersion: 4
     type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    plane0: {fileID: 0}
-    plane1: {fileID: 0}
-    plane2: {fileID: 0}
-    plane3: {fileID: 0}
-    plane4: {fileID: 0}
-    plane5: {fileID: 0}
+    m_Planes:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -3875,17 +3953,20 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    collisionShape0: {fileID: 0}
-    collisionShape1: {fileID: 0}
-    collisionShape2: {fileID: 0}
-    collisionShape3: {fileID: 0}
-    collisionShape4: {fileID: 0}
-    collisionShape5: {fileID: 0}
+    serializedVersion: 2
     inside: 1
     outside: 0
     enter: 0
     exit: 0
+    colliderQueryMode: 0
     radiusScale: 1
+    primitives:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -4463,6 +4544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2369187629598105042}
   - component: {fileID: 2494646924928524870}
+  - component: {fileID: 8190905324984990224}
   m_Layer: 0
   m_Name: Wambui_Base
   m_TagString: Untagged
@@ -4499,10 +4581,11 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 121556be3a5521947840ea688850277e, type: 2}
+  - {fileID: 2100000, guid: bc9125e74a650d542b59962cba77c9fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4588,6 +4671,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.000000008381903, y: 0.00096690934, z: -0.0011708371}
     m_Extent: {x: 0.007226501, y: 0.011404275, z: 0.004916938}
   m_DirtyAABB: 0
+--- !u!114 &8190905324984990224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8401697534031639386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -923427435, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8618855462596421874
 GameObject:
   m_ObjectHideFlags: 0

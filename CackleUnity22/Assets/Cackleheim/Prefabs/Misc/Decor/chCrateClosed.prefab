@@ -211,13 +211,13 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.3975563
+  - screenRelativeHeight: 0.15395483
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6713592582393145932}
     - renderer: {fileID: 2710937179897001495}
     - renderer: {fileID: 7924084368817937306}
-  - screenRelativeHeight: 0.09863907
+  - screenRelativeHeight: 0.050703425
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8826854485838302456}
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_randomTarget: 1
   m_targetNonPlayerBuilt: 1
   m_icon: {fileID: 21300000, guid: a9cdb7b1d8746024492f80db2347ef07, type: 3}
-  m_name: $chCratC
+  m_name: $chCrat
   m_description: $chCratCD
   m_enabled: 1
   m_category: 0

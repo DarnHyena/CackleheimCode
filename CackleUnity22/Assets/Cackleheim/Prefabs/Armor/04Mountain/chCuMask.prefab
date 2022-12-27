@@ -1491,29 +1491,29 @@ MonoBehaviour:
       m_description: $chCM_D
       m_maxStackSize: 1
       m_maxQuality: 4
-      m_weight: 3
+      m_weight: 1
       m_value: 0
       m_teleportable: 1
       m_questItem: 0
-      m_equipDuration: 1
+      m_equipDuration: 2
       m_variants: 0
       m_trophyPos: {x: 0, y: 0}
       m_buildPieces: {fileID: 0}
       m_centerCamera: 0
       m_setName: CHCultist
-      m_setSize: 2
-      m_setStatusEffect: {fileID: 0}
+      m_setSize: 3
+      m_setStatusEffect: {fileID: 11400000, guid: 2e25409dab135fb498a02e5decaa880c, type: 2}
       m_equipStatusEffect: {fileID: 0}
-      m_movementModifier: 0
+      m_movementModifier: 0.03
       m_food: 0
       m_foodStamina: 0
       m_foodBurnTime: 0
       m_foodRegen: 0
       m_foodColor: {r: 1, g: 1, b: 1, a: 1}
       m_armorMaterial: {fileID: 0}
-      m_helmetHideHair: 1
+      m_helmetHideHair: 0
       m_helmetHideBeard: 0
-      m_armor: 20
+      m_armor: 10
       m_armorPerLevel: 2
       m_damageModifiers: []
       m_blockPower: 10
@@ -1548,7 +1548,7 @@ MonoBehaviour:
         m_lightning: 0
         m_poison: 0
         m_spirit: 0
-      m_attackForce: 30
+      m_attackForce: 10
       m_backstabBonus: 4
       m_dodgeable: 0
       m_blockable: 0

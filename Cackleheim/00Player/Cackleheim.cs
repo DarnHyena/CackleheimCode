@@ -23,7 +23,7 @@ namespace Cackleheim
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class Ashiheim : BaseUnityPlugin
+    internal class Cackleheim : BaseUnityPlugin
     {
         public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
@@ -125,7 +125,7 @@ namespace Cackleheim
 
             //========ASSETBUNDLES========//
 
-            AssetBundle CackleBundle = AssetUtils.LoadAssetBundleFromResources("itemcackle", typeof(Ashiheim).Assembly);
+            AssetBundle CackleBundle = AssetUtils.LoadAssetBundleFromResources("itemcackle", typeof(Cackleheim).Assembly);
             Cak1Obj = CackleBundle.LoadAsset<GameObject>("Cackle01");
             Cak2Obj = CackleBundle.LoadAsset<GameObject>("Cackle02");
             Cak3Obj = CackleBundle.LoadAsset<GameObject>("Cackle03");

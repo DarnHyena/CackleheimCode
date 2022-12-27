@@ -207,6 +207,9 @@ MonoBehaviour:
       m_itemType: 7
       m_icons:
       - {fileID: 21300000, guid: 62056fae39dcaf648bf73a49b4529d73, type: 3}
+      - {fileID: 21300000, guid: 9ca0244088e82834b827b7a58a6c7cc9, type: 3}
+      - {fileID: 21300000, guid: cb439c3f08a99de40909d86c9ae8bd99, type: 3}
+      - {fileID: 21300000, guid: 50f5abb29b8c6db44aacfc3eb3fc4a1a, type: 3}
       m_attachOverride: 0
       m_description: $chB_D
       m_maxStackSize: 1
@@ -216,7 +219,7 @@ MonoBehaviour:
       m_teleportable: 1
       m_questItem: 0
       m_equipDuration: 1
-      m_variants: 1
+      m_variants: 16
       m_trophyPos: {x: 0, y: 0}
       m_buildPieces: {fileID: 0}
       m_centerCamera: 0
@@ -3003,7 +3006,7 @@ PrefabInstance:
     - target: {fileID: -514941700589288928, guid: 4e0d9ebbefa03bd4d893e70add13b8c5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4efe9999b40ff03419caa5b2299ebbc9, type: 2}
+      objectReference: {fileID: 2100000, guid: ff96484353ac06f4e939fcee725e91a6, type: 2}
     - target: {fileID: 919132149155446097, guid: 4e0d9ebbefa03bd4d893e70add13b8c5, type: 3}
       propertyPath: m_Name
       value: attach_skin
@@ -3023,3 +3026,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4e0d9ebbefa03bd4d893e70add13b8c5, type: 3}
   m_PrefabInstance: {fileID: 5450449307226496898}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7563645742268304506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2545824061750907896, guid: 4e0d9ebbefa03bd4d893e70add13b8c5, type: 3}
+  m_PrefabInstance: {fileID: 5450449307226496898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &666221271496158305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7563645742268304506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -923427435, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

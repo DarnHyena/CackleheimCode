@@ -106,6 +106,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -130,6 +131,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1208852207120210071
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +184,7 @@ MonoBehaviour:
   m_randomTarget: 1
   m_targetNonPlayerBuilt: 1
   m_icon: {fileID: 21300000, guid: d4c8411ebcea75a418da93f0863c64ba, type: 3}
-  m_name: $chRugB
+  m_name: $chRug
   m_description: $chRugD
   m_enabled: 1
   m_category: 3
@@ -212,8 +214,7 @@ MonoBehaviour:
   m_onlyInBiome: 0
   m_placeEffect:
     m_effectPrefabs:
-    - m_prefab: {fileID: 6756878044565985589, guid: b2c42c51196c2ea4fa349903e322202d,
-        type: 3}
+    - m_prefab: {fileID: 6756878044565985589, guid: b2c42c51196c2ea4fa349903e322202d, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
@@ -222,8 +223,7 @@ MonoBehaviour:
       m_randomRotation: 0
       m_scale: 0
       m_childTransform: 
-    - m_prefab: {fileID: 6756878044565985589, guid: 2d660491f05a78b4d879a88c44b85b2c,
-        type: 3}
+    - m_prefab: {fileID: 6756878044565985589, guid: 2d660491f05a78b4d879a88c44b85b2c, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
@@ -289,8 +289,7 @@ MonoBehaviour:
   m_destroyNoise: 0
   m_destroyedEffect:
     m_effectPrefabs:
-    - m_prefab: {fileID: 6756878044565985589, guid: c22c643eae64e4d4697fd8ccc6efeaf3,
-        type: 3}
+    - m_prefab: {fileID: 6756878044565985589, guid: c22c643eae64e4d4697fd8ccc6efeaf3, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
@@ -299,8 +298,7 @@ MonoBehaviour:
       m_randomRotation: 0
       m_scale: 0
       m_childTransform: 
-    - m_prefab: {fileID: 6756878044565985589, guid: 0a27e4e6599a9ba40b24099025a1bdf1,
-        type: 3}
+    - m_prefab: {fileID: 6756878044565985589, guid: 0a27e4e6599a9ba40b24099025a1bdf1, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
@@ -311,8 +309,7 @@ MonoBehaviour:
       m_childTransform: 
   m_hitEffect:
     m_effectPrefabs:
-    - m_prefab: {fileID: 6756878044565985589, guid: c22c643eae64e4d4697fd8ccc6efeaf3,
-        type: 3}
+    - m_prefab: {fileID: 6756878044565985589, guid: c22c643eae64e4d4697fd8ccc6efeaf3, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
@@ -424,6 +421,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -448,6 +446,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7743973268191081776
 GameObject:
   m_ObjectHideFlags: 0

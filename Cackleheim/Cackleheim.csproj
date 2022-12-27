@@ -47,6 +47,7 @@
     <Reference Include="Jotunn, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JotunnLib.2.9.0\lib\net462\Jotunn.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Mono.Cecil, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.dll</HintPath>
     </Reference>
@@ -78,11 +79,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="00Player\CackleheimBST.cs" />
-    <None Include="04Backup\CackleheimJiggle.cs" />
-    <Compile Include="00Player\Cackleheim.cs" />
+    <Compile Include="00Player\CackleheimStyle.cs" />
+    <None Include="00Player\Cackleheim.cs" />
     <None Include="04Backup\CackleheimOld.cs" />
-    <None Include="04Backup\ItemBase.cs" />
-    <None Include="00Player\CackleheimJiggle.cs" />
+    <None Include="04Backup\CackleheimJiggle.cs" />
     <None Include="00Player\Customs\Ashiheim.cs" />
     <Compile Include="02Armor\CackleMane.cs" />
     <Compile Include="02Armor\CackleSwamp.cs" />
@@ -91,10 +91,10 @@
     <Compile Include="02Armor\CackleForest.cs" />
     <Compile Include="02Armor\CackleMountain.cs" />
     <None Include="04Backup\ItemTemplate.cs" />
-    <None Include="04Backup\PlayerAlt.cs" />
     <Compile Include="02Armor\CackleGog.cs" />
-    <Compile Include="03Props\CackleWares.cs" />
-    <Compile Include="03Props\CackleTents.cs" />
+    <Compile Include="03Props\CackleWaresNew.cs" />
+    <None Include="03Props\CackleWares.cs" />
+    <None Include="04Backup\CackleWaresOLD.cs" />
     <Compile Include="03Props\CackleSalon.cs" />
     <None Include="JigglePhysics\JiggleBone.cs" />
     <None Include="JigglePhysics\JiggleDefaults.cs" />
@@ -115,7 +115,7 @@
     <EmbeddedResource Include="Resources\itemmountain" />
     <EmbeddedResource Include="Resources\itemplains" />
     <EmbeddedResource Include="Resources\itemmane" />
-    <EmbeddedResource Include="Resources\buildtent" />
+    <None Include="Resources\buildtent" />
     <EmbeddedResource Include="Resources\buildwares" />
     <None Include="Resources\customashi" />
     <None Include="Resources\customico" />

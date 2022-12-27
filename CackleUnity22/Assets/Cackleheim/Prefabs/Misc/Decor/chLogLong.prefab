@@ -55,6 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -79,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1729722932878410376
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,8 +123,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2072535, y: 0.36577344, z: 1.4843134}
-  m_Center: {x: 0.00070530176, y: -0.012595284, z: 0.34796128}
+  m_Size: {x: 2.2072535, y: 0.36577344, z: 1.7983572}
+  m_Center: {x: 0.00070524216, y: -0.012595281, z: 0.19093928}
 --- !u!1 &2099400958061798821
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +231,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -253,6 +256,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6993779522923647699
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +404,7 @@ MonoBehaviour:
   m_targetNonPlayerBuilt: 1
   m_icon: {fileID: 21300000, guid: df88b46b892c79a44b55e00219bc87c8, type: 3}
   m_name: $chLogL
-  m_description: $chLogLD
+  m_description: $chLogD
   m_enabled: 1
   m_category: 2
   m_isUpgrade: 0
@@ -429,8 +433,7 @@ MonoBehaviour:
   m_onlyInBiome: 0
   m_placeEffect:
     m_effectPrefabs:
-    - m_prefab: {fileID: 1429860396897580, guid: 91cc8507df6f4094abdb42d6c3c0a619,
-        type: 3}
+    - m_prefab: {fileID: 1429860396897580, guid: 91cc8507df6f4094abdb42d6c3c0a619, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
@@ -439,8 +442,7 @@ MonoBehaviour:
       m_randomRotation: 0
       m_scale: 0
       m_childTransform: 
-    - m_prefab: {fileID: 6756878044565985589, guid: 2d660491f05a78b4d879a88c44b85b2c,
-        type: 3}
+    - m_prefab: {fileID: 6756878044565985589, guid: 2d660491f05a78b4d879a88c44b85b2c, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
@@ -490,8 +492,7 @@ MonoBehaviour:
   m_destroyNoise: 0
   m_destroyedEffect:
     m_effectPrefabs:
-    - m_prefab: {fileID: 6756878044565985589, guid: c22c643eae64e4d4697fd8ccc6efeaf3,
-        type: 3}
+    - m_prefab: {fileID: 6756878044565985589, guid: c22c643eae64e4d4697fd8ccc6efeaf3, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
@@ -500,8 +501,7 @@ MonoBehaviour:
       m_randomRotation: 0
       m_scale: 0
       m_childTransform: 
-    - m_prefab: {fileID: 6756878044565985589, guid: 0a27e4e6599a9ba40b24099025a1bdf1,
-        type: 3}
+    - m_prefab: {fileID: 6756878044565985589, guid: 0a27e4e6599a9ba40b24099025a1bdf1, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
@@ -512,8 +512,7 @@ MonoBehaviour:
       m_childTransform: 
   m_hitEffect:
     m_effectPrefabs:
-    - m_prefab: {fileID: 6756878044565985589, guid: c22c643eae64e4d4697fd8ccc6efeaf3,
-        type: 3}
+    - m_prefab: {fileID: 6756878044565985589, guid: c22c643eae64e4d4697fd8ccc6efeaf3, type: 3}
       m_enabled: 1
       m_variant: -1
       m_attach: 0
