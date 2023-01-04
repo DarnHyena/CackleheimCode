@@ -222,9 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 895252998, guid: c1b78fa918b030faf1c1f6f6164daeb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_new: {fileID: 0}
-  m_worn: {fileID: 0}
-  m_broken: {fileID: 0}
+  m_new: {fileID: 7434380555361062917}
+  m_worn: {fileID: 826544290439816018}
+  m_broken: {fileID: 826544290439816018}
   m_wet: {fileID: 0}
   m_noRoofWear: 1
   m_noSupportWear: 1

@@ -121,9 +121,6 @@
   <data name="buildsalon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buildsalon;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buildtent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buildtent;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="buildwares" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buildwares;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

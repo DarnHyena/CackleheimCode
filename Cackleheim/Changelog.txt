@@ -1,4 +1,13 @@
 ==========================
+Jan 2023
+[3.6.0]
+-New Buildables
+-New Armor Set
+-Color variants for skins now hooked up to Styles~
+-Changed up some Stats and code
+
+
+==========================
 November 2022
 [3.4.0]
 -Updated Code to keep up with current Jotunn

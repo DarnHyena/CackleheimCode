@@ -3,7 +3,7 @@
 // 
 // File:    Cackleheim.cs
 // Project: Cackleheim
-// Wooowee this one is getting quite long!
+// -Hyena Noises-
 
 using BepInEx;
 using Jotunn.Configs;
@@ -27,7 +27,7 @@ namespace Cackleheim
     {
         public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
-        public const string PluginVersion = "3.1.0";
+        public const string PluginVersion = "3.4.0";
 
 
         private static GameObject Cak1Obj;
@@ -44,6 +44,7 @@ namespace Cackleheim
         private static GameObject DraObj;
         private static GameObject DraAObj;
         private static GameObject DraBObj;
+
 
         //  private Mesh OrigMesh;
 
@@ -65,30 +66,35 @@ namespace Cackleheim
         }
 
         [HarmonyPatch(typeof(Player), nameof(Player.OnSpawned))] // Type and method to patch. Equivalent to Player_OnSpawned
-        [HarmonyPostfix] // Method should be run after Player.OnSpawned ran
-        private static void AddHoldoverItemToPlayer(Player __instance) // __instance is HarmonyX way of getting the object that the patched method is being run on.
-        {
-            var player = __instance;
+        private static class PlayerSpawnPatch
 
-            if (holdoverItems.Any())
+        {
+            private static void Postfix(Player __instance) // __instance is HarmonyX way of getting the object that the patched method is being run on.
             {
-                Inventory inventory = player.GetInventory();
-                foreach (ItemDrop.ItemData item in holdoverItems)
+                var player = __instance;
+
+                if (holdoverItems.Any())
                 {
-#if DEBUG
-                    Jotunn.Logger.LogInfo($"Re-adding {item.m_shared.m_name}");
-#endif
-                    if (inventory.AddItem(item))
+                    Inventory inventory = player.GetInventory();
+                    foreach (ItemDrop.ItemData item in holdoverItems)
                     {
-                        ItemDrop.ItemData addedItem = inventory.GetItem(item.m_shared.m_name);
-                        player.EquipItem(addedItem);
+#if DEBUG
+                        Jotunn.Logger.LogInfo($"Re-adding {item.m_shared.m_name}");
+#endif
+                        if(inventory.AddItem(item))
+                        {
+                            ItemDrop.ItemData addedItem = inventory.GetItem(item.m_shared.m_name);
+                            player.EquipItem(addedItem);
+                        }
                     }
+                    holdoverItems.Clear();
                 }
-                holdoverItems.Clear();
             }
+
         }
 
-        private static HashSet<string> holdoverItemsSet = new HashSet<string>
+
+    private static HashSet<string> holdoverItemsSet = new HashSet<string>
         {
             "Cackle01","Cackle02","Cackle03","Cackle04","chForsaken","chWambui",
             "chWambuiA","chWambuiB","chCuan","chCuanA","chCuanB","chDraca","chDracaA","chDracaB"
@@ -96,24 +102,27 @@ namespace Cackleheim
         private static readonly List<ItemDrop.ItemData> holdoverItems = new List<ItemDrop.ItemData>();
 
         [HarmonyPatch(typeof(Player), nameof(Player.OnDeath))]
-        [HarmonyPrefix] // Method should run before Player.OnDeath is run
-        private static void AddHoldoverItem(Player __instance)
+        private static class PlayerOnDeathPatch
         {
-            var player = __instance;
-
-            foreach (ItemDrop.ItemData item in new List<ItemDrop.ItemData>(player.m_inventory.GetAllItems()))
+            private static void Prefix(Player __instance)
             {
-                if (item.m_equiped && holdoverItemsSet.Contains(item.m_dropPrefab.name))
+                var player = __instance;
+
+                foreach (ItemDrop.ItemData item in new List<ItemDrop.ItemData>(player.m_inventory.GetAllItems()))
                 {
-                    item.m_equiped = false;
-                    holdoverItems.Add(item);
-                    player.m_inventory.RemoveOneItem(item);
+                    if (item.m_equiped && holdoverItemsSet.Contains(item.m_dropPrefab.name))
+                    {
+                        item.m_equiped = false;
+                        holdoverItems.Add(item);
+                        player.m_inventory.RemoveOneItem(item);
+                    }
                 }
             }
         }
 
         private void CreateItems()
         {
+
             //========ASSETBUNDLES========//
 
             AssetBundle CackleBundle = AssetUtils.LoadAssetBundleFromResources("itemcackle", typeof(Cackleheim).Assembly);
@@ -132,6 +141,7 @@ namespace Cackleheim
             DraAObj = CackleBundle.LoadAsset<GameObject>("chDracaA");
             DraBObj = CackleBundle.LoadAsset<GameObject>("chDracaB");
             CackleBundle.Unload(false);
+
 
 
             //==========RECIPES==========//
@@ -398,13 +408,10 @@ namespace Cackleheim
             localization.AddTranslation("English", new Dictionary<string, string>
             {
                 {"chB1", "dey Cackle Totem Tan" },
-                {"chB1_D", "A strange trinket covered in orange moss.  You hear a faint noise when held"},
                 {"chB2", "dey Cackle Totem Brown" },
-                {"chB2_D", "A strange trinket covered in brown moss.  You hear a faint noise when held"},
                 {"chB3", "dey Cackle Totem Blond" },
-                {"chB3_D", "A strange trinket covered in yellow moss.  You hear a faint noise when held"},
                 {"chB4", "dey Cackle Totem Red" },
-                {"chB4_D", "A strange trinket covered in red moss.  You hear a faint noise when held"},
+                {"chB_D", "A strange trinket covered in moss.  You hear a faint noise when held"},
 
                 //=============Forsaken==============//
                 {"chFor", "dey Forsaken Totem" },
@@ -412,27 +419,21 @@ namespace Cackleheim
                 
                 //=============Wambui==============//
                 {"chWam", "dey Wambui Totem Wheat" },
-                {"chWam_D", "Like Mama always said, you are what you eat"},
                 {"chWamA", "dey Wambui Totem Mud" },
-                {"chWamA_D", "Like Mama always said, you are what you eat"},
                 {"chWamB", "dey Wambui Totem Donk" },
-                {"chWamB_D", "Like Mama always said, you are what you eat"},
+                {"chWam_D", "Like Mama always said, you are what you eat"},
                 
                 //=============Cuan==============//
                 {"chCua", "dey Cuan Totem Silver" },
-                {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
                 {"chCuaA", "dey Cuan Totem Cream" },
-                {"chCuaA_D", "Once belonged to a strange creature that yells at the Moon"},
                 {"chCuaB", "dey Cuan Totem Cherry" },
-                {"chCuaB_D", "Once belonged to a strange creature that yells at the Moon"},
+                {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
                 
                 //=============Draca==============//
                 {"chDra", "dey Draca Totem Dirt" },
-                {"chDra_D", "Smells a bit Fishy"},
                 {"chDraA", "dey Draca Totem Sand" },
-                {"chDraA_D", "Smells a bit Fishy"},
                 {"chDraB", "dey Draca Totem Clay" },
-                {"chDraB_D", "Smells a bit Fishy"},
+                {"chDra_D", "Smells a bit Fishy"},
             });
         }
 
@@ -500,4 +501,5 @@ namespace Cackleheim
         }
       
     }
+
 }

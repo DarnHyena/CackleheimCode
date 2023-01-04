@@ -90,6 +90,7 @@ namespace CackleForest
             {
                 CraftingStation = "piece_workbench",
                 MinStationLevel = 2,
+
                 Requirements = new RequirementConfig[]
     {
                     new RequirementConfig()

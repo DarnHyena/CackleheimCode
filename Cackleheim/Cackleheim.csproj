@@ -92,9 +92,7 @@
     <Compile Include="02Armor\CackleMountain.cs" />
     <None Include="04Backup\ItemTemplate.cs" />
     <Compile Include="02Armor\CackleGog.cs" />
-    <Compile Include="03Props\CackleWaresNew.cs" />
-    <None Include="03Props\CackleWares.cs" />
-    <None Include="04Backup\CackleWaresOLD.cs" />
+    <Compile Include="03Props\CackleWares.cs" />
     <Compile Include="03Props\CackleSalon.cs" />
     <None Include="JigglePhysics\JiggleBone.cs" />
     <None Include="JigglePhysics\JiggleDefaults.cs" />
@@ -115,7 +113,6 @@
     <EmbeddedResource Include="Resources\itemmountain" />
     <EmbeddedResource Include="Resources\itemplains" />
     <EmbeddedResource Include="Resources\itemmane" />
-    <None Include="Resources\buildtent" />
     <EmbeddedResource Include="Resources\buildwares" />
     <None Include="Resources\customashi" />
     <None Include="Resources\customico" />

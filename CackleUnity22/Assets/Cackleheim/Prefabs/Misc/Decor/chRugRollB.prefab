@@ -270,7 +270,7 @@ MonoBehaviour:
   m_enabled: 1
   m_category: 3
   m_isUpgrade: 0
-  m_comfort: 1
+  m_comfort: 0
   m_comfortGroup: 0
   m_comfortObject: {fileID: 0}
   m_groundPiece: 0

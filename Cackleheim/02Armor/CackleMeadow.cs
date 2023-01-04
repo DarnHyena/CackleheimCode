@@ -25,6 +25,10 @@ namespace CackleMeadow
 
         private GameObject RHoodObj;
         private GameObject RPantObj;
+        private GameObject RCapeObj;
+
+        private Texture2D RagTex;
+        List<Sprite> Ragcons = new List<Sprite>();
 
         private GameObject LHatObj;
         private GameObject LPantObj;
@@ -37,7 +41,15 @@ namespace CackleMeadow
             AssetBundle meadowBundle = AssetUtils.LoadAssetBundleFromResources("itemmeadow", typeof(CackleMeadow).Assembly);
             RHoodObj = meadowBundle.LoadAsset<GameObject>("chRaHood");
             RPantObj = meadowBundle.LoadAsset<GameObject>("chRaPants");
-
+            RCapeObj = meadowBundle.LoadAsset<GameObject>("chRaTunic");
+            RagTex = meadowBundle.LoadAsset<Texture2D>("RagStyles");
+            
+            for (int i = 1; i <= 5; i++)
+            {
+                string assetName = $"RagTunIcon{i:00}";
+                Ragcons.Add(meadowBundle.LoadAsset<Sprite>(assetName));
+            }
+            
             LHatObj = meadowBundle.LoadAsset<GameObject>("chLeMask");
             LPantObj = meadowBundle.LoadAsset<GameObject>("chLePants");
             LCapeObj = meadowBundle.LoadAsset<GameObject>("chLePoncho");
@@ -54,12 +66,30 @@ namespace CackleMeadow
                     new RequirementConfig()
                     {
                         Item = "LeatherScraps",
+                        Amount = 1,
+                        AmountPerLevel = 2
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(RhoodItem);
+
+            CustomItem RCapeItem = new CustomItem(RCapeObj, true, new ItemConfig()
+            {
+                CraftingStation = "piece_workbench",
+                StyleTex = RagTex,
+                Icons = Ragcons.ToArray(),
+
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "LeatherScraps",
                         Amount = 5,
                         AmountPerLevel = 5
                     }
                 }
             });
-            ItemManager.Instance.AddItem(RhoodItem);
+            ItemManager.Instance.AddItem(RCapeItem);
 
             CustomItem RpantItem = new CustomItem(RPantObj, true, new ItemConfig()
             {
@@ -152,15 +182,17 @@ namespace CackleMeadow
             localization.AddTranslation("English", new Dictionary<string, string>
             {
                     {"chRH", "[CH]Ragged Hood" },
-                    {"chRH_D", "Smells faintly of potatos."},
                     {"chRP", "[CH]Ragged Pants" },
+                    {"chRT", "[CH]Ragged Tunic" },
+                    {"chRH_D", "Well worn hood"},
                     {"chRP_D", "Hastily stiched together with leftovers from last nights hunt"},
+                    {"chRT_D", "Smells faintly of potatos"},
 
                     {"chLH", "[CH]Leather Mask" },
-                    {"chLH_D", "A striking bone white mask"},
                     {"chLC", "[CH]Leather Poncho" },
-                    {"chLC_D", "An enccentric cape for dashing rogues"},
                     {"chLP", "[CH]Leather Pants" },
+                    {"chLH_D", "A striking bone white mask"},
+                    {"chLC_D", "An enccentric cape for dashing rogues"},
                     {"chLP_D", "Finely tailored pants just like mother used to make"},
             });
         }

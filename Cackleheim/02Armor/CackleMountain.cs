@@ -52,7 +52,6 @@ namespace CackleMountain
             CuChestObj = MountainBundle.LoadAsset<GameObject>("chCuTunic");
             TunicTex = MountainBundle.LoadAsset<Texture2D>("CultTunics");
 
-
             MountainBundle.Unload(false);
 
             //==========WOLF==========//

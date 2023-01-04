@@ -123,28 +123,41 @@ namespace CackleWares
 
                 #endregion
 
-                #region Rugs
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugE", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2)));
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollE", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2)));
-                //
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugA", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2, "Raspberry", 1)));
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollA", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2, "Raspberry", 1)));
-                //
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugB", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2, "Dandelion", 1)));
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollB", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2, "Dandelion", 1)));
-                //
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugC", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2, "Guck", 1)));
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollC", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2, "Guck", 1)));
-                //
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugD", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2, "Blueberries", 1)));
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollD", true, SetPieceConfigRequirements(tentConfig, "LeatherScraps", 2, "Blueberries", 1)));
-
+                #region Walls
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceA01", true, SetPieceConfigRequirements(tentConfig, "Wood", 3, "Resin", 1, "Raspberry", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceB01", true, SetPieceConfigRequirements(tentConfig, "Wood", 2, "Resin", 1, "Raspberry", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceA02", true, SetPieceConfigRequirements(tentConfig, "Wood", 3, "Resin", 1, "Dandelion", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceB02", true, SetPieceConfigRequirements(tentConfig, "Wood", 2, "Resin", 1, "Dandelion", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceA03", true, SetPieceConfigRequirements(tentConfig, "Wood", 3, "Resin", 1, "Guck", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceB03", true, SetPieceConfigRequirements(tentConfig, "Wood", 2, "Resin", 1, "Guck", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceA04", true, SetPieceConfigRequirements(tentConfig, "Wood", 3, "Resin", 1, "Blueberries", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceB04", true, SetPieceConfigRequirements(tentConfig, "Wood", 2, "Resin", 1, "Blueberries", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceA05", true, SetPieceConfigRequirements(tentConfig, "Wood", 3, "Resin", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chTentFenceB05", true, SetPieceConfigRequirements(tentConfig, "Wood", 2, "Resin", 1)));
                 #endregion
 
                 PieceConfig decorConfig = new PieceConfig();
                 decorConfig.PieceTable = "Hammer";
                 decorConfig.Category = "chDecor";
                 decorConfig.CraftingStation = "piece_workbench";
+
+                #region Rugs
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugE", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 2)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollE", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 1)));
+                //
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugA", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 2, "Raspberry", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollA", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 1, "Raspberry", 1)));
+                //
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugB", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 2, "Dandelion", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollB", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 1, "Dandelion", 1)));
+                //
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugC", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 2, "Guck", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollC", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 1, "Guck", 1)));
+                //
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugD", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 2, "Blueberries", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chRugRollD", true, SetPieceConfigRequirements(decorConfig, "LeatherScraps", 1, "Blueberries", 1)));
+
+                #endregion
 
                 #region Merchant
                 PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chCrate", true, SetPieceConfigRequirements(decorConfig, "Wood", 5, "Resin", 3)));
@@ -165,8 +178,13 @@ namespace CackleWares
                 PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chLatShort", true, SetPieceConfigRequirements(decorConfig, "Wood", 1)));
                 #endregion
 
-                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chScrapBed", true, SetPieceConfigRequirements(decorConfig, "Wood", 8, "LeatherScraps", 8)));
-
+                #region Bed
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chScrapBedA", true, SetPieceConfigRequirements(decorConfig, "FineWood", 5, "LeatherScraps", 5, "Raspberry", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chScrapBedB", true, SetPieceConfigRequirements(decorConfig, "FineWood", 5, "LeatherScraps", 5, "Dandelion", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chScrapBedC", true, SetPieceConfigRequirements(decorConfig, "FineWood", 5, "LeatherScraps", 5, "Guck", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chScrapBedD", true, SetPieceConfigRequirements(decorConfig, "FineWood", 5, "LeatherScraps", 5, "Blueberries", 1)));
+                PieceManager.Instance.AddPiece(new CustomPiece(WaresBundle, "chScrapBedE", true, SetPieceConfigRequirements(decorConfig, "FineWood", 5, "LeatherScraps", 5)));
+                #endregion
             }
 
 
@@ -213,10 +231,12 @@ namespace CackleWares
                     {"chSqr", "Squared Tent" },
                     {"chSlt", "Slanted Tent" },
                     {"chTri", "Half Tent" },
-                    {"chWala", "Tent Wall" },
-                    {"chWalb", "Tent Wall Half" },
                     {"chCorn", "Tent Corner" },
                     {"chTow", "Tent Tower" },
+                    {"chWala", "Tent Curtain" },
+                    {"chWalb", "Tent Curtain Half" },
+                    {"chFenca", "Tent Wall" },
+                    {"chFencb", "Tent Wall Half" },
 
                     {"chSqrD", "Sturdy tent to make a quick shelter" },
                     {"chTriD", "Handy for shading those tight nooks" },
@@ -255,6 +275,10 @@ namespace CackleWares
                     //Bed//
                     {"chBed", "Soft Cozy Bed" },
                     {"chBedD", "Much more comfortable than the grass" },
+
+                    //Travel
+                    {"chTrav", "[CH]Travel Pack" },
+                    {"chTravD", "Bulky pack to transport your stash of meat in"},
             });
         }
     }
