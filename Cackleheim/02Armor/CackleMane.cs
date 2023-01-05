@@ -1,44 +1,28 @@
-﻿// Cackleheim
-// a Valheim mod using Jötunn
-// 
-// File:    Cackleheim.cs
-// Project: Cackleheim
-
-using BepInEx;
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleMane
+namespace Cackleheim
 {
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleMane : BaseUnityPlugin
+    public class CackleMane
     {
-        public const string PluginGUID = "DarnHyena.CackleMane";
-        public const string PluginName = "CackleMane";
-        public const string PluginVersion = "1.0.0";
-
         //SetA
-        private GameObject MaA1Obj;
-        private GameObject MaA2Obj;
-        private GameObject MaA3Obj;
+        private static GameObject MaA1Obj;
+        private static GameObject MaA2Obj;
+        private static GameObject MaA3Obj;
         //SetB
-        private GameObject MaB1Obj;
-        private GameObject MaB2Obj;
-        private GameObject MaB3Obj;
+        private static GameObject MaB1Obj;
+        private static GameObject MaB2Obj;
+        private static GameObject MaB3Obj;
         //SetC
-        private GameObject MaC1Obj;
-        private GameObject MaC2Obj;
-        private GameObject MaC3Obj;
+        private static GameObject MaC1Obj;
+        private static GameObject MaC2Obj;
+        private static GameObject MaC3Obj;
 
-
-
-        private void Awake()
+        public static void AddCackleMane()
         {
 
             //========ASSETBUNDLES========//

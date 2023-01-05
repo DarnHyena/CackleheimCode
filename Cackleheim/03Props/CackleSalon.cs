@@ -12,24 +12,18 @@ using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleSalon
+namespace Cackleheim
 {   
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleSalon : BaseUnityPlugin
+    public class CackleSalon
     {
-        public const string PluginGUID = "DarnHyena.CackleSalon";
-        public const string PluginName = "CackleSalon";
-        public const string PluginVersion = "2.0.0";
 
-        private GameObject SalObj;
-        private GameObject SalSObj;
-        private GameObject SalVObj;
-        private GameObject SalBObj;
+        private static GameObject SalObj;
+        private static GameObject SalSObj;
+        private static GameObject SalVObj;
+        private static GameObject SalBObj;
 
 
-        private void Awake()
+        public static void AddCackleSalon()
         {
             //========ASSETBUNDLES========// 
 

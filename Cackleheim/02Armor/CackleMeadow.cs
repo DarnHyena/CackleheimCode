@@ -1,40 +1,26 @@
-﻿// Cackleheim
-// a Valheim mod using Jötunn
-// 
-// File:    Cackleheim.cs
-// Project: Cackleheim
-
-using BepInEx;
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleMeadow
+namespace Cackleheim
 {
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleMeadow : BaseUnityPlugin
+    public class CackleMeadow
     {
-        public const string PluginGUID = "DarnHyena.CackleMeadow";
-        public const string PluginName = "CackleMeadow";
-        public const string PluginVersion = "2.2.0";
+        private static GameObject RHoodObj;
+        private static GameObject RPantObj;
+        private static GameObject RCapeObj;
 
-        private GameObject RHoodObj;
-        private GameObject RPantObj;
-        private GameObject RCapeObj;
+        private static Texture2D RagTex;
+        private static List<Sprite> Ragcons = new List<Sprite>();
 
-        private Texture2D RagTex;
-        List<Sprite> Ragcons = new List<Sprite>();
+        private static GameObject LHatObj;
+        private static GameObject LPantObj;
+        private static GameObject LCapeObj;
 
-        private GameObject LHatObj;
-        private GameObject LPantObj;
-        private GameObject LCapeObj;
-
-        private void Awake()
+        public static void AddCackleMeadow()
         {
             //========ASSETBUNDLES========//
 
@@ -44,12 +30,14 @@ namespace CackleMeadow
             RCapeObj = meadowBundle.LoadAsset<GameObject>("chRaTunic");
             RagTex = meadowBundle.LoadAsset<Texture2D>("RagStyles");
             
+
             for (int i = 1; i <= 5; i++)
             {
                 string assetName = $"RagTunIcon{i:00}";
                 Ragcons.Add(meadowBundle.LoadAsset<Sprite>(assetName));
             }
-            
+
+
             LHatObj = meadowBundle.LoadAsset<GameObject>("chLeMask");
             LPantObj = meadowBundle.LoadAsset<GameObject>("chLePants");
             LCapeObj = meadowBundle.LoadAsset<GameObject>("chLePoncho");

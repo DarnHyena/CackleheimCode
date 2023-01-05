@@ -1,10 +1,3 @@
-// Cackleheim
-// a Valheim mod using Jötunn
-// 
-// File:    Cackleheim.cs
-// Project: Cackleheim
-
-using BepInEx;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
@@ -12,24 +5,18 @@ using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleGoggles
+namespace Cackleheim
 {   
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleGoggles : BaseUnityPlugin
+    public class CackleTrader
     {
-        public const string PluginGUID = "DarnHyena.CackleGoggles";
-        public const string PluginName = "CackleGoggles";
-        public const string PluginVersion = "1.0.0";
 
-        private GameObject GogObj;
+        private static GameObject GogObj;
 
-        private void Awake()
+        public static void AddCackleTrader()
         {
             //========ASSETBUNDLES========// 
             
-            AssetBundle GogglesBundle = AssetUtils.LoadAssetBundleFromResources("itemgoggles", typeof(CackleGoggles).Assembly);
+            AssetBundle GogglesBundle = AssetUtils.LoadAssetBundleFromResources("itemgoggles", typeof(CackleTrader).Assembly);
             GogObj = GogglesBundle.LoadAsset<GameObject>("chGoggles");
             GogglesBundle.Unload(false);
 

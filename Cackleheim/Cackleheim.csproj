@@ -79,19 +79,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="00Player\CackleheimBST.cs" />
-    <Compile Include="00Player\CackleheimStyle.cs" />
-    <None Include="00Player\Cackleheim.cs" />
-    <None Include="04Backup\CackleheimOld.cs" />
+    <Compile Include="00Player\Cackleheim.cs" />
+    <None Include="04Backup\CackleheimOLD.cs" />
     <None Include="04Backup\CackleheimJiggle.cs" />
     <None Include="00Player\Customs\Ashiheim.cs" />
+    <Compile Include="02Armor\CackleForest.cs" />
     <Compile Include="02Armor\CackleMane.cs" />
+    <Compile Include="02Armor\CackleArmorBase.cs" />
     <Compile Include="02Armor\CackleSwamp.cs" />
     <Compile Include="02Armor\CacklePlains.cs" />
     <Compile Include="02Armor\CackleMeadow.cs" />
-    <Compile Include="02Armor\CackleForest.cs" />
     <Compile Include="02Armor\CackleMountain.cs" />
     <None Include="04Backup\ItemTemplate.cs" />
-    <Compile Include="02Armor\CackleGog.cs" />
+    <Compile Include="02Armor\CackleTrader.cs" />
     <Compile Include="03Props\CackleWares.cs" />
     <Compile Include="03Props\CackleSalon.cs" />
     <None Include="JigglePhysics\JiggleBone.cs" />

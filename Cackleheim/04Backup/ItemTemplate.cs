@@ -1,11 +1,4 @@
-﻿// Cackleheim
-// a Valheim mod using Jötunn
-// 
-// File:    Cackleheim.cs
-// Project: Cackleheim
-
-using BepInEx;
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
@@ -14,22 +7,16 @@ using UnityEngine;
 
 namespace CackleNAME
 {   
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleNAME : BaseUnityPlugin
+    internal class CackleNAME
     {
-        public const string PluginGUID = "DarnHyena.CackleNAME";
-        public const string PluginName = "CackleNAME";
-        public const string PluginVersion = "0.0.0";
 
-        private GameObject HatObj;
-        private GameObject PantObj;
-        private GameObject CapeObj;
+        private static GameObject HatObj;
+        private static GameObject PantObj;
+        private static GameObject CapeObj;
         //private GameObject ChestObj;
 
 
-        private void Awake()
+        public class CackleNAME()
         {
             //========ASSETBUNDLES========// 
 

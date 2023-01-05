@@ -104,7 +104,7 @@ namespace Cackleheim
         }
 
 
-    private static HashSet<string> holdoverItemsSet = new HashSet<string>
+        private static HashSet<string> holdoverItemsSet = new HashSet<string>
         {
             "Cackle01","chWambui","chCuan","chDraca","chForsaken","chFeral"
         };

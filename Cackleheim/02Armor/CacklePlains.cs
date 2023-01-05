@@ -1,37 +1,24 @@
-﻿// Cackleheim
-// a Valheim mod using Jötunn
-// 
-// File:    Cackleheim.cs
-// Project: Cackleheim
-
-using BepInEx;
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CacklePlains
+namespace Cackleheim
 {   
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CacklePlains : BaseUnityPlugin
+    public class CacklePlains
     {
-        public const string PluginGUID = "DarnHyena.CacklePlains";
-        public const string PluginName = "CacklePlains";
-        public const string PluginVersion = "2.2.0";
 
-        private GameObject PHatObj;
-        private GameObject PPantObj;
-        private GameObject PCapeObj;
+        private static GameObject PHatObj;
+        private static GameObject PPantObj;
+        private static GameObject PCapeObj;
 
-        private Texture2D PadTex;
-        List<Sprite> Padcons = new List<Sprite>();
+        private static Texture2D PadTex;
+        private static List<Sprite> Padcons = new List<Sprite>();
 
 
-        private void Awake()
+        public static void AddCacklePlains()
         {
             //========ASSETBUNDLES========// 
 

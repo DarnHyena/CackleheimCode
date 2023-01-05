@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleWares
+namespace Cackleheim
 {   
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]

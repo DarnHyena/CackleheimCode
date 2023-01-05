@@ -1,38 +1,24 @@
-﻿// Cackleheim
-// a Valheim mod using Jötunn
-// 
-// File:    Cackleheim.cs
-// Project: Cackleheim
-
-using BepInEx;
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleSwamp
+namespace Cackleheim
 {   
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleSwamp : BaseUnityPlugin
+    public class CackleSwamp
     {
-        public const string PluginGUID = "DarnHyena.CackleSwamp";
-        public const string PluginName = "CackleSwamp";
-        public const string PluginVersion = "2.2.0";
 
-        private GameObject RHatObj;
-        private GameObject RPantObj;
-        private GameObject RCapeObj;
+        private static GameObject RHatObj;
+        private static GameObject RPantObj;
+        private static GameObject RCapeObj;
 
-        private GameObject IHatObj;
-        private GameObject IPantObj;
-        private GameObject ICapeObj;
+        private static GameObject IHatObj;
+        private static GameObject IPantObj;
+        private static GameObject ICapeObj;
 
-
-        private void Awake()
+        public static void AddCackleSwamp()
         {
             //========ASSETBUNDLES========// 
 

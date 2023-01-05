@@ -1,43 +1,28 @@
-﻿// Cackleheim
-// a Valheim mod using Jötunn
-// 
-// File:    Cackleheim.cs
-// Project: Cackleheim
-
-using BepInEx;
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleMountain
+namespace Cackleheim
 {   
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleMountain : BaseUnityPlugin
+    public class CackleMountain
     {
-        public const string PluginGUID = "DarnHyena.CackleMountain";
-        public const string PluginName = "CackleMountain";
-        public const string PluginVersion = "2.2.0";
 
-        private GameObject WHatObj;
-        private GameObject WPantObj;
-        private GameObject WCapeObj;
-        private GameObject WChestObj;
+        private static GameObject WHatObj;
+        private static GameObject WPantObj;
+        private static GameObject WCapeObj;
+        private static GameObject WChestObj;
 
-        private GameObject CuPantObj;
-        private GameObject CuChestObj;
-        private GameObject CuHatObj;
+        private static GameObject CuPantObj;
+        private static GameObject CuChestObj;
+        private static GameObject CuHatObj;
 
-        private Texture2D TunicTex;
+        private static Texture2D TunicTex;
 
 
-
-
-        private void Awake()
+        public static void AddCackleMountain()
         {
             //========ASSETBUNDLES========// 
 
