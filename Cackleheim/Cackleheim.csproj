@@ -86,6 +86,7 @@
     <Compile Include="02Armor\CackleForest.cs" />
     <Compile Include="02Armor\CackleMane.cs" />
     <Compile Include="02Armor\CackleArmorBase.cs" />
+    <Compile Include="02Armor\CackleMistlands.cs" />
     <Compile Include="02Armor\CackleSwamp.cs" />
     <Compile Include="02Armor\CacklePlains.cs" />
     <Compile Include="02Armor\CackleMeadow.cs" />
@@ -116,6 +117,7 @@
     <EmbeddedResource Include="Resources\buildwares" />
     <None Include="Resources\customashi" />
     <None Include="Resources\customico" />
+    <EmbeddedResource Include="Resources\itemmist" />
     <None Include="Resources\jigglebundle" />
   </ItemGroup>
   <ItemGroup>

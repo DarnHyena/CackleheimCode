@@ -29,7 +29,7 @@ namespace Cackleheim
             CackleSwamp.AddCackleSwamp();
             CackleMountain.AddCackleMountain();
             CacklePlains.AddCacklePlains();
-            //CackleMistland.AddCackleMistland();
+            CackleMistlands.AddCackleMistlands();
 
             CackleSalon.AddCackleSalon();
             CackleTrader.AddCackleTrader();

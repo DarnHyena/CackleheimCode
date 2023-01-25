@@ -145,6 +145,9 @@
   <data name="itemmeadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemmeadow;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="itemmist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemmist;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="itemmountain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemmountain;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
