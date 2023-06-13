@@ -16,7 +16,7 @@ namespace Cackleheim
     {
         public const string PluginGUID = "DarnHyena.CackleArmor";
         public const string PluginName = "CackleArmor";
-        public const string PluginVersion = "3.0.0";
+        public const string PluginVersion = "3.0.1";
 
         //===============================================//
         //Root Plugin for cackleheim armor and equiptment//

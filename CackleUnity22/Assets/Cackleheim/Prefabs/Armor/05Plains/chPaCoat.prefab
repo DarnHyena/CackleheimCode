@@ -1596,8 +1596,11 @@ MonoBehaviour:
       m_attachOverride: 0
       m_description: $chPC_D
       m_maxStackSize: 1
+      m_autoStack: 1
       m_maxQuality: 4
+      m_scaleByQuality: 0
       m_weight: 10
+      m_scaleWeightByQuality: 0
       m_value: 0
       m_teleportable: 1
       m_questItem: 0
@@ -1611,11 +1614,12 @@ MonoBehaviour:
       m_setStatusEffect: {fileID: 0}
       m_equipStatusEffect: {fileID: 0}
       m_movementModifier: -0.05
+      m_eitrRegenModifier: 0
       m_food: 0
       m_foodStamina: 0
+      m_foodEitr: 0
       m_foodBurnTime: 0
       m_foodRegen: 0
-      m_foodColor: {r: 1, g: 1, b: 1, a: 1}
       m_armorMaterial: {fileID: 0}
       m_helmetHideHair: 0
       m_helmetHideBeard: 0
@@ -1659,17 +1663,24 @@ MonoBehaviour:
       m_dodgeable: 0
       m_blockable: 0
       m_tamedOnly: 0
+      m_alwaysRotate: 0
       m_attackStatusEffect: {fileID: 0}
       m_spawnOnHit: {fileID: 0}
       m_spawnOnHitTerrain: {fileID: 0}
+      m_projectileToolTip: 1
+      m_ammoType: 
       m_attack:
         m_attackType: 0
         m_attackAnimation: 
         m_attackRandomAnimations: 0
         m_attackChainLevels: 0
+        m_loopingAttack: 0
         m_consumeItem: 0
         m_hitTerrain: 1
         m_attackStamina: 20
+        m_attackEitr: 0
+        m_attackHealth: 0
+        m_attackHealthPercentage: 0
         m_speedFactor: 0.2
         m_speedFactorRotation: 0.2
         m_attackStartNoise: 10
@@ -1677,11 +1688,23 @@ MonoBehaviour:
         m_damageMultiplier: 1
         m_forceMultiplier: 1
         m_staggerMultiplier: 1
+        m_recoilPushback: 0
+        m_selfDamage: 0
         m_attackOriginJoint: 
         m_attackRange: 1.5
         m_attackHeight: 0.6
         m_attackOffset: 0
         m_spawnOnTrigger: {fileID: 0}
+        m_toggleFlying: 0
+        m_attach: 0
+        m_requiresReload: 0
+        m_reloadAnimation: 
+        m_reloadTime: 2
+        m_reloadStaminaDrain: 0
+        m_bowDraw: 0
+        m_drawDurationMin: 0
+        m_drawStaminaDrain: 0
+        m_drawAnimationState: 
         m_attackAngle: 90
         m_attackRayWidth: 0
         m_maxYAngle: 0
@@ -1692,6 +1715,7 @@ MonoBehaviour:
         m_pickaxeSpecial: 0
         m_lastChainDamageMultiplier: 2
         m_resetChainIfHit: 0
+        m_raiseSkillAmount: 1
         m_skillHitType: 4
         m_specialHitSkill: 0
         m_specialHitType: 0
@@ -1700,6 +1724,7 @@ MonoBehaviour:
         m_projectileVelMin: 2
         m_projectileAccuracy: 10
         m_projectileAccuracyMin: 20
+        m_skillAccuracy: 0
         m_useCharacterFacing: 0
         m_useCharacterFacingYAim: 0
         m_launchAngle: 0
@@ -1707,6 +1732,7 @@ MonoBehaviour:
         m_projectileBursts: 1
         m_burstInterval: 0
         m_destroyPreviousProjectile: 0
+        m_perBurstResourceUsage: 0
         m_hitEffect:
           m_effectPrefabs: []
         m_hitTerrainEffect:
@@ -1716,15 +1742,21 @@ MonoBehaviour:
         m_triggerEffect:
           m_effectPrefabs: []
         m_trailStartEffect:
+          m_effectPrefabs: []
+        m_burstEffect:
           m_effectPrefabs: []
       m_secondaryAttack:
         m_attackType: 0
         m_attackAnimation: 
         m_attackRandomAnimations: 0
         m_attackChainLevels: 0
+        m_loopingAttack: 0
         m_consumeItem: 0
         m_hitTerrain: 1
         m_attackStamina: 20
+        m_attackEitr: 0
+        m_attackHealth: 0
+        m_attackHealthPercentage: 0
         m_speedFactor: 0.2
         m_speedFactorRotation: 0.2
         m_attackStartNoise: 10
@@ -1732,11 +1764,23 @@ MonoBehaviour:
         m_damageMultiplier: 1
         m_forceMultiplier: 1
         m_staggerMultiplier: 1
+        m_recoilPushback: 0
+        m_selfDamage: 0
         m_attackOriginJoint: 
         m_attackRange: 1.5
         m_attackHeight: 0.6
         m_attackOffset: 0
         m_spawnOnTrigger: {fileID: 0}
+        m_toggleFlying: 0
+        m_attach: 0
+        m_requiresReload: 0
+        m_reloadAnimation: 
+        m_reloadTime: 2
+        m_reloadStaminaDrain: 0
+        m_bowDraw: 0
+        m_drawDurationMin: 0
+        m_drawStaminaDrain: 0
+        m_drawAnimationState: 
         m_attackAngle: 90
         m_attackRayWidth: 0
         m_maxYAngle: 0
@@ -1747,6 +1791,7 @@ MonoBehaviour:
         m_pickaxeSpecial: 0
         m_lastChainDamageMultiplier: 2
         m_resetChainIfHit: 0
+        m_raiseSkillAmount: 1
         m_skillHitType: 4
         m_specialHitSkill: 0
         m_specialHitType: 0
@@ -1755,6 +1800,7 @@ MonoBehaviour:
         m_projectileVelMin: 2
         m_projectileAccuracy: 10
         m_projectileAccuracyMin: 20
+        m_skillAccuracy: 0
         m_useCharacterFacing: 0
         m_useCharacterFacingYAim: 0
         m_launchAngle: 0
@@ -1762,6 +1808,7 @@ MonoBehaviour:
         m_projectileBursts: 1
         m_burstInterval: 0
         m_destroyPreviousProjectile: 0
+        m_perBurstResourceUsage: 0
         m_hitEffect:
           m_effectPrefabs: []
         m_hitTerrainEffect:
@@ -1771,6 +1818,8 @@ MonoBehaviour:
         m_triggerEffect:
           m_effectPrefabs: []
         m_trailStartEffect:
+          m_effectPrefabs: []
+        m_burstEffect:
           m_effectPrefabs: []
       m_useDurability: 1
       m_destroyBroken: 0
@@ -1779,18 +1828,19 @@ MonoBehaviour:
       m_durabilityPerLevel: 200
       m_useDurabilityDrain: 1
       m_durabilityDrain: 0
-      m_holdDurationMin: 0
-      m_holdStaminaDrain: 0
-      m_holdAnimationState: 
-      m_ammoType: 
       m_aiAttackRange: 2
       m_aiAttackRangeMin: 0
       m_aiAttackInterval: 2
       m_aiAttackMaxAngle: 5
       m_aiWhenFlying: 1
+      m_aiWhenFlyingAltitudeMin: 0
+      m_aiWhenFlyingAltitudeMax: 999999
       m_aiWhenWalking: 1
       m_aiWhenSwiming: 1
       m_aiPrioritized: 0
+      m_aiInDungeonOnly: 0
+      m_aiInMistOnly: 0
+      m_aiMaxHealthPercentage: 1
       m_aiTargetType: 0
       m_hitEffect:
         m_effectPrefabs: []
@@ -4518,6 +4568,7 @@ GameObject:
   - component: {fileID: 1360839390632786168}
   - component: {fileID: 3419268827525979220}
   - component: {fileID: 1640848465826368895}
+  - component: {fileID: 8831082588627573356}
   m_Layer: 0
   m_Name: Prop_PadC
   m_TagString: Untagged
@@ -4588,6 +4639,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8831082588627573356
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483448243717718436}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0028823896, y: 0.0045892387, z: 0.0018899132}
+  m_Center: {x: -0.0000083447985, y: 0.00020321076, z: 0.00083681353}
 --- !u!1 &8095891527701341280
 GameObject:
   m_ObjectHideFlags: 0

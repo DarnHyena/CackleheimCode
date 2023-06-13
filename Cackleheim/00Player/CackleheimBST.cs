@@ -3,7 +3,7 @@
 // 
 // File:    Cackleheim.cs
 // Project: Cackleheim
-// Altered for Compatibility with Blacksmith Tools!
+// -Styles Testing-
 
 using BepInEx;
 using Jotunn.Configs;
@@ -15,8 +15,8 @@ using HarmonyXInterop;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
-
+using System.Runtime.CompilerServices;
+using Microsoft.VisualBasic.Logging;
 
 namespace Cackleheim
 {
@@ -27,34 +27,53 @@ namespace Cackleheim
     {
         public const string PluginGUID = "DarnHyena.Cackleheim";
         public const string PluginName = "Cackleheim";
-        public const string PluginVersion = "3.1.0";
+        public const string PluginVersion = "3.4.0";
 
 
         private static GameObject Cak1Obj;
-        private static GameObject Cak2Obj;
-        private static GameObject Cak3Obj;
-        private static GameObject Cak4Obj;
-        private static GameObject ForObj;
         private static GameObject WamObj;
-        private static GameObject WamAObj;
-        private static GameObject WamBObj;
         private static GameObject CuaObj;
-        private static GameObject CuaAObj;
-        private static GameObject CuaBObj;
         private static GameObject DraObj;
-        private static GameObject DraAObj;
-        private static GameObject DraBObj;
 
-        //  private Mesh OrigMesh;
+        private static GameObject ForObj;
+        private static GameObject FenObj;
 
+        private Texture2D YeeTex;
+        private Texture2D WamTex;
+        private Texture2D DraTex;
+        private Texture2D CuaTex;
+        private Texture2D FenTex;
+
+        List<Sprite> Yeecons = new List<Sprite>();
+        List<Sprite> Wamcons = new List<Sprite>();
+        List<Sprite> Dracons = new List<Sprite>();
+        List<Sprite> Cuacons = new List<Sprite>();
+        List<Sprite> Fencons = new List<Sprite>();
+
+
+        //========Transparent Material========//
+        //Used to hide the vanilla playermodel//
+        
+        //private static Material TransparentMaterial;
 
         private void Awake()
         {
+            /*TransparentMaterial = new Material(Shader.Find("Standard"));
+            TransparentMaterial.SetColor("_Color", Color.clear);
+            TransparentMaterial.SetFloat("_Mode", 1);
+            TransparentMaterial.SetInt("_SrcBlend", 1);
+            TransparentMaterial.SetInt("_DstBlend", 0);
+            TransparentMaterial.EnableKeyword("_ALPHATEST_ON");
+            TransparentMaterial.renderQueue = 2450;*/
 
             CreateItems();
 
             new Harmony("Cackleheim").PatchAll();
         }
+        
+
+        //==============Keep on Death==============//
+        //Keeps skins attached to player upon death//
 
         [HarmonyPatch(typeof(Player), nameof(Player.OnSpawned))] // Type and method to patch. Equivalent to Player_OnSpawned
         private static class PlayerSpawnPatch
@@ -85,10 +104,9 @@ namespace Cackleheim
         }
 
 
-    private static HashSet<string> holdoverItemsSet = new HashSet<string>
+        private static HashSet<string> holdoverItemsSet = new HashSet<string>
         {
-            "Cackle01","Cackle02","Cackle03","Cackle04","chForsaken","chWambui",
-            "chWambuiA","chWambuiB","chCuan","chCuanA","chCuanB","chDraca","chDracaA","chDracaB"
+            "Cackle01","chWambui","chCuan","chDraca","chForsaken","chFeral"
         };
         private static readonly List<ItemDrop.ItemData> holdoverItems = new List<ItemDrop.ItemData>();
 
@@ -101,9 +119,9 @@ namespace Cackleheim
 
                 foreach (ItemDrop.ItemData item in new List<ItemDrop.ItemData>(player.m_inventory.GetAllItems()))
                 {
-                    if (item.m_equiped && holdoverItemsSet.Contains(item.m_dropPrefab.name))
+                    if (item.m_equipped && holdoverItemsSet.Contains(item.m_dropPrefab.name))
                     {
-                        item.m_equiped = false;
+                        item.m_equipped = false;
                         holdoverItems.Add(item);
                         player.m_inventory.RemoveOneItem(item);
                     }
@@ -113,30 +131,60 @@ namespace Cackleheim
 
         private void CreateItems()
         {
+
             //========ASSETBUNDLES========//
 
             AssetBundle CackleBundle = AssetUtils.LoadAssetBundleFromResources("itemcackle", typeof(Cackleheim).Assembly);
             Cak1Obj = CackleBundle.LoadAsset<GameObject>("Cackle01");
-            Cak2Obj = CackleBundle.LoadAsset<GameObject>("Cackle02");
-            Cak3Obj = CackleBundle.LoadAsset<GameObject>("Cackle03");
-            Cak4Obj = CackleBundle.LoadAsset<GameObject>("Cackle04");
-            ForObj = CackleBundle.LoadAsset<GameObject>("chForsaken");
             WamObj = CackleBundle.LoadAsset<GameObject>("chWambui");
-            WamAObj = CackleBundle.LoadAsset<GameObject>("chWambuiA");
-            WamBObj = CackleBundle.LoadAsset<GameObject>("chWambuiB");
             CuaObj = CackleBundle.LoadAsset<GameObject>("chCuan");
-            CuaAObj = CackleBundle.LoadAsset<GameObject>("chCuanA");
-            CuaBObj = CackleBundle.LoadAsset<GameObject>("chCuanB");
             DraObj = CackleBundle.LoadAsset<GameObject>("chDraca");
-            DraAObj = CackleBundle.LoadAsset<GameObject>("chDracaA");
-            DraBObj = CackleBundle.LoadAsset<GameObject>("chDracaB");
+            ForObj = CackleBundle.LoadAsset<GameObject>("chForsaken");
+            FenObj = CackleBundle.LoadAsset<GameObject>("chFeral");
+
+            YeeTex = CackleBundle.LoadAsset<Texture2D>("CackleStyles");
+            WamTex = CackleBundle.LoadAsset<Texture2D>("WambuiStyles");
+            DraTex = CackleBundle.LoadAsset<Texture2D>("DracaStyles");
+            CuaTex = CackleBundle.LoadAsset<Texture2D>("CuanStyles");
+            FenTex = CackleBundle.LoadAsset<Texture2D>("FeralStyles");
+
+            for (int i = 1; i <= 4; i++)
+            {
+                string assetName = $"CackleIcon{i:00}";
+                Yeecons.Add(CackleBundle.LoadAsset<Sprite>(assetName));
+            }
+            for (int i = 1; i <= 3; i++)
+            {
+                string assetName = $"WamIcon{i:00}";
+                Wamcons.Add(CackleBundle.LoadAsset<Sprite>(assetName));
+            }
+            for (int i = 1; i <= 3; i++)
+            {
+                string assetName = $"DraIcon{i:00}";
+                Dracons.Add(CackleBundle.LoadAsset<Sprite>(assetName));
+            }
+            for (int i = 1; i <= 3; i++)
+            {
+                string assetName = $"CuaIcon{i:00}";
+                Cuacons.Add(CackleBundle.LoadAsset<Sprite>(assetName));
+            }
+            for (int i = 1; i <= 2; i++)
+            {
+                string assetName = $"FenIcon{i:00}";
+                Fencons.Add(CackleBundle.LoadAsset<Sprite>(assetName));
+            }
+
             CackleBundle.Unload(false);
+
 
 
             //==========RECIPES==========//
 
             CustomItem Cak1Item = new CustomItem(Cak1Obj, true, new ItemConfig()
             {
+                StyleTex = YeeTex,
+                Icons = Yeecons.ToArray(),
+
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -151,62 +199,13 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(Cak1Item);
 
-            CustomItem Cak2Item = new CustomItem(Cak2Obj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood", Amount = 1, AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(Cak2Item);
-
-            CustomItem Cak3Item = new CustomItem(Cak3Obj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood", Amount = 1, AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(Cak3Item);
-
-            CustomItem Cak4Item = new CustomItem(Cak4Obj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood", Amount = 1, AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(Cak4Item);
-
-            //=============================================================//
             //==========================WAMBUI=============================//
 
             CustomItem wamItem = new CustomItem(WamObj, true, new ItemConfig()
             {
+                StyleTex = WamTex,
+                Icons = Wamcons.ToArray(),
+
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -221,45 +220,13 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(wamItem);
 
-            CustomItem wamAItem = new CustomItem(WamAObj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood", Amount = 1, AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(wamAItem);
-
-            CustomItem wamBItem = new CustomItem(WamBObj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood", Amount = 1, AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(wamBItem);
-
-            //=============================================================//
             //===========================CUAN==============================//
 
             CustomItem CuaItem = new CustomItem(CuaObj, true, new ItemConfig()
             {
+                StyleTex = CuaTex,
+                Icons = Cuacons.ToArray(),
+
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -274,45 +241,13 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(CuaItem);
 
-            CustomItem CuaAItem = new CustomItem(CuaAObj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood", Amount = 1, AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(CuaAItem);
-
-            CustomItem CuaBItem = new CustomItem(CuaBObj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood", Amount = 1, AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(CuaBItem);
-
-            //=============================================================//
             //==========================DRACA==============================//
 
             CustomItem DraItem = new CustomItem(DraObj, true, new ItemConfig()
             {
+                StyleTex = DraTex,
+                Icons = Dracons.ToArray(),
+
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig()
@@ -326,40 +261,6 @@ namespace Cackleheim
                 }
             });
             ItemManager.Instance.AddItem(DraItem);
-
-            CustomItem DraAItem = new CustomItem(DraAObj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood", Amount = 1, AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(DraAItem);
-
-            CustomItem DraBItem = new CustomItem(DraBObj, true, new ItemConfig()
-            {
-                CraftingStation = "chSalon",
-                Requirements = new RequirementConfig[]
-                {
-                    new RequirementConfig()
-                    {
-                        Item = "Wood", Amount = 1, AmountPerLevel = 10
-                    },
-                    new RequirementConfig()
-                    {
-                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
-                    }
-                }
-            });
-            ItemManager.Instance.AddItem(DraBItem);
 
             //=============================================================//
             //=============================================================//
@@ -389,6 +290,34 @@ namespace Cackleheim
             });
             ItemManager.Instance.AddItem(forItem);
 
+            CustomItem fenItem = new CustomItem(FenObj, true, new ItemConfig()
+            {
+                StyleTex = FenTex,
+                Icons = Fencons.ToArray(),
+
+                CraftingStation = "chSalon",
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "chCuan", Amount = 1, AmountPerLevel = 0
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "TrophyFenring", Amount = 1, AmountPerLevel = 0
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "Wood", Amount = 1, AmountPerLevel = 10
+                    },
+                    new RequirementConfig()
+                    {
+                        Item = "DeerHide", Amount = 0, AmountPerLevel = 5
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(fenItem);
+
 
             //===Item Names, Description===//
             //========&Localization========//
@@ -396,36 +325,83 @@ namespace Cackleheim
             var localization = LocalizationManager.Instance.GetLocalization();
             localization.AddTranslation("English", new Dictionary<string, string>
             {
-                {"chB1", "dey Cackle Totem Tan" },
-                {"chB2", "dey Cackle Totem Brown" },
-                {"chB3", "dey Cackle Totem Blond" },
-                {"chB4", "dey Cackle Totem Red" },
+                {"chB1", "dey Cackle Totem" },
                 {"chB_D", "A strange trinket covered in moss.  You hear a faint noise when held"},
+                
+                //=============Wambui==============//
+                {"chWam", "dey Wambui Totem" },
+                {"chWam_D", "Like Mama always said, you are what you eat"},
+                
+                //=============Cuan==============//
+                {"chCua", "dey Cuan Totem" },
+                {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
+                
+                //=============Draca==============//
+                {"chDra", "dey Draca Totem" },
+                {"chDra_D", "Smells a bit Fishy"},
 
                 //=============Forsaken==============//
                 {"chFor", "dey Forsaken Totem" },
                 {"chFor_D", "A strange trinket. Something's different about this one"},
-                
-                //=============Wambui==============//
-                {"chWam", "dey Wambui Totem Wheat" },
-                {"chWamA", "dey Wambui Totem Mud" },
-                {"chWamB", "dey Wambui Totem Donk" },
-                {"chWam_D", "Like Mama always said, you are what you eat"},
-                
-                //=============Cuan==============//
-                {"chCua", "dey Cuan Totem Silver" },
-                {"chCuaA", "dey Cuan Totem Cream" },
-                {"chCuaB", "dey Cuan Totem Cherry" },
-                {"chCua_D", "Once belonged to a strange creature that yells at the Moon"},
-                
-                //=============Draca==============//
-                {"chDra", "dey Draca Totem Dirt" },
-                {"chDraA", "dey Draca Totem Sand" },
-                {"chDraB", "dey Draca Totem Clay" },
-                {"chDra_D", "Smells a bit Fishy"},
+
+                //=============Forsaken==============//
+                {"chFen", "dey Feral Totem" },
+                {"chFen_D", "Essence of a hound lost to the mountains"},
             });
         }
 
+        /*
+        //=====PlayerBeGone-Inator5000=====//
+
+        private static int oldHash;
+
+        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetChestEquipped))] // Writing the method name manually can be used for if you are not using publicized valheim dlls.
+        private static class VisEquipChestPatch
+        {
+            private static void Prefix(VisEquipment __instance) // As before, we use __instance when getting the object instance.
+            {
+                oldHash = __instance.m_currentChestItemHash;
+            }
+        }
+
+    
+
+        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetChestEquipped))] // Writing the method name manually can be used for if you are not using publicized valheim dlls.
+        private static class VisEquipPatch
+        {
+            private static void Postfix(VisEquipment __instance, int hash, ref bool __result) // Method parameters like "hash" can just be listed here. The result of the method patched can be received by adding "result". We set the result with "ref" because it looks like you want to enforce the result as "true".
+            {
+                var self = __instance;
+
+                List<int> itemHashes = new List<int>();
+                itemHashes.Add(Cak1Obj.name.GetStableHashCode());
+                itemHashes.Add(WamObj.name.GetStableHashCode());
+                itemHashes.Add(CuaObj.name.GetStableHashCode());
+                itemHashes.Add(DraObj.name.GetStableHashCode());
+                itemHashes.Add(ForObj.name.GetStableHashCode());
+                itemHashes.Add(FenObj.name.GetStableHashCode());
+
+
+                if (__result && self.m_bodyModel != null)
+                {
+                    if (itemHashes.Contains(hash))
+                    {
+                        self.m_bodyModel.material = TransparentMaterial;
+                        self.m_bodyModel.materials = new Material[] { TransparentMaterial, TransparentMaterial };
+                    }
+                    else
+                    {
+                        if (itemHashes.Contains(oldHash))
+                        {
+                            self.m_bodyModel.material = self.m_models[self.m_nview.GetZDO().GetInt("ModelIndex")].m_baseMaterial;
+                        }
+                    }
+                }
+
+                __result = true;
+            }
+ 
+        } */
       
     }
 
