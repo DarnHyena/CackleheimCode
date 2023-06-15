@@ -350,8 +350,8 @@ namespace Cackleheim
             });
         }
 
-        /*
-        //=====PlayerBeGone-Inator5000=====//
+
+        /*//=====PlayerBeGone-Inator5000=====//
 
         private static int oldHash;
 
@@ -401,7 +401,7 @@ namespace Cackleheim
                 __result = true;
             }
  
-        } */
+        }*/
       
     }
 

@@ -78,13 +78,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="04Backup\CackleheimBSTOLD.cs" />
     <None Include="00Player\CackleheimBST.cs" />
     <Compile Include="00Player\Cackleheim.cs" />
-    <None Include="04Backup\CackleheimOLD.cs" />
     <None Include="04Backup\CackleheimJiggle.cs" />
     <None Include="00Player\Customs\Ashiheim.cs" />
-    <None Include="00Player\Customs\Icoheim.cs" />
     <Compile Include="02Armor\CackleForest.cs" />
     <Compile Include="02Armor\CackleMane.cs" />
     <Compile Include="02Armor\CackleArmorBase.cs" />
