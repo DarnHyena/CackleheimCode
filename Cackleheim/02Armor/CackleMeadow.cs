@@ -1,42 +1,42 @@
-﻿// Cackleheim
-// a Valheim mod using Jötunn
-// 
-// File:    Cackleheim.cs
-// Project: Cackleheim
-
-using BepInEx;
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleMeadow
+namespace Cackleheim
 {
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleMeadow : BaseUnityPlugin
+    public class CackleMeadow
     {
-        public const string PluginGUID = "DarnHyena.CackleMeadow";
-        public const string PluginName = "CackleMeadow";
-        public const string PluginVersion = "2.2.0";
+        private static GameObject RHoodObj;
+        private static GameObject RPantObj;
+        private static GameObject RCapeObj;
 
-        private GameObject RHoodObj;
-        private GameObject RPantObj;
+        private static Texture2D RagTex;
+        private static List<Sprite> Ragcons = new List<Sprite>();
 
-        private GameObject LHatObj;
-        private GameObject LPantObj;
-        private GameObject LCapeObj;
+        private static GameObject LHatObj;
+        private static GameObject LPantObj;
+        private static GameObject LCapeObj;
 
-        private void Awake()
+        public static void AddCackleMeadow()
         {
             //========ASSETBUNDLES========//
 
             AssetBundle meadowBundle = AssetUtils.LoadAssetBundleFromResources("itemmeadow", typeof(CackleMeadow).Assembly);
             RHoodObj = meadowBundle.LoadAsset<GameObject>("chRaHood");
             RPantObj = meadowBundle.LoadAsset<GameObject>("chRaPants");
+            RCapeObj = meadowBundle.LoadAsset<GameObject>("chRaTunic");
+            RagTex = meadowBundle.LoadAsset<Texture2D>("RagStyles");
+            
+
+            for (int i = 1; i <= 5; i++)
+            {
+                string assetName = $"RagTunIcon{i:00}";
+                Ragcons.Add(meadowBundle.LoadAsset<Sprite>(assetName));
+            }
+
 
             LHatObj = meadowBundle.LoadAsset<GameObject>("chLeMask");
             LPantObj = meadowBundle.LoadAsset<GameObject>("chLePants");
@@ -54,12 +54,30 @@ namespace CackleMeadow
                     new RequirementConfig()
                     {
                         Item = "LeatherScraps",
+                        Amount = 1,
+                        AmountPerLevel = 2
+                    }
+                }
+            });
+            ItemManager.Instance.AddItem(RhoodItem);
+
+            CustomItem RCapeItem = new CustomItem(RCapeObj, true, new ItemConfig()
+            {
+                CraftingStation = "piece_workbench",
+                StyleTex = RagTex,
+                Icons = Ragcons.ToArray(),
+
+                Requirements = new RequirementConfig[]
+                {
+                    new RequirementConfig()
+                    {
+                        Item = "LeatherScraps",
                         Amount = 5,
                         AmountPerLevel = 5
                     }
                 }
             });
-            ItemManager.Instance.AddItem(RhoodItem);
+            ItemManager.Instance.AddItem(RCapeItem);
 
             CustomItem RpantItem = new CustomItem(RPantObj, true, new ItemConfig()
             {
@@ -152,15 +170,17 @@ namespace CackleMeadow
             localization.AddTranslation("English", new Dictionary<string, string>
             {
                     {"chRH", "[CH]Ragged Hood" },
-                    {"chRH_D", "Smells faintly of potatos."},
                     {"chRP", "[CH]Ragged Pants" },
+                    {"chRT", "[CH]Ragged Tunic" },
+                    {"chRH_D", "Well worn hood"},
                     {"chRP_D", "Hastily stiched together with leftovers from last nights hunt"},
+                    {"chRT_D", "Smells faintly of potatos"},
 
                     {"chLH", "[CH]Leather Mask" },
-                    {"chLH_D", "A striking bone white mask"},
                     {"chLC", "[CH]Leather Poncho" },
-                    {"chLC_D", "An enccentric cape for dashing rogues"},
                     {"chLP", "[CH]Leather Pants" },
+                    {"chLH_D", "A striking bone white mask"},
+                    {"chLC_D", "An enccentric cape for dashing rogues"},
                     {"chLP_D", "Finely tailored pants just like mother used to make"},
             });
         }

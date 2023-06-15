@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\JotunnLib.2.6.1\build\JotunnLib.props" Condition="Exists('..\packages\JotunnLib.2.6.1\build\JotunnLib.props')" />
+  <Import Project="..\packages\JotunnLib.2.9.0\build\JotunnLib.props" Condition="Exists('..\packages\JotunnLib.2.9.0\build\JotunnLib.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -41,12 +41,13 @@
   <PropertyGroup>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HarmonyX.2.10.0\lib\net45\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.10.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HarmonyX.2.10.1\lib\net45\0Harmony.dll</HintPath>
     </Reference>
-    <Reference Include="Jotunn, Version=2.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\JotunnLib.2.6.1\lib\net462\Jotunn.dll</HintPath>
+    <Reference Include="Jotunn, Version=2.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JotunnLib.2.9.0\lib\net462\Jotunn.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Mono.Cecil, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.dll</HintPath>
     </Reference>
@@ -59,14 +60,14 @@
     <Reference Include="Mono.Cecil.Rocks, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
-    <Reference Include="MonoMod, Version=22.3.23.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MonoMod.22.3.23.4\lib\net452\MonoMod.exe</HintPath>
+    <Reference Include="MonoMod, Version=22.5.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoMod.22.5.1.1\lib\net452\MonoMod.exe</HintPath>
     </Reference>
-    <Reference Include="MonoMod.RuntimeDetour, Version=22.3.23.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MonoMod.RuntimeDetour.22.3.23.4\lib\net452\MonoMod.RuntimeDetour.dll</HintPath>
+    <Reference Include="MonoMod.RuntimeDetour, Version=22.5.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoMod.RuntimeDetour.22.5.1.1\lib\net452\MonoMod.RuntimeDetour.dll</HintPath>
     </Reference>
-    <Reference Include="MonoMod.Utils, Version=22.3.23.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MonoMod.Utils.22.3.23.4\lib\net452\MonoMod.Utils.dll</HintPath>
+    <Reference Include="MonoMod.Utils, Version=22.5.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoMod.Utils.22.5.1.1\lib\net452\MonoMod.Utils.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -77,22 +78,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="00Player\CackleheimHarmonized.cs" />
+    <None Include="00Player\CackleheimBST.cs" />
+    <Compile Include="00Player\Cackleheim.cs" />
+    <None Include="04Backup\CackleheimJiggle.cs" />
+    <None Include="00Player\Customs\Ashiheim.cs" />
+    <Compile Include="02Armor\CackleForest.cs" />
     <Compile Include="02Armor\CackleMane.cs" />
-    <None Include="02Armor\CackleTravel.cs" />
+    <Compile Include="02Armor\CackleArmorBase.cs" />
+    <Compile Include="02Armor\CackleMistlands.cs" />
     <Compile Include="02Armor\CackleSwamp.cs" />
     <Compile Include="02Armor\CacklePlains.cs" />
     <Compile Include="02Armor\CackleMeadow.cs" />
-    <Compile Include="02Armor\CackleForest.cs" />
     <Compile Include="02Armor\CackleMountain.cs" />
     <None Include="04Backup\ItemTemplate.cs" />
-    <None Include="04Backup\PlayerAlt.cs" />
-    <Compile Include="02Armor\CackleGog.cs" />
+    <Compile Include="02Armor\CackleTrader.cs" />
     <Compile Include="03Props\CackleWares.cs" />
-    <Compile Include="03Props\CackleTents.cs" />
     <Compile Include="03Props\CackleSalon.cs" />
-    <None Include="00Player\CackleheimHook.cs" />
-    <None Include="00Player\CackleheimBS.cs" />
+    <None Include="JigglePhysics\JiggleBone.cs" />
+    <None Include="JigglePhysics\JiggleDefaults.cs" />
+    <None Include="JigglePhysics\JigglePoint.cs" />
+    <None Include="JigglePhysics\JiggleRigBuilder.cs" />
+    <None Include="JigglePhysics\JiggleSettings.cs" />
+    <None Include="JigglePhysics\JiggleSettingsBase.cs" />
+    <None Include="JigglePhysics\JiggleSettingsBlend.cs" />
+    <None Include="JigglePhysics\JiggleSkin.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Resources\buildsalon" />
@@ -104,10 +113,11 @@
     <EmbeddedResource Include="Resources\itemmountain" />
     <EmbeddedResource Include="Resources\itemplains" />
     <EmbeddedResource Include="Resources\itemmane" />
-    <EmbeddedResource Include="Resources\buildtent" />
     <EmbeddedResource Include="Resources\buildwares" />
     <None Include="Resources\customashi" />
     <None Include="Resources\customico" />
+    <EmbeddedResource Include="Resources\itemmist" />
+    <None Include="Resources\jigglebundle" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -149,8 +159,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\JotunnLib.2.6.1\build\JotunnLib.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JotunnLib.2.6.1\build\JotunnLib.props'))" />
     <Error Condition="!Exists('..\packages\ILRepack.Lib.MSBuild.Task.2.0.18.2\build\ILRepack.Lib.MSBuild.Task.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ILRepack.Lib.MSBuild.Task.2.0.18.2\build\ILRepack.Lib.MSBuild.Task.targets'))" />
+    <Error Condition="!Exists('..\packages\JotunnLib.2.9.0\build\JotunnLib.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JotunnLib.2.9.0\build\JotunnLib.props'))" />
   </Target>
   <Import Project="..\packages\ILRepack.Lib.MSBuild.Task.2.0.18.2\build\ILRepack.Lib.MSBuild.Task.targets" Condition="Exists('..\packages\ILRepack.Lib.MSBuild.Task.2.0.18.2\build\ILRepack.Lib.MSBuild.Task.targets')" />
 </Project>

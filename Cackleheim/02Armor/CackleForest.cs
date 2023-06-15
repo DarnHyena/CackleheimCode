@@ -1,37 +1,27 @@
-﻿// Cackleheim
-// a Valheim mod using Jötunn
-// 
-// File:    Cackleheim.cs
-// Project: Cackleheim
-
-using BepInEx;
-using Jotunn.Configs;
+﻿using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CackleForest
+namespace Cackleheim
 {
-    [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    [BepInDependency(Jotunn.Main.ModGuid)]
-    [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
-    internal class CackleForest : BaseUnityPlugin
+    public class CackleForest
     {
-        public const string PluginGUID = "DarnHyena.CackleForest";
-        public const string PluginName = "CackleForest";
-        public const string PluginVersion = "2.2.0";
 
-        private GameObject THatObj;
-        private GameObject TPantObj;
-        private GameObject TCapeObj;
+        private static GameObject THatObj;
+        private static GameObject TPantObj;
+        private static GameObject TCapeObj;
 
-        private GameObject BHatObj;
-        private GameObject BPantObj;
-        private GameObject BCapeObj;
+        private static GameObject BHatObj;
+        private static GameObject BPantObj;
+        private static GameObject BCapeObj;
 
-        private void Awake()
+        /// <summary>
+        /// You need to execute this in the Awake of your main Cackleheim.cs by adding: AddCackleForest();
+        /// </summary>
+        public static void AddCackleForest()
         {
             //========ASSETBUNDLES========//
 
@@ -90,8 +80,9 @@ namespace CackleForest
             {
                 CraftingStation = "piece_workbench",
                 MinStationLevel = 2,
+
                 Requirements = new RequirementConfig[]
-    {
+                {
                     new RequirementConfig()
                     {
                         Item = "TrollHide",
@@ -150,7 +141,7 @@ namespace CackleForest
             {
                 CraftingStation = "forge",
                 Requirements = new RequirementConfig[]
-    {
+            {
                     new RequirementConfig()
                     {
                         Item = "DeerHide",

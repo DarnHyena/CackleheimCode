@@ -121,9 +121,6 @@
   <data name="buildsalon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buildsalon;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buildtent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buildtent;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="buildwares" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\buildwares;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -148,6 +145,9 @@
   <data name="itemmeadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemmeadow;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="itemmist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\itemmist;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="itemmountain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemmountain;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -156,5 +156,8 @@
   </data>
   <data name="itemswamp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\itemswamp;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="jigglebundle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\jigglebundle;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
